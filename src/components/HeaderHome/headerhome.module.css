@@ -1,0 +1,70 @@
+.jumbotron {
+    background: white !important;
+    height: 600px;
+}
+
+.jumbotron h2 {
+    padding-top: 250px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 30px;
+    color: #A0A3BD;
+}
+
+.jumbotron h2 span {
+    color: #5F2EEA;
+    font-size: 56px;
+    line-height: 20px;
+}
+
+.home-img-spider {
+    padding-top: 150px;
+    padding-right: 50px;
+    filter: drop-shadow(8px 16px 30px rgba(0, 0, 0, 0.3));
+}
+
+.home-img-lion {
+    padding-top: 100px;
+    padding-right: 50px;
+    padding-bottom: 40px;
+    filter: drop-shadow(8px 16px 30px rgba(0, 0, 0, 0.3));
+}
+
+.home-img-woman {
+    padding-top: 50px;
+    padding-bottom: 80px;
+    filter: drop-shadow(8px 16px 30px rgba(0, 0, 0, 0.3));
+}
+
+@media only screen and (max-width: 600px) {
+    .jumbotron {
+        height: 800px;
+    }
+
+    .jumbotron h2 {
+        padding-top: 50px;
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 18px;
+        color: #A0A3BD;
+    }
+
+    .jumbotron h2 span {
+        color: #5F2EEA;
+        font-size: 36px;
+        line-height: 20px;
+    }
+
+    .home-img-spider {
+        padding-right: 20px;
+        padding-left: 10px;
+    }
+
+    .home-img-lion {
+        padding-right: 20px;
+    }
+}

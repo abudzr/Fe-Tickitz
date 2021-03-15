@@ -1,0 +1,136 @@
+.jumbotron {
+    background: white !important;
+    height: 600px;
+    padding-top: 120px !important;
+}
+
+.title-jumbotron {
+    padding-top: 10px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 34px;
+    letter-spacing: 1px;
+    color: #14142B;
+}
+
+.sub-title-jumbotron {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+}
+
+.sub-title-title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #8692A6;
+}
+
+.sub-title-title-title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 34px;
+    letter-spacing: 0.5px;
+    color: #000000;
+}
+
+.sub-title-sub-title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    margin-top: -20px;
+    color: #4E4B66;
+}
+
+.detail-jumbotron {
+    display: flex;
+}
+
+.sub-detail-jumbotron {
+    padding-right: 50px;
+}
+
+.card-jumbotron {
+    width: 332px !important;
+    height: 430px !important;
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 24px !important;
+    margin-top: 10px;
+    margin-right: 5px;
+
+}
+
+.card-img-jumbotron {
+    height: 362.8311767578125px !important;
+    width: 236.71746826171875px !important;
+    padding-top: 50px;
+    padding-left: 50px;
+    border-radius: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* Jumbotron-mobile */
+    .jumbotron {
+        height: 1160px;
+    }
+
+    .title-jumbotron {
+        text-align: center;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 32px;
+    }
+
+    .sub-title-jumbotron {
+        font-size: 16px;
+        line-height: 32px;
+        color: #4E4B66;
+        text-align: center;
+    }
+
+    .sub-detail-jumbotron {
+        padding-right: 10px;
+    }
+
+    .sub-title-title {
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 0.75px;
+    }
+
+    .sub-title-sub-title {
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.75px;
+    }
+
+    .sub-title-title-title {
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.75px;
+    }
+
+    .sub-title-sub-title {
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 0.75px;
+    }
+}

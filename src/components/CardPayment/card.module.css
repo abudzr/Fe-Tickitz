@@ -1,0 +1,396 @@
+.payment-info {
+    height: 1250px;
+    background: #F5F6F8;
+    padding-top: 80px;
+}
+
+.text-title-info {
+    padding-top: 50px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+}
+
+.text-title-info-1 {
+    padding-top: 50px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+}
+
+.card-choose-info {
+    width: 720px;
+    height: 413px;
+    background: #FFFFFF;
+    border-radius: 24px !important;
+    border: 0px;
+}
+
+.card-choose-info1 {
+    width: 720px;
+    height: 368px;
+
+    background: #FFFFFF;
+    border-radius: 24px !important;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.card-choose-info2 {
+    height: 548px;
+    width: 345px;
+    border-radius: 16px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(17, 17, 17, 0.08);
+    border-radius: 16px !important;
+}
+
+.card-text {
+    display: flex;
+    padding-top: 80px !important;
+    padding-left: 60px !important;
+}
+
+.order-info {
+    display: flex;
+    padding-top: 80px;
+    padding-left: 60px;
+}
+
+.title-order-info {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.25px;
+    color: #6B6B6B;
+}
+
+.title-order-info-total {
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.25px;
+
+    color: #6B6B6B;
+}
+
+.sub-title-order-info {
+    padding-left: 100px;
+
+    text-align: right;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.25px;
+    color: #000000;
+}
+
+.sub-title-order-info-total {
+    padding-left: 100px;
+
+    text-align: right;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 25px;
+    letter-spacing: 0.25px;
+    color: #000000;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+}
+
+.logo-payment-card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card-logo {
+    padding-top: 70px;
+}
+
+.card-logo-1 {
+    padding-top: 70px;
+}
+
+.card-payment {
+    padding-top: 10px;
+    text-align: center;
+    margin-left: 20px;
+    /* margin-bottom: 30px; */
+    border: 2px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 16px;
+    height: 56px;
+    width: 146px;
+}
+
+.card-payment1 {
+    padding-top: 10px;
+    text-align: center;
+    margin-left: 20px;
+    /* margin-bottom: 30px; */
+    border: 2px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 16px;
+    height: 56px;
+    width: 146px;
+}
+
+.or {
+    display: flex;
+}
+
+.or hr {
+    flex-grow: 2;
+    border: 1px solid #DEDEDE;
+    transform: rotate(180deg);
+}
+
+.text-or {
+    flex-grow: 1;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #A0A3BD;
+}
+
+.sub-text-or {
+    text-align: center;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    color: #6E7191;
+}
+
+.sub-text-or span {
+    color: #5F2EEA;
+}
+
+label {
+    margin-top: 35px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.25px;
+    color: #696F79;
+}
+
+input {
+    width: 100%;
+    padding: 1em;
+    margin-bottom: 0.5rem;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+.form-control {
+    width: 100%;
+    padding: 1em;
+    margin-top: 30px;
+    padding-left: 2.375rem;
+    background: rgba(244, 183, 64, 0.3);
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+#form-control-icon {
+    position: absolute;
+    margin-top: 40px;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #F4B740;
+}
+
+@media only screen and (max-width: 600px) {
+    .payment-info {
+        height: 1250px;
+        background: #F5F6F8;
+        padding-top: 80px;
+    }
+
+    .text-title-info {
+        padding-top: 50px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 24px;
+        letter-spacing: 0.75px;
+        color: #14142B;
+    }
+
+    .text-title-info-1 {
+        display: none;
+    }
+
+    .card-choose-info {
+        height: 64px;
+        width: 100%;
+        box-shadow: 0px 4px 16px rgba(186, 186, 186, 0.08);
+        border-radius: 0px 0px 16px 16px !important;
+    }
+
+    .title-order-info {
+        display: none;
+    }
+
+    .sub-title-order-info {
+        display: none;
+    }
+
+
+
+    .title-order-info-total {
+        text-align: left;
+        margin-top: -60px;
+        margin-left: -45px;
+        font-size: 13px;
+        line-height: 28px;
+        letter-spacing: 0.75px;
+        color: #AAAAAA;
+    }
+
+    .sub-title-order-info-total {
+        margin-top: -60px;
+        margin-left: 75px;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 32px;
+        letter-spacing: 0.75px;
+        color: #14142B;
+    }
+
+
+    .card-choose-info1 {
+        margin-left: auto;
+        margin-right: auto;
+        height: 242px;
+        width: 327px;
+        border-radius: 16px;
+        background: #FFFFFF;
+    }
+
+
+    .card-img-logo-google {
+        width: 50%;
+        padding-bottom: 15px;
+    }
+
+    .card-img-logo-visa {
+        width: 50%;
+        padding-bottom: 15px;
+    }
+
+    .card-img-logo-gopay {
+        width: 75%;
+        padding-bottom: 18px;
+    }
+
+    .card-img-logo-paypal {
+        width: 20%;
+        padding-bottom: 25px;
+    }
+
+    .card-img-logo-dana {
+        width: 75%;
+        padding-bottom: 15px;
+    }
+
+    .card-img-logo-ovo {
+        width: 75%;
+        padding-bottom: 18px;
+    }
+
+    .card-payment {
+        padding-top: -100px;
+        text-align: center;
+        border: 0.5px solid #DEDEDE;
+        box-sizing: border-box;
+        border-radius: 8px !important;
+        height: 32px;
+        width: 80px;
+        margin-left: 10px;
+        margin-bottom: 30px;
+    }
+
+    .card-payment1 {
+        display: none;
+    }
+
+    .card-choose-info2 {
+        margin-left: auto;
+        margin-right: auto;
+        height: 440px;
+        width: 327px;
+    }
+
+    label {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 26px;
+        letter-spacing: 0.75px;
+        color: #696F79;
+    }
+
+    input {
+        padding: 0.8em;
+        margin-bottom: 0.5rem;
+        border-radius: 12px;
+    }
+
+    .form-group .form-control {
+        margin-top: 20px;
+        border-radius: 16px;
+    }
+
+    .btn-before {
+        display: none;
+    }
+
+    .btn-next {
+        margin-top: 60px;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 10px;
+    }
+
+    .line {
+        display: none;
+    }
+
+    #form-control-icon {
+        margin-top: 29px;
+
+    }
+}

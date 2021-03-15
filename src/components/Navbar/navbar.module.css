@@ -1,0 +1,114 @@
+.nav {
+    background: white !important;
+    margin-left: 80px;
+    margin-right: 80px;
+
+}
+
+#btn-signUp {
+    background: #5F2EEA;
+    border-radius: 8px;
+}
+
+#nav-link {
+    margin-right: 50px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    color: #414141;
+}
+
+.dropdown-item {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.005em;
+    color: #414141;
+}
+
+#search {
+    color: #414141 !important;
+}
+
+.fa-search {
+    color: black;
+}
+
+/* icon */
+.form-inline {
+    display: none;
+    position: relative;
+}
+
+
+
+.text-credit {
+    display: none;
+    margin-left: 70px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 22px;
+    letter-spacing: 0.75px;
+    color: #6E7191;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav {
+        margin-left: 0px;
+        margin-right: 0px;
+
+    }
+
+    .form-inline {
+        display: inline;
+    }
+
+    #search {
+        display: none;
+    }
+
+    #search-icon {
+        position: absolute;
+        margin-top: -25px;
+        margin-left: 15px;
+    }
+
+    #nav-link {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 28px;
+        margin-left: 40px;
+        text-align: center;
+        letter-spacing: 0.75px;
+        color: #14142B !important;
+
+    }
+
+    .dropdown-item {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: center;
+        letter-spacing: 0.75px;
+        color: #14142B;
+    }
+
+    #btn-signUp {
+        display: none;
+    }
+
+    .text-credit {
+        display: inline;
+    }
+}

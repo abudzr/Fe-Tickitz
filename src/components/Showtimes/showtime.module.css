@@ -1,0 +1,117 @@
+.showTimes {
+    height: 230px;
+    margin-top: 150px;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.title-show {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    padding-bottom: 20px;
+    color: #14142B;
+}
+
+.dropdown-show {
+    display: flex;
+    justify-content: center;
+}
+
+.dropdown-showTimes {
+    margin-right: 30px;
+    border-radius: 16px;
+    height: 56px;
+    width: 250px;
+    left: 0px;
+    top: 0px;
+    border-radius: 16px;
+    border: 0px !important;
+    width: 284px;
+    border-radius: 16px;
+    background: #EFF0F6 !important;
+    font-family: Mulish !important;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px !important;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+    color: #4E4B66 !important;
+
+}
+
+.dropdown-location {
+    display: flex;
+    height: 56px;
+    width: 284px;
+    border-radius: 16px;
+    background: #EFF0F6;
+    border-radius: 16px;
+}
+
+.button-location {
+    border: 0px !important;
+    width: 284px;
+    border-radius: 16px;
+    background: #EFF0F6 !important;
+    border-radius: 16px !important;
+    font-family: Mulish !important;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px !important;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+    color: #4E4B66 !important;
+}
+
+#marker {
+    position: absolute;
+    padding-left: 40px;
+    padding-top: 20px;
+    color: #4E4B66;
+}
+
+@media only screen and (max-width: 600px) {
+    .showTimes {
+        margin-top: -70px;
+        padding-top: -50px;
+        background: #F5F6F8;
+        height: 300px;
+    }
+
+    .title-show {
+        font-size: 18px;
+        line-height: 34px;
+        letter-spacing: 0.75px;
+    }
+
+    .dropdown-show {
+        display: inline;
+
+    }
+
+    .dropdown-showTimes {
+        margin-right: auto;
+        margin-bottom: 10px;
+        margin-left: auto;
+        background: #EFF0F6;
+        height: 48px;
+        width: 260px;
+        border-radius: 4px;
+    }
+
+    .dropdown-location {
+        margin-right: auto;
+        margin-bottom: 10px;
+        margin-left: auto;
+        background: #EFF0F6;
+        height: 48px;
+        width: 260px;
+        border-radius: 4px;
+    }
+}
+
+/* shotimes-mobile */

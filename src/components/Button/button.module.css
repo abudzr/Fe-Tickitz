@@ -1,0 +1,208 @@
+.btn-month-active {
+    width: 125px !important;
+    color: white;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    /* background: #5F2EEA; */
+    border-radius: 8px;
+    margin-bottom: 5px;
+    border-radius: 24px;
+    padding: 5px;
+    border: 0px;
+}
+
+.btn-month {
+    width: 125px !important;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: #5F2EEA;
+    border: 1px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 5px;
+
+}
+
+.btn-card {
+    width: 159px !important;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center !important;
+    color: #5F2EEA;
+    border: 1px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 5px;
+
+}
+
+.btn-custom-subscribes {
+    width: 120px !important;
+    text-align: center !important;
+    background: #5F2EEA;
+    border: 1px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+    padding: 15px;
+}
+
+.btn-schedule {
+    margin-left: 20px;
+    height: 40px;
+    width: 134px;
+    box-shadow: 0px 8px 24px rgba(95, 46, 234, 0.24);
+    border: 0px;
+    border-radius: 8px;
+    color: #F7F7FC;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+}
+
+.btn-change-movie {
+    margin-top: -20px;
+    margin-left: 395px;
+    padding-bottom: 30px;
+    opacity: 0.8;
+    height: 32px;
+    width: 139.65518188476562px;
+    border-radius: 16px;
+    border: 8px solid #FFFFFF;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+}
+
+.btn-change-order {
+    margin-left: 20px;
+    margin-top: 30px;
+    margin-right: 110px;
+    border: 2px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 16px;
+    height: 56px;
+    width: 300px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    text-align: center;
+    color: #5F2EEA;
+}
+
+.btn-add-new-seat {
+    display: none;
+    margin-top: 30px;
+    margin-right: 110px;
+    border: 2px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 16px;
+    height: 56px;
+    width: 300px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    text-align: center;
+    color: #5F2EEA;
+
+}
+
+.btn-checkout {
+    margin-top: 30px;
+    border-radius: 16px;
+    height: 56px;
+    width: 300px;
+    border: 0px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC;
+}
+
+.purple {
+    background: #5F2EEA;
+}
+
+.white {
+    background: white;
+
+}
+
+.whitesmoke {
+    background: #FFFFFF;
+}
+
+@media only screen and (max-width: 600px) {
+    .btn-custom-subscribes {
+        /* width: 1000px !important; */
+        border-radius: 12px;
+        margin-top: 10px;
+
+    }
+
+    .btn-change-order {
+        display: none;
+    }
+
+    .btn-checkout-now {
+        margin-left: 20px;
+        height: 56px;
+        width: 327px;
+        border-radius: 16px;
+    }
+
+    .btn-add-new-seat {
+        display: block;
+        height: 56px;
+        width: 327px;
+        border-radius: 16px;
+        margin-right: 0px;
+
+        margin-left: 41px;
+    }
+
+    .btn-checkout {
+        height: 56px;
+        width: 327px;
+        border-radius: 16px;
+        margin-right: 0px;
+
+        margin-left: 41px;
+    }
+}
