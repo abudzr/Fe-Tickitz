@@ -6,7 +6,9 @@ import Home from './pages/main/Home'
 import Movie from './pages/main/MovieDetail'
 import Order from './pages/main/Order'
 import Payment from './pages/main/Payment'
-
+import Profile from './pages/main/Profile'
+import Admin from './pages/main/Admin';
+import PageAdmin from './pages/main/PageAdmin';
 
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
@@ -16,10 +18,14 @@ function App() {
       <Switch>
         <Route path="/signup" component={Signup} />
         <Route path="/signin" component={Signin} />
-        <Route path="/movie" component={Movie} />
+        <Route path="/movie/:idMovie" component={Movie} />
         <Route path="/order" component={Order} />
         <Route path="/payment" component={Payment} />
-        <Route path="/" component={Home} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/admin" component={Admin} />
+        <Route path="/pageadmin/:idMovie" component={PageAdmin} />
+
+        <Route exact path="/" component={Home} />
       </Switch>
     </BrowserRouter>
   );

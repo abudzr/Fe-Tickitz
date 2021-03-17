@@ -1,0 +1,63 @@
+.cards-profile {
+    margin-top: 100px;
+    background: #F5F6F8;
+    height: 1200px;
+}
+
+.info-profile {
+    margin-top: 50px;
+    height: 783px;
+    width: 328px;
+    border-radius: 24px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
+    border-radius: 24px;
+}
+
+.title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+}
+
+
+
+.info-profile-right {
+    margin-top: 50px;
+    height: 871px;
+    width: 730px;
+    border-radius: 24px;
+    background: #FFFFFF;
+
+}
+
+@media only screen and (max-width: 600px) {
+    .cards-profile {
+
+        height: 1800px;
+    }
+
+    .info-profile {
+        height: 783px;
+        width: 327px;
+        left: 24px;
+        top: 181px;
+        border-radius: 24px;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
+    }
+
+    .info-profile-right {
+        height: 861px;
+        width: 327px;
+        left: 24px;
+        top: 1060px;
+        border-radius: 24px;
+        background: #FFFFFF;
+
+    }
+}

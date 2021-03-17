@@ -5,10 +5,36 @@ import React, { Component } from 'react'
 import style from './signin.module.css'
 
 class Signin extends Component {
-
-  handleLogin = () => {
-    this.props.history.push('/')
+  constructor() {
+    super()
+    this.state = {
+      email: '',
+      password: ''
+    }
   }
+
+  handleChange = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  handleLogin = (e) => {
+    e.preventDefault()
+    const email = 'user@gmail.com'
+    const password = 'user'
+    if (this.state.password === password && this.state.email === email) {
+      this.props.history.push('/')
+    } else if (this.state.password === "admin" && this.state.email === "admin") {
+      this.props.history.push('/order')
+      // ini langsung ke tampilan admin
+    } else {
+      alert('email anda salah')
+    }
+  }
+  // handleLogin = () => {
+  //   this.props.history.push('/')
+  // }
 
 
   render() {
@@ -26,12 +52,12 @@ class Signin extends Component {
               your registration</p>
           <form>
             <label>Email</label>
-            <input id="email" type="text" placeholder="Write Your Email" />
+            <input id="email" name="email" type="email" value={this.state.email} placeholder="Write Your Email" onChange={this.handleChange} />
 
             <div className={style['form-group']}>
               <span className="fa  fa fa-eye "></span>
               <label>Password</label>
-              <input className={style['form-control']} type="password" placeholder="Write your password" />
+              <input className={style['form-control']} name="password" value={this.state.password} type="password" placeholder="Write your password" onChange={this.handleChange} />
             </div>
 
             <button type="submit" className={style['btn-submit']} onClick={this.handleLogin}>Sign In</button>

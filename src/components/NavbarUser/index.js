@@ -38,7 +38,7 @@ class NavigationUser extends Component {
                         <NavDropdown.Divider />
                         {/* <span className="fa fa-search mr-auto" id="search"></span> */}
                         <Link href="#search" className="fa fa-search mr-auto ml-auto " id={style['search']}></Link>
-                        <Navbar.Brand className={style['logo-user']} href="#user">
+                        <Navbar.Brand className={style['logo-user']} href="/profile">
                             <img class={style['img-user']} src="https://bookingtickitz.netlify.app/assets/img/user.png" />
 
                         </Navbar.Brand>

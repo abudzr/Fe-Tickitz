@@ -155,6 +155,37 @@
     color: #F7F7FC;
 }
 
+.btn-update {
+    margin: 30px;
+    border-radius: 8px;
+    width: 100px;
+    border: 0px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC;
+
+}
+
+.btn-delete {
+    margin: 15px 30px;
+    border-radius: 8px;
+    width: 100px;
+    border: 0px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 28px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC;
+}
+
 .purple {
     background: #5F2EEA;
 }
@@ -166,6 +197,14 @@
 
 .whitesmoke {
     background: #FFFFFF;
+}
+
+.red {
+    background: rgb(160, 30, 30);
+}
+
+.yellow {
+    background: rgb(202, 152, 45);
 }
 
 @media only screen and (max-width: 600px) {

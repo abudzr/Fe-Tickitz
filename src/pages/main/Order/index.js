@@ -7,40 +7,21 @@ import { NavigationUser, Footers, HeaderOrder, CardsOrder } from '../../../compo
 
 
 class Order extends Component {
-    // constructor() {
-    //     super()
-
-    //     this.state = {
-    //         films: [],
-    //         isLoading: false
-    //     }
-    // }
-
-
-    // componentDidMount() {
-    //     this.setState({
-    //         isLoading: true
-    //     })
-    //     axios.get('https://jsonplaceholder.typicode.com/posts')
-    //         .then((res) => {
-    //             this.setState({
-    //                 films: res.data,
-    //                 isLoading: false
-    //             })
-    //         })
-    //         .catch(() => {
-    //             alert('server bermasalah')
-    //             this.setState({
-    //                 isLoading: false
-    //             })
-    //         })
-    // }
+    handleChange = () => {
+        this.props.history.push('/')
+    }
+    handlePayment = () => {
+        this.props.history.push('/payment')
+    }
     render() {
         return (
             <Fragment>
                 <NavigationUser />
                 <HeaderOrder />
-                <CardsOrder />
+                <CardsOrder
+                    Change={this.handleChange}
+                    Payment={this.handlePayment}
+                />
                 <Footers />
             </Fragment>
         )

@@ -23,7 +23,7 @@ class Navigation extends Component {
                         <Nav className="mr-auto">
                             <Nav.Link href="/" id={style['nav-link']}>Movies</Nav.Link>
                             <NavDropdown.Divider />
-                            <Nav.Link href="/movie" id={style['nav-link']}>Cinemas</Nav.Link>
+                            <Nav.Link href="/movie/MV001" id={style['nav-link']}>Cinemas</Nav.Link>
                             <NavDropdown.Divider />
                             <Nav.Link href="/order" id={style['nav-link']}>Buy Ticket</Nav.Link>
                             <NavDropdown.Divider />

@@ -1,0 +1,191 @@
+.cards-profile {
+    margin-top: 100px;
+    background: #F5F6F8;
+    height: 1200px;
+}
+
+.title-admin {
+    margin-top: 60px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #000000;
+}
+
+.info-profile {
+    margin-top: 20px;
+    padding-top: 30px;
+    padding-left: 30px;
+    height: 750px;
+    width: 725px;
+    left: 70px;
+    top: 214px;
+    border-radius: 24px;
+    background: #FFFFFF;
+}
+
+.card-detail-movie {
+    height: 344px !important;
+    width: 249px !important;
+    border-radius: 16px;
+    background: #FFFFFF;
+    border: 0.5px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 16px !important;
+}
+
+.card-img-detail-movie {
+    height: 272px !important;
+    width: 177px !important;
+    border-radius: 8px !important;
+    margin: 25px 10px !important;
+}
+
+.form-img-admin {
+    display: flex;
+}
+
+.form-admin {
+    margin-top: -25px;
+    margin-left: 25px;
+}
+
+.form-movie {
+    height: 64px;
+    width: 400px;
+    border-radius: 16px;
+}
+
+.position-datetime {
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+
+.position-datetime label {
+    position: absolute;
+}
+
+.duration {
+    margin-left: 220px;
+}
+
+.form-release {
+    margin-top: 75px;
+    margin-right: 35px;
+    height: 64px;
+    width: 180px;
+    border-radius: 16px;
+}
+
+.form-admin-director {
+    flex-wrap: wrap;
+}
+
+.input-director {
+    height: 64px;
+    width: 230px;
+    border-radius: 16px;
+    margin-right: 20px;
+}
+
+.input-casts {
+    height: 64px;
+    width: 400px;
+    border-radius: 16px;
+}
+
+.input-synopsis {
+    height: 108px;
+    width: 650px;
+    border-radius: 16px;
+}
+
+
+
+.info-profile-right {
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    height: 397px;
+    width: 341px;
+    left: 855px;
+    top: 214px;
+    border-radius: 24px;
+    background: #FFFFFF;
+
+}
+
+.dropdown-location {
+    display: flex;
+    height: 48px;
+    width: 260px;
+    border-radius: 16px;
+    background: #EFF0F6;
+    border-radius: 16px;
+}
+
+
+
+.button-location {
+
+    border: 0px !important;
+    height: 48px;
+    width: 260px;
+    border-radius: 16px;
+    background: #EFF0F6 !important;
+    border-radius: 16px !important;
+    font-family: Mulish !important;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px !important;
+    line-height: 28px;
+    letter-spacing: 0.25px;
+    color: #4E4B66 !important;
+}
+
+#marker {
+    position: absolute;
+    padding-left: 40px;
+    padding-top: 20px;
+    color: #4E4B66;
+}
+
+/* .admin-img-right {
+    display: flex;
+} */
+.img-admin {
+    width: 25%;
+    margin-left: 20px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .cards-profile {
+
+        height: 1800px;
+    }
+
+    .info-profile {
+        height: 783px;
+        width: 327px;
+        left: 24px;
+        top: 181px;
+        border-radius: 24px;
+        background: #FFFFFF;
+        box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
+    }
+
+    .info-profile-right {
+        height: 861px;
+        width: 327px;
+        left: 24px;
+        top: 1060px;
+        border-radius: 24px;
+        background: #FFFFFF;
+
+    }
+}

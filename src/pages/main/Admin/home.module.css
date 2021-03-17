@@ -4,7 +4,7 @@
 }
 
 .up-coming {
-    height: 600px;
+    height: 1800px;
     margin-top: 100px;
 }
 
@@ -37,7 +37,24 @@
     color: #5F2EEA;
 }
 
-#scrolling-nowShowing {
-    overflow-x: auto;
+@media only screen and (max-width: 600px) {
+    #card {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
 
+    }
+
+    ::-webkit-scrollbar {
+        width: 12px;
+        /* background: transparent; */
+        /* width of the entire scrollbar */
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: #5F2EEA;
+        border-radius: 20px;
+        border: 3px solid white;
+
+    }
 }
