@@ -9,7 +9,8 @@ class Signup extends Component {
       idUsers: '1',
       email: '',
       password: '',
-      fullName: 'user',
+      firstName: 'user',
+      lastName: 'user',
       phone: '0000000'
     }
 

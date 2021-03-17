@@ -171,6 +171,22 @@
 
 }
 
+.btn-update-changes {
+    height: 56px;
+    width: 360px;
+    border-radius: 16px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC;
+    border: 0px;
+}
+
 .btn-delete {
     margin: 15px 30px;
     border-radius: 8px;
@@ -243,5 +259,15 @@
         margin-right: 0px;
 
         margin-left: 41px;
+    }
+
+    .btn-update-changes {
+        height: 40px;
+        width: 260px;
+        border-radius: 8px;
+        font-size: 14px;
+        line-height: 24px;
+        margin-top: 90px;
+        margin-left: 15px;
     }
 }

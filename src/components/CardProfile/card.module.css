@@ -14,7 +14,14 @@
     border-radius: 24px;
 }
 
-.title {
+.info-title-profile {
+    display: flex;
+    padding-top: 20px;
+    padding-left: 20px;
+}
+
+.title-info {
+    margin-right: 190px;
     font-family: Mulish;
     font-style: normal;
     font-weight: normal;
@@ -22,6 +29,196 @@
     line-height: 32px;
     letter-spacing: 0.75px;
     color: #4E4B66;
+}
+
+.circle {
+    margin-left: 10px;
+    margin-top: 10px;
+    height: 10px;
+    width: 10px;
+    background: #5F2EEA;
+    border-radius: 100%;
+    padding-top: 10px;
+}
+
+.big-circle {
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    width: 120px;
+    background: #c0b7da;
+    border-radius: 100%;
+    padding-top: 10px;
+}
+
+.img-user {
+    margin-top: -8px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 120px;
+    width: 120px;
+    /* background: #c0b7da; */
+}
+
+.name-profile {
+    margin-top: 40px;
+    font-family: Mulish;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    text-align: center;
+}
+
+.job {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+
+}
+
+.circle-loyalty {
+    border-radius: 100%;
+    position: absolute;
+    width: 122px;
+    height: 122px;
+    left: 200px;
+    top: 430px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.circle-loyalty2 {
+    border-radius: 100%;
+    position: absolute;
+    width: 122px;
+    height: 122px;
+    left: 230px;
+    top: 460px;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.star {
+    position: absolute;
+    width: 122px;
+    height: 122px;
+    left: 240px;
+    top: 490px;
+}
+
+.loyalty-point {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+    margin-left: 45px;
+    margin-top: 50px;
+}
+
+.loyalty-title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.point {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+    letter-spacing: 0.75px;
+    color: #FFFFFF;
+    margin-left: 20px;
+}
+
+.point span {
+    font-weight: normal;
+    font-size: 10px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #FFFFFF;
+}
+
+.square {
+    position: absolute;
+    width: 248px;
+    height: 125px;
+    left: 45px;
+    top: 485px;
+    background: linear-gradient(75deg, #5F2EEA 31.28%, #7647F9 62.16%);
+    box-shadow: 0px 8px 32px #5F2EEA;
+    border-radius: 8px;
+}
+
+.loyalty-subtitle {
+    position: absolute;
+    width: 217px;
+    height: 32px;
+    left: 45px;
+    top: 680px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.25px;
+    color: #4E4B66;
+}
+
+#progress {
+    position: absolute;
+    width: 248px;
+    height: 16px;
+    left: 45px;
+    top: 735px;
+
+    background: #F5F6F8;
+    box-shadow: inset 0px 2px 4px rgba(17, 17, 17, 0.16);
+    border-radius: 8px;
+}
+
+.progress-bar {
+    background: #5F2EEA !important;
+    border-radius: 8px;
+}
+
+
+
+.detail-title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #14142B;
+}
+
+.detail-title2 {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #14142B;
+    margin-top: 150px;
 }
 
 
@@ -32,16 +229,60 @@
     width: 730px;
     border-radius: 24px;
     background: #FFFFFF;
+}
+
+.card-account {
+    height: 871px;
+}
+
+.form-profile {
+    display: flex;
+}
+
+.form-profile-firstname {
+    height: 64px;
+    width: 350px;
+    margin-right: 20px;
+}
+
+.form-profile-lastName {
+    height: 64px;
+    width: 350px;
+}
+
+.form-profile-email {
+    margin-top: 40px;
+    height: 64px;
+    width: 350px;
+    margin-right: 20px;
+}
+
+.form-profile-phone {
+    margin-top: 40px;
+    height: 64px;
+    width: 350px;
+}
+
+.form-profile-password {
+    margin-top: 40px;
+    height: 64px;
+    width: 350px;
+    margin-bottom: 120px;
+    margin-right: 20px;
 
 }
 
+
+
+
 @media only screen and (max-width: 600px) {
     .cards-profile {
-
-        height: 1800px;
+        height: 2000px;
     }
 
     .info-profile {
+        margin-left: auto;
+        margin-right: auto;
         height: 783px;
         width: 327px;
         left: 24px;
@@ -51,13 +292,104 @@
         box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
     }
 
+    .circle-loyalty {
+        left: 240px;
+    }
+
+    .circle-loyalty2 {
+        left: 270px;
+        top: 460px;
+    }
+
+    .star {
+        left: 280px;
+    }
+
+    .square {
+        left: 85px;
+    }
+
+    .loyalty-subtitle {
+        left: 85px;
+    }
+
+    #progress {
+        left: 85px;
+    }
+
+
+
+
+
+
+
+
+
+
+
     .info-profile-right {
-        height: 861px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 1050px;
         width: 327px;
         left: 24px;
         top: 1060px;
-        border-radius: 24px;
+        border-radius: 24px !important;
         background: #FFFFFF;
+    }
+
+    .card-account {
+        height: 1050px;
+        border-radius: 24px !important;
+    }
+
+    .form-profile {
+        flex-wrap: wrap;
+    }
+
+    .form-profile-firstname {
+        height: 50px;
+        width: 260px;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-profile-lastName {
+        margin-top: 50px;
+        height: 50px;
+        width: 260px;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-profile-email {
+        margin-top: 40px;
+        height: 50px;
+        width: 260px;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-profile-phone {
+        margin-top: 40px;
+        height: 50px;
+        width: 260px;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .form-profile-password {
+        margin-top: 20px;
+        height: 50px;
+        width: 260px;
+        border-radius: 8px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
 
     }
 }
