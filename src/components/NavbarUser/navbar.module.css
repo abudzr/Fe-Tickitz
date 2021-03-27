@@ -39,10 +39,27 @@
 
 #search {
     color: #414141 !important;
+    cursor: pointer;
+    /* position: absolute; */
+    /* z-index: -1; */
+
+}
+
+.form-hide {
+    position: relative;
+    right: 40px;
+    /* z-index: -1; */
+    /* cursor: pointer; */
+}
+
+.form-control-search {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
 }
 
 .fa-search {
-    color: black;
+    color: #414141;
 }
 
 .img-user {
@@ -82,6 +99,10 @@
 
     .form-inline {
         display: inline;
+    }
+
+    .form-hide {
+        display: none;
     }
 
     #search {

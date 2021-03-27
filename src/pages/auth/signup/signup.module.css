@@ -270,10 +270,10 @@ hr {
     border-radius: 16px;
 }
 
-.form-group span {
+.form-group i {
     position: absolute;
-    margin-top: 80px !important;
-    margin-left: 420px !important;
+    top: 335px;
+    right: 65px;
     z-index: 2;
     display: block;
     /* ukuran icon */
@@ -281,7 +281,7 @@ hr {
     height: 2.375rem;
     line-height: 2.375rem;
     text-align: center;
-    pointer-events: none;
+    cursor: pointer;
     color: #4E4B66;
 }
 
@@ -306,14 +306,14 @@ input {
 }
 
 .terms {
-    margin-left: -235px !important;
+    margin-left: -225px !important;
     margin-top: 30px !important;
 }
 
 .text-term {
     position: absolute;
-    margin-top: 20px !important;
-    margin-left: -230px !important;
+    margin-top: 25px !important;
+    margin-left: -215px !important;
 }
 
 .btn-submit {
@@ -344,18 +344,17 @@ input {
     }
 
 
-    .form-group span {
-        margin-top: 60px !important;
-        margin-left: 280px !important;
-
+    .form-group i {
+        top: 365px;
     }
 
     .terms {
-        display: none;
+        position: absolute;
+        left: 75px;
     }
 
     .text-term {
-        display: none;
+        left: 300px;
     }
 
     .text-title-right {
@@ -373,6 +372,10 @@ input {
 
     .form-group span {
         margin-left: 250px;
+    }
+
+    .btn-submit {
+        margin-top: 90px;
     }
 
     .btn-google {

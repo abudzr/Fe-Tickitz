@@ -2,34 +2,58 @@ import React, { Component } from 'react'
 import style from './signup.module.css'
 import { Form } from 'react-bootstrap';
 import axios from 'axios'
+import swal from 'sweetalert';
 
 class Signup extends Component {
   state = {
     formSignUp: {
-      idUsers: '1',
+      idUsers: '',
       email: '',
       password: '',
       firstName: 'user',
       lastName: 'user',
       phone: '0000000'
-    }
+    },
+    isPasswordShow: false,
+    agree: false
 
   }
 
+  tooglePasswordVisibility = () => {
+    const { isPasswordShow } = this.state;
+    this.setState({ isPasswordShow: !isPasswordShow });
+  }
+
+  termsValidation = () => {
+    const { agree } = this.state;
+    this.setState({ agree: !agree });
+  }
   postUser = () => {
-    axios.post('http://localhost:8000/users', this.state.formSignUp)
+    axios.post('http://localhost:8000/users/register', this.state.formSignUp)
       .then((res) => {
+        if (res.data.status) {
+          swal(" Register Success!", res.data.message, "success");
+          this.props.history.push('/signin')
+        } else {
+          swal({
+            title: "Something Wrong!",
+            icon: "warning"
+          });
+        }
         console.log(res);
       }, (err) => {
-        console.log('error:', err);
+        if (err) {
+          swal(" ERROR!!!", err.data, "error");
+        }
       })
   }
+
   handleChange = (e) => {
     // console.log('test handle :', e.target);
     const formSignUpNew = { ...this.state.formSignUp };
-    const time = new Date().getTime();
+    // const time = new Date().getTime();
     // console.log(time);
-    formSignUpNew['idUsers'] = time
+    // formSignUpNew['idUsers'] = time
     // console.log(e.target.name);
     formSignUpNew[e.target.name] = e.target.value;
     this.setState({
@@ -37,12 +61,24 @@ class Signup extends Component {
     })
   }
 
+
+
   handleSubmit = () => {
-    this.postUser();
-    // console.log(this.state.formSignUp);
-    this.props.history.push('/signin')
+    // this.postUser();
+    // this.props.history.push('/signin')
+    // console.log(this.state.formSignUp.email == !null && this.state.formSignUp.password == !null);
+    if (this.state.agree) {
+      this.postUser();
+
+    } else {
+      swal("Sorry!", "You Must Agree to Terms & Conditions", "warning");
+    }
+
   }
   render() {
+    const { isPasswordShow } = this.state
+    const { agree } = this.state
+
     return (
       <div className={style.main}>
         <div className={style['main-left']}>
@@ -69,14 +105,16 @@ class Signup extends Component {
 
           <Form>
             <label htmlFor="email">Email</label>
-            <input id="email" type="text" name="email" placeholder="Write Your Email" onChange={this.handleChange} />
+            <input id="email" type="text" name="email" placeholder="Write Your Email" onChange={this.handleChange} required />
 
             <div className={style['form-group']}>
-              <span className="fa  fa fa-eye "></span>
               <label htmlFor="password">Password</label>
-              <input className={style['form-control']} id="password" name="password" type="password" placeholder="Write your password" onChange={this.handleChange} />
+              <input className={style['form-control']} id="password" name="password"
+                type={(isPasswordShow) ? "text" : "password"} placeholder="Write your password" onChange={this.handleChange} required />
+              <i className={`fa ${isPasswordShow ? "fa-eye-slash" : "fa-eye"}  password-icon`} onClick={this.tooglePasswordVisibility} />
             </div>
-            <input className={style.terms} type="checkbox" />
+            <input className={style.terms} type="checkbox" id="agree"
+              onClick={this.termsValidation} />
             <label className={style['text-term']}>I agree to terms & conditions</label>
             <button type="submit" className={style['btn-submit']} onClick={this.handleSubmit}>Join for free now</button>
           </Form>

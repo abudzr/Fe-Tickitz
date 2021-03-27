@@ -162,10 +162,10 @@ hr {
     border-radius: 16px;
 }
 
-.form-group span {
+.form-group i {
     position: absolute;
-    margin-top: 70px !important;
-    margin-left: 460px;
+    top: 382px;
+    right: 65px;
     z-index: 2;
     display: block;
     /* ukuran icon */
@@ -173,7 +173,7 @@ hr {
     height: 2.375rem;
     line-height: 2.375rem;
     text-align: center;
-    pointer-events: none;
+    cursor: pointer;
     color: #4E4B66;
 }
 
@@ -236,9 +236,8 @@ input {
         display: none;
     }
 
-    .form-group span {
-        margin-top: 50px !important;
-        margin-left: 260px !important;
+    .form-group i {
+        top: 315px;
     }
 
     .btn-google {

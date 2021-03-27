@@ -5,6 +5,19 @@ import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
 
 class Navigation extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = { show: true };
+
+        this.toogleSearch = this.toogleSearch.bind(this)
+    }
+
+    toogleSearch = () => {
+        const { show } = this.state;
+        this.setState({ show: !show })
+    }
+
     render() {
         return (
             <Container>
@@ -18,7 +31,7 @@ class Navigation extends Component {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <form className={style['form-inline']}>
                             <input className="form-control mr-sm-12 pl-5 " type="search" placeholder="Search..." aria-label="Search" />
-                            <i className="fa fa-search" id={style['search-icon']}></i>
+                            <i className="fa fa-search search-icon" id={style['search-icon']} />
                         </form>
                         <Nav className="mr-auto">
                             <Nav.Link href="/" id={style['nav-link']}>Movies</Nav.Link>
@@ -36,9 +49,9 @@ class Navigation extends Component {
                             </NavDropdown>
                         </Nav>
                         <NavDropdown.Divider />
-                        {/* <span className="fa fa-search mr-auto" id="search"></span> */}
-                        <Link href="#search" className="fa fa-search mr-auto ml-auto " id={style['search']}></Link>
-                        <Link className="nav-link btn text-white" id={style['btn-signUp']} to="#" >Sign Up</Link>
+                        <i className="fa fa-search mr-auto ml-auto " id={style['search']} onClick={this.toogleSearch} />
+                        {this.state.show && <Form />}
+                        <Link className="nav-link btn text-white" id={style['btn-signUp']} to="/signup" >Sign Up</Link>
                         <p className={style['text-credit']}>© 2020 Tickitz. All Rights Reserved.</p>
                     </Navbar.Collapse>
                 </Navbar>
@@ -46,5 +59,16 @@ class Navigation extends Component {
         )
     }
 }
+
+class Form extends Component {
+    render() {
+        return (
+            <form className={style['form-hide']}>
+                <input className={style['form-control-search']} type="search" placeholder="Search..." aria-label="Search" onClick="" />
+            </form>
+        )
+    }
+}
+
 
 export default Navigation

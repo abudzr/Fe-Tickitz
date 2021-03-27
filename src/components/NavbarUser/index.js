@@ -5,6 +5,17 @@ import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 
 
 class NavigationUser extends Component {
+    constructor(props) {
+        super(props)
+        this.state = { show: true };
+
+        this.toogleSearch = this.toogleSearch.bind(this)
+    }
+
+    toogleSearch = () => {
+        const { show } = this.state;
+        this.setState({ show: !show })
+    }
     render() {
         return (
             <Container>
@@ -37,7 +48,8 @@ class NavigationUser extends Component {
                         </Nav>
                         <NavDropdown.Divider />
                         {/* <span className="fa fa-search mr-auto" id="search"></span> */}
-                        <Link href="#search" className="fa fa-search mr-auto ml-auto " id={style['search']}></Link>
+                        <i className="fa fa-search mr-auto ml-auto " id={style['search']} onClick={this.toogleSearch} />
+                        {this.state.show && <Form />}
                         <Navbar.Brand className={style['logo-user']} href="/profile">
                             <img class={style['img-user']} src="https://bookingtickitz.netlify.app/assets/img/user.png" />
 
@@ -46,6 +58,15 @@ class NavigationUser extends Component {
                     </Navbar.Collapse>
                 </Navbar>
             </Container>
+        )
+    }
+}
+class Form extends Component {
+    render() {
+        return (
+            <form className={style['form-hide']}>
+                <input className={style['form-control-search']} type="search" placeholder="Search..." aria-label="Search" onClick="" />
+            </form>
         )
     }
 }

@@ -40,14 +40,7 @@ class PageAdmin extends Component {
         // console.log(data);
     }
     componentDidMount() {
-        // const url = process.env.REACT_APP_API_MOVIE;
-        // axios.get(url)
-        //     .then((res) => {
-        //         // console.log(res.data.data);
-        //         this.setState({
-        //             data: res.data.data
-        //         })
-        //     })
+
         this.getPostAPI();
     }
 

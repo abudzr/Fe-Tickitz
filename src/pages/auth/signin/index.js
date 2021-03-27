@@ -9,8 +9,14 @@ class Signin extends Component {
     super()
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      isPasswordShow: false
     }
+  }
+
+  tooglePasswordVisibility = () => {
+    const { isPasswordShow } = this.state;
+    this.setState({ isPasswordShow: !isPasswordShow });
   }
 
   handleChange = (e) => {
@@ -26,18 +32,18 @@ class Signin extends Component {
     if (this.state.password === password && this.state.email === email) {
       this.props.history.push('/')
     } else if (this.state.password === "admin" && this.state.email === "admin") {
-      this.props.history.push('/order')
+      this.props.history.push('/admin')
       // ini langsung ke tampilan admin
     } else {
       alert('email anda salah')
     }
   }
-  // handleLogin = () => {
-  //   this.props.history.push('/')
-  // }
+
 
 
   render() {
+    const { isPasswordShow } = this.state
+
     return (
       <div className={style.main}>
         <div className={style['main-left']}>
@@ -55,9 +61,9 @@ class Signin extends Component {
             <input id="email" name="email" type="email" value={this.state.email} placeholder="Write Your Email" onChange={this.handleChange} />
 
             <div className={style['form-group']}>
-              <span className="fa  fa fa-eye "></span>
               <label>Password</label>
-              <input className={style['form-control']} name="password" value={this.state.password} type="password" placeholder="Write your password" onChange={this.handleChange} />
+              <input className={style['form-control']} name="password" value={this.state.password} type={(isPasswordShow) ? "text" : "password"} placeholder="Write your password" onChange={this.handleChange} />
+              <i className={`fa ${isPasswordShow ? "fa-eye-slash" : "fa-eye"}  password-icon`} onClick={this.tooglePasswordVisibility} />
             </div>
 
             <button type="submit" className={style['btn-submit']} onClick={this.handleLogin}>Sign In</button>
