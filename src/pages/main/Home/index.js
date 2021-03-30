@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Navigation, HeaderHome, CardsNowShow, CardsUpComing, Footers, CardEmail } from '../../../components'
+import { NavigationUser, HeaderHome, CardsNowShow, CardsUpComing, Footers, CardEmail } from '../../../components'
 import { Container } from 'react-bootstrap';
 import style from './home.module.css'
 import axios from 'axios'
@@ -16,15 +16,21 @@ class Home extends Component {
         this.props.history.push(`/movie/${data}`)
     }
     componentDidMount() {
+        const token = localStorage.getItem('token')
         const url = process.env.REACT_APP_API_MOVIE;
 
-        axios.get(url)
+        axios.get(url, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
             .then((res) => {
-                // console.log(res.data.data);
+
                 this.setState({
                     data: res.data.data
                 })
             })
+
     }
 
 
@@ -32,7 +38,7 @@ class Home extends Component {
     render() {
         return (
             <Fragment>
-                <Navigation />
+                <NavigationUser />
                 <HeaderHome />
 
                 <Container className={style['now-showing']}>

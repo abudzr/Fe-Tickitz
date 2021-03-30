@@ -16,6 +16,9 @@ class NavigationUser extends Component {
         const { show } = this.state;
         this.setState({ show: !show })
     }
+
+
+
     render() {
         return (
             <Container>
@@ -50,10 +53,22 @@ class NavigationUser extends Component {
                         {/* <span className="fa fa-search mr-auto" id="search"></span> */}
                         <i className="fa fa-search mr-auto ml-auto " id={style['search']} onClick={this.toogleSearch} />
                         {this.state.show && <Form />}
-                        <Navbar.Brand className={style['logo-user']} href="/profile">
+
+                        <div class={style.dropdown}>
+                            <div className={style['big-circle']}>
+                                <img class={style['img-user']} src="https://bookingtickitz.netlify.app/assets/img/user.png" />
+                            </div>
+                            <div class={style['dropdown-content']}>
+                                <Link to="/profile">Profile</Link>
+                                <Link to="/signin">Logout</Link>
+                            </div>
+                        </div>
+
+                        {/* <Navbar.Brand className={style['logo-user']} to="/profile">
+
                             <img class={style['img-user']} src="https://bookingtickitz.netlify.app/assets/img/user.png" />
 
-                        </Navbar.Brand>
+                        </Navbar.Brand> */}
                         <p className={style['text-credit']}>© 2020 Tickitz. All Rights Reserved.</p>
                     </Navbar.Collapse>
                 </Navbar>

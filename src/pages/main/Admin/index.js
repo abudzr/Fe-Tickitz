@@ -12,8 +12,15 @@ class PageAdmin extends Component {
     }
 
     getPostAPI = () => {
+
+        const token = localStorage.getItem('token')
         const url = process.env.REACT_APP_API_MOVIE;
-        axios.get(url)
+
+        axios.get(url, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
             .then((res) => {
                 // console.log(res.data.data);
                 this.setState({
@@ -25,10 +32,15 @@ class PageAdmin extends Component {
 
     handleDelete = (data) => {
         // console.log(data);
+        const token = localStorage.getItem('token')
         const remove = 'http://localhost:8000/movies/'
         // const remove = process.env.REACT_APP_API_DELETE;
         // console.log(remove);
-        axios.delete(`${remove}${data}`)
+        axios.delete(`${remove}${data}`, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
             .then((res) => {
                 this.getPostAPI()
             })

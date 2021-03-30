@@ -11,20 +11,22 @@ class Movie extends Component {
         data: []
     }
 
-
-
     getPostAPI = () => {
+        const token = localStorage.getItem('token')
         // const url = process.env.REACT_APP_API_MOVIEID;
         const url = 'http://localhost:8000/movies/'
         // console.log(url);
         // console.log(this.props.match.params.idMovie);
-        axios.get(`${url}${this.props.match.params.idMovie}`)
+        axios.get(`${url}${this.props.match.params.idMovie}`, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
             .then((res) => {
                 // console.log(res.data.data);
                 this.setState({
                     data: res.data.data
                 })
-                console.log(res);
             })
     }
 
@@ -33,7 +35,7 @@ class Movie extends Component {
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return (
             <Fragment>
                 <NavigationUser />

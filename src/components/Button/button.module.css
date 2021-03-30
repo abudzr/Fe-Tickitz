@@ -47,6 +47,21 @@
 
 }
 
+.btn-cards {
+    width: 159px !important;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center !important;
+    color: #5F2EEA;
+    border: 1px solid #5F2EEA;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 5px;
+}
+
 .btn-custom-subscribes {
     width: 120px !important;
     text-align: center !important;
@@ -202,8 +217,69 @@
     color: #F7F7FC;
 }
 
+.btn-download {
+    position: absolute;
+    bottom: 40px;
+    left: 330px;
+    width: 187px;
+    height: 48px;
+    border: 1px solid #4E4B66;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+}
+
+.btn-print {
+    position: absolute;
+    bottom: 40px;
+    left: 550px;
+
+    width: 143px;
+    height: 48px;
+    border: 1px solid #4E4B66;
+    box-sizing: border-box;
+    border-radius: 4px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 28px;
+    letter-spacing: 0.75px;
+    color: #4E4B66;
+}
+
+.btn-active-history {
+    height: 40px;
+    width: 196px;
+    margin-left: 30px;
+    margin-top: 20px;
+    border-radius: 4px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    letter-spacing: 0.75px;
+    color: #F7F7FC;
+    border: none;
+}
+
 .purple {
     background: #5F2EEA;
+}
+
+.green {
+    background: #00BA88;
 }
 
 .white {
@@ -270,4 +346,18 @@
         margin-top: 90px;
         margin-left: 15px;
     }
+
+    .btn-active-history {
+        height: 40px;
+        width: 279px;
+        border-radius: 4px;
+        margin-top: 5px;
+    }
+
+    .btn-cards {
+        width: 120px !important;
+        margin-left: 9px;
+        font-size: small;
+    }
+
 }

@@ -1,0 +1,336 @@
+.tickets {
+    height: 920px;
+    background: #F5F6F8;
+    padding-top: 80px;
+}
+
+.title-tickets {
+    position: absolute;
+    width: 204px;
+    height: 30px;
+    left: 420px;
+
+    top: 50px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+}
+
+.card-tickets {
+    position: absolute;
+    width: 976px;
+    height: 640px;
+    left: 195px;
+    top: 176px;
+    border-radius: 8px;
+    background: #FFFFFF;
+}
+
+.card-first {
+    position: absolute;
+    width: 834.43px;
+    height: 77px;
+    left: 70px;
+    top: 150px;
+    background: #5F2EEA;
+    z-index: 1;
+    border-radius: 16px 16px 0px 0px;
+    display: flex;
+}
+
+.img {
+    width: 16%;
+    height: 65%;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.title-card-first {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 34px;
+    margin-left: 200px;
+    margin-right: 105px;
+    margin-top: 20px;
+    letter-spacing: 0.75px;
+
+    color: #FFFFFF;
+}
+
+.line-vertical {
+    position: absolute;
+    width: 318px;
+    height: 0px;
+    left: 400px;
+    top: 180px;
+    border: 1px dashed #DEDEDE;
+    transform: rotate(90deg);
+    z-index: 1;
+}
+
+.card-second {
+    position: absolute;
+    display: block;
+    width: 834px;
+    height: 362px;
+    left: 70px;
+    top: 150px;
+    background: #FFFFFF;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 16px;
+    padding-top: 100px;
+    padding-left: 50px;
+}
+
+.title-card-second {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    /* identical to box height, or 200% */
+    margin-bottom: 3px;
+    letter-spacing: 0.75px;
+    color: #AAAAAA;
+}
+
+.title-card-second-price {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 24px;
+    /* identical to box height, or 200% */
+    margin-bottom: 3px;
+    letter-spacing: 0.75px;
+    color: #AAAAAA;
+}
+
+.sub-content-price {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0.25px;
+    color: #14142B;
+
+}
+
+.content-card-second {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 38px;
+    letter-spacing: 0.75px;
+    color: #14142B;
+}
+
+.sub-content {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 34px;
+    letter-spacing: 0.75px;
+    color: #14142B;
+}
+
+.circle-top {
+    position: absolute;
+    left: 537px;
+    top: -20px;
+    width: 43.02px;
+    height: 43px;
+    background: #FFFFFF;
+    border: 1px #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 100px;
+    z-index: 1;
+}
+
+.circle-bottom {
+    position: absolute;
+    left: 537px;
+    bottom: -1px;
+    width: 43px;
+    height: 21.5px;
+    background: #FFFFFF;
+    border-top-left-radius: 100px;
+    border-top-right-radius: 100px;
+    border: 1px solid #DEDEDE;
+    border-bottom: 0;
+    z-index: 1;
+}
+
+.qr {
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+#icon-download {
+    position: absolute;
+    bottom: 57px;
+    left: 350px;
+    color: #4E4B66;
+    z-index: 1;
+}
+
+#icon-print {
+    position: absolute;
+    bottom: 57px;
+    left: 570px;
+    color: #4E4B66;
+    z-index: 1;
+}
+
+#category,
+.title-price,
+.sub-price {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+    .tickets {
+        height: 870px;
+        background: #F5F6F8;
+        /* padding-top: 80px; */
+    }
+
+
+
+    .card-tickets {
+        position: absolute;
+        width: 100%;
+        height: 800px;
+        left: 0px;
+        top: 0px;
+        border-radius: 8px;
+        background: #F5F6F8;
+
+    }
+
+    .card-second {
+        position: absolute;
+        /* transform: rotateY(180deg); */
+        display: flex;
+        flex-direction: row-reverse;
+        width: 295.0000000000003px;
+        height: 635.0000000000006px;
+        left: 70px;
+        border-radius: 8px;
+        padding-left: 20px;
+        padding-top: 280px;
+
+    }
+
+    .qr {
+        position: absolute;
+        top: 0px;
+        left: 30px;
+    }
+
+    .title-card-second {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 22px;
+        letter-spacing: 0.75px;
+        color: #AAAAAA;
+        /* margin-top: 150px; */
+    }
+
+    .content-card-second {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 26px;
+        letter-spacing: 0.75px;
+    }
+
+    .circle-top {
+        left: -20px;
+        top: 215px;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #DEDEDE;
+
+    }
+
+    .circle-bottom {
+        left: 280px;
+        top: 215px;
+        width: 32px;
+        height: 32px;
+        border: 1px solid #DEDEDE;
+        border-radius: 100%;
+    }
+
+    .line-vertical {
+        left: 18px;
+        top: 230px;
+        height: 0px;
+        width: 261px;
+        transform: rotate(180deg);
+    }
+
+    #price-mobile {
+        height: 48px;
+        width: 247px;
+        border-radius: 4px;
+        top: 25px;
+        left: 35px;
+        border: 1px solid #DEDEDE;
+        box-sizing: border-box;
+        border-radius: 4px;
+        padding-top: 10px;
+    }
+
+    #category,
+    .title-price,
+    .sub-price {
+        display: inline;
+    }
+
+
+    .title-price {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 28px;
+        letter-spacing: 0.75px;
+        color: #000000;
+        margin-right: 100px;
+    }
+
+    .sub-price {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 28px;
+        text-align: right;
+        letter-spacing: 0.75px;
+        color: #000000;
+    }
+
+    .card-first,
+    .title-tickets,
+    .button,
+    .title-card-second-price,
+    .sub-content-price,
+    #category-none {
+        display: none;
+    }
+}

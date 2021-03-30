@@ -15,6 +15,9 @@ import Schedule from './Schedule'
 import Footers from './Footer'
 import Admin from './Admin'
 import PageAdmin from './PageAdmin'
+import CardTickets from './CardTickets'
+import CardsHistory from './CardsHistory'
+import SearchMovie from './SearchMovie'
 
 export {
     Navigation,
@@ -29,8 +32,11 @@ export {
     CardsUpComing,
     CardEmail,
     CardsPayment,
+    CardTickets,
     CardsOrder,
     CardsProfile,
+    CardsHistory,
     Schedule,
+    SearchMovie,
     Footers
 }

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, useState } from 'react'
 import style from './card.module.css'
 import { Card, Nav, Form, Dropdown } from 'react-bootstrap';
 import Button from '../Button'
@@ -8,10 +8,23 @@ import star from "../../assets/img/Vector.png";
 
 
 const CardsProfile = (props) => {
+    const [isPasswordShow, setisPasswordShow] = useState(false)
+    const [isPasswordShow2, setisPasswordShow2] = useState(false)
 
     // handleBack = () => {
     //     this.props.history.push('/order')
     // }
+    const tooglePasswordVisibility = (e) => {
+        e.preventDefault();
+        // const { isPasswordShow } = this.state;
+        setisPasswordShow(!isPasswordShow);
+    }
+
+    const tooglePasswordVisibility2 = (e) => {
+        e.preventDefault();
+        // const { isPasswordShow } = this.state;
+        setisPasswordShow2(!isPasswordShow2);
+    }
     return (
         <Fragment>
             <div className={style['cards-profile']}>
@@ -60,12 +73,12 @@ const CardsProfile = (props) => {
                                                 <Nav.Link href="#first">Account Settings</Nav.Link>
                                             </Nav.Item>
                                             <Nav.Item>
-                                                <Nav.Link href="#link">Order History</Nav.Link>
+                                                <Nav.Link href="/history">Order History</Nav.Link>
                                             </Nav.Item>
                                         </Nav>
                                     </Card.Header>
-                                    <Card.Body>
-                                        <Card.Title className={style['detail-title']}>Details Information</Card.Title>
+                                    <Card.Body  >
+                                        <Card.Title className={style['detail-title']} id="#first" >Details Information</Card.Title>
                                         <hr />
 
                                         <div className={style['form-profile']}>
@@ -94,21 +107,28 @@ const CardsProfile = (props) => {
                                         <div className={style['form-profile']}>
                                             <Form className={style['form-profile-password']}>
                                                 <label htmlFor="password">New Password</label><br />
-                                                <input className={style['input-password']} id="password" name="password" type="text" value={props.pass} placeholder="Write your password" onChange={props.change} />
+                                                <input className={style['input-password']} id="password" name="password" value={props.pass}
+                                                    type={(isPasswordShow) ? "text" : "password"} placeholder="Write your password" onChange={props.change} />
+                                                <i className={`fa ${isPasswordShow ? "fa-eye-slash" : "fa-eye"}  password-icon`} onClick={tooglePasswordVisibility} />
+
                                             </Form>
-                                            <Form className={style['form-profile-password']}>
+                                            <Form className={style['form-profile-passwords']}>
                                                 <label htmlFor="password">Confirm your password</label><br />
-                                                <input className={style['input-password']} id="password" name="password" type="text" value={props.pass} placeholder="Confirm your password" onChange={props.change} />
+                                                <input className={style['input-password']} id="confirmPassword" name="password" value={props.pass}
+                                                    type={(isPasswordShow2) ? "text" : "password"} placeholder="Confirm your password" onChange={props.change} />
+                                                <i className={`fa ${isPasswordShow2 ? "fa-eye-slash" : "fa-eye"}  password-icon`} onClick={tooglePasswordVisibility2} />
                                             </Form>
                                         </div>
                                         <Button title="Update changes" type="submit" btn="btn-update-changes" color="purple" onClick={props.update} />
 
                                     </Card.Body>
+
+
+
                                 </Card>
                             </div>
                         </div>
-                        {/* <Button title="Previous Step" btn="btn-change-order" color="white" onClick={this.handleBack} />
-                            <Button title="Pay Your Order" btn="btn-checkout" color="purple" onClick={this.handleLogin} /> */}
+
                     </div>
                 </div>
             </div>

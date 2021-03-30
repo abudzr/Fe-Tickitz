@@ -1,21 +1,21 @@
 import React, { Component, Fragment } from 'react'
 // import axios from 'axios'
-import { NavigationUser, CardsProfile, Footers } from '../../../components'
+import { NavigationUser, Footers, CardTickets } from '../../../components'
 // import { Container } from 'react-bootstrap';
 // import style from './payment.module.css'
 
 
 
-class Profile extends Component {
+class Tickets extends Component {
     render() {
         return (
             <Fragment>
                 <NavigationUser />
-                <CardsProfile />
+                <CardTickets />
                 <Footers />
             </Fragment>
         )
     }
 }
 
-export default Profile
+export default Tickets

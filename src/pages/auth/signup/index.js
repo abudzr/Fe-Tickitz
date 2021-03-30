@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import style from './signup.module.css'
 import { Form } from 'react-bootstrap';
 import axios from 'axios'
-import swal from 'sweetalert';
+import Swal from 'sweetalert2'
 
 class Signup extends Component {
   state = {
@@ -28,25 +29,25 @@ class Signup extends Component {
     const { agree } = this.state;
     this.setState({ agree: !agree });
   }
-  postUser = () => {
-    axios.post('http://localhost:8000/users/register', this.state.formSignUp)
-      .then((res) => {
-        if (res.data.status) {
-          swal(" Register Success!", res.data.message, "success");
-          this.props.history.push('/signin')
-        } else {
-          swal({
-            title: "Something Wrong!",
-            icon: "warning"
-          });
-        }
-        console.log(res);
-      }, (err) => {
-        if (err) {
-          swal(" ERROR!!!", err.data, "error");
-        }
-      })
-  }
+  // postUser = () => {
+  //   axios.post('http://localhost:8000/users/register', this.state.formSignUp)
+  //     .then((res) => {
+  //       if (res.data.status) {
+  //         swal(" Register Success!", res.data.message, "success");
+  //         this.props.history.push('/signin')
+  //       } else {
+  //         swal({
+  //           title: "Something Wrong!",
+  //           icon: "warning"
+  //         });
+  //       }
+  //       console.log(res);
+  //     }, (err) => {
+  //       if (err) {
+  //         swal(" ERROR!!!", err.data, "error");
+  //       }
+  //     })
+  // }
 
   handleChange = (e) => {
     // console.log('test handle :', e.target);
@@ -63,15 +64,23 @@ class Signup extends Component {
 
 
 
-  handleSubmit = () => {
-    // this.postUser();
-    // this.props.history.push('/signin')
-    // console.log(this.state.formSignUp.email == !null && this.state.formSignUp.password == !null);
+  handleSubmit = (e) => {
+    e.preventDefault();
+
     if (this.state.agree) {
-      this.postUser();
+      axios.post('http://localhost:8000/users/register', this.state.formSignUp)
+        .then((res) => {
+          Swal.fire(" Register Success!", res.data.message, "success");
+          this.props.history.push('/signin')
+
+        }, (err) => {
+          if (err) {
+            Swal.fire(" ERROR!!!", "Email Already Exists", "error");
+          }
+        })
 
     } else {
-      swal("Sorry!", "You Must Agree to Terms & Conditions", "warning");
+      Swal.fire("Sorry!", "You Must Agree to Terms & Conditions", "warning");
     }
 
   }
@@ -109,7 +118,7 @@ class Signup extends Component {
 
             <div className={style['form-group']}>
               <label htmlFor="password">Password</label>
-              <input className={style['form-control']} id="password" name="password"
+              <input className={style['form-control']} id="password" name="password" autoComplete="off"
                 type={(isPasswordShow) ? "text" : "password"} placeholder="Write your password" onChange={this.handleChange} required />
               <i className={`fa ${isPasswordShow ? "fa-eye-slash" : "fa-eye"}  password-icon`} onClick={this.tooglePasswordVisibility} />
             </div>
@@ -119,7 +128,7 @@ class Signup extends Component {
             <button type="submit" className={style['btn-submit']} onClick={this.handleSubmit}>Join for free now</button>
           </Form>
 
-          <p className={style['text-forgot']}> Do you already have an account? <a href="#">Log in</a></p>
+          <p className={style['text-forgot']}> Do you already have an account? <Link to="/signin">Log in</Link></p>
           <div className={style.or}>
             <hr></hr>
             <p className={style['text-or']}>or</p>

@@ -227,133 +227,82 @@
     margin-top: 50px;
     height: 871px;
     width: 730px;
-    border-radius: 24px;
+    border-radius: 24px !important;
     background: #FFFFFF;
 }
 
 .card-account {
     height: 871px;
+    border-radius: 24px !important;
+
 }
 
-.form-profile {
+.card-history {
+    height: 250px;
+    width: 680px;
+    left: 430px;
+    top: 292px;
+    border-radius: 8px;
+    background: #FFFFFF;
+    border: 0.5px solid #DEDEDE;
+    box-sizing: border-box;
+    padding-top: 30px;
+    margin-bottom: 10px;
+}
+
+.title-history {
+    margin-left: 30px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #AAAAAA;
+}
+
+.content-history {
+    margin-left: 30px;
+
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 38px;
+    letter-spacing: 0.75px;
+    color: #000000;
+}
+
+.img-history {
+    margin-top: 30px;
+    width: 25%;
+    height: 10%;
+}
+
+.show-detail {
+    margin-top: 22px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 34px;
+
     display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: 0.75px;
+
+    color: #AAAAAA;
 }
-
-.form-profile-firstname {
-    height: 64px;
-    width: 350px;
-    margin-right: 20px;
-}
-
-.form-profile-lastName {
-    height: 64px;
-    width: 350px;
-}
-
-.form-profile-email {
-    margin-top: 40px;
-    height: 64px;
-    width: 350px;
-    margin-right: 20px;
-}
-
-.form-profile-phone {
-    margin-top: 40px;
-    height: 64px;
-    width: 350px;
-}
-
-.form-profile-password {
-    margin-top: 40px;
-    height: 64px;
-    width: 350px;
-    margin-bottom: 120px;
-    margin-right: 20px;
-}
-
-.form-profile-passwords {
-    margin-top: 40px;
-    height: 64px;
-    width: 350px;
-    margin-bottom: 120px;
-    margin-right: 20px;
-}
-
-.form-profile-password i {
-    position: absolute;
-    top: 620px;
-    left: 280px;
-    z-index: 2;
-    display: block;
-    /* ukuran icon */
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    cursor: pointer;
-    color: #4E4B66;
-}
-
-.form-profile-passwords i {
-    position: absolute;
-    top: 620px;
-    right: 65px;
-    z-index: 2;
-    display: block;
-    /* ukuran icon */
-    width: 2.375rem;
-    height: 2.375rem;
-    line-height: 2.375rem;
-    text-align: center;
-    cursor: pointer;
-    color: #4E4B66;
-}
-
-
 
 @media only screen and (max-width: 600px) {
     .cards-profile {
-        height: 2000px;
+        height: 1200px;
     }
 
     .info-profile {
-        margin-left: auto;
-        margin-right: auto;
-        height: 783px;
-        width: 327px;
-        left: 24px;
-        top: 181px;
-        border-radius: 24px;
-        background: #FFFFFF;
-        box-shadow: 0px 8px 32px rgba(186, 186, 186, 0.08);
+        display: none;
     }
-
-    .circle-loyalty {
-        left: 240px;
-    }
-
-    .circle-loyalty2 {
-        left: 270px;
-        top: 460px;
-    }
-
-    .star {
-        left: 280px;
-    }
-
-    .square {
-        left: 85px;
-    }
-
-    .loyalty-subtitle {
-        left: 85px;
-    }
-
-    #progress {
-        left: 85px;
-    }
-
-
 
     .info-profile-right {
         margin-left: auto;
@@ -368,76 +317,49 @@
 
     .card-account {
         height: 1050px;
-        border-radius: 24px !important;
+        background: #F5F6F8 !important;
+        border: none !important;
+        /* border-radius: 24px !important; */
     }
 
-    .form-profile {
-        flex-wrap: wrap;
+    .cardheader,
+    .show-detail {
+        display: none;
     }
 
-    .form-profile-firstname {
-        height: 50px;
-        width: 260px;
-        border-radius: 8px;
-        margin-left: auto;
-        margin-right: auto;
+    .card-history {
+        height: 242px;
+        width: 327px;
+
+        border-radius: 16px;
+        padding-top: 60px;
     }
 
-    .form-profile-lastName {
-        margin-top: 50px;
-        height: 50px;
-        width: 260px;
-        border-radius: 8px;
-        margin-left: auto;
-        margin-right: auto;
+    .img-history {
+        position: absolute;
+        width: 35%;
+        height: 2%;
+        top: 10px;
+        left: 50px;
     }
 
-    .form-profile-email {
-        margin-top: 40px;
-        height: 50px;
-        width: 260px;
-        border-radius: 8px;
-        margin-left: auto;
-        margin-right: auto;
+    .title-history {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 22px;
+        letter-spacing: 0.25px;
+        color: #AAAAAA;
     }
 
-    .form-profile-phone {
-        margin-top: 40px;
-        height: 50px;
-        width: 260px;
-        border-radius: 8px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .form-profile-password {
-        margin-top: 20px;
-        height: 50px;
-        width: 260px;
-        border-radius: 8px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-    }
-
-    .form-profile-passwords {
-        margin-top: 20px;
-        height: 50px;
-        width: 260px;
-        border-radius: 8px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 20px;
-    }
-
-    .form-profile-password i {
-        top: 738px;
-        left: 240px;
-    }
-
-    .form-profile-passwords i {
-        top: 828px;
-        left: 240px;
-
+    .content-history {
+        font-family: Mulish;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 28px;
+        letter-spacing: 0.75px;
+        color: #000000;
     }
 }
