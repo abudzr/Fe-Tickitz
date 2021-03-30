@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import { login } from '../../../configs/redux/action/user'
 import Loader from '../../../assets/img/loader.gif';
+import Swal from 'sweetalert2'
 
 // css global
 // import './signin.css'
@@ -40,7 +41,10 @@ function Signin(props) {
         }
       })
       .catch((err) => {
-        alert('login failed')
+        Swal.fire("", "Email or Password is incorrect. Try again or click Forgot password to reset.", "error");
+
+        // console.log(err);
+        // // alert('login failed')
       })
   }
 

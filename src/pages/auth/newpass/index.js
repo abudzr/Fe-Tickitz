@@ -3,17 +3,37 @@ import style from './forgot.module.css'
 import { Form } from 'react-bootstrap';
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { withRouter } from 'react-router';
 
-class Forgot extends Component {
+
+class NewPass extends Component {
   state = {
-    email: '',
+    reset: '',
+    password: '',
     isPasswordShow: false,
     agree: false
+
+  }
+
+  getPostAPI = () => {
+    const url = 'http://localhost:8000/users/'
+    // console.log(this.props.match.params.idMovie);
+    // const url = process.env.REACT_APP_API_MOVIEID;
+    axios.get(url)
+      .then((res) => {
+        console.log(res.data.data);
+        this.setState({
+          reset: res.data.data[1].reset
+
+        })
+        console.log(res);
+      })
+
   }
 
   handleChange = (e) => {
     this.setState({
-      email: e.target.name = e.target.value
+      password: e.target.name = e.target.value
     })
     console.log(e.target.value);
   }
@@ -21,27 +41,31 @@ class Forgot extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(this.state.email);
-    axios.post('http://localhost:8000/users/forgot-password', {
-      email: this.state.email
+    const Url = `http://localhost:8000/users/password-reset?reset=${this.state.reset}`;
+    console.log(Url);
+    axios.post(Url, {
+      password: this.state.password
     })
       .then((res) => {
 
         console.log(res.data.message);
         Swal.fire(" Success", res.data.message, "success");
-        // this.props.history.push('/signin')
+        this.props.history.push('/signin')
 
       }, (err) => {
-        console.log(err.data.message);
+        console.log(err);
 
         // if (err) {
-        //   Swal.fire(" ERROR!!!", "Email Already Exists", "error");
+        //   Swal.fire(" ERROR!!!", "newPassword Already Exists", "error");
         // }
       })
 
   }
 
 
+  componentDidMount() {
+    this.getPostAPI();
+  }
 
   render() {
     const { isPasswordShow } = this.state
@@ -54,11 +78,11 @@ class Forgot extends Component {
           <h1 className={style['text-title-left']}>Lets reset your password</h1>
           <p className={style.paragraf}>To be able to use your account again, please <br />
 complete the following steps.</p>
-          <div className={style.circle}>1</div>
+          <div className={style['circle-outline']}>1</div>
           <div className={style['line-vertical']}></div>
           <div className={style['circle-outline']}>2</div>
           <div className={style['line-vertical']}></div>
-          <div className={style['circle-outline']}>3</div>
+          <div className={style.circle}>3</div>
           <div className={style['line-vertical']}></div>
           <div className={style['circle-outline']}>4</div>
 
@@ -70,14 +94,14 @@ complete the following steps.</p>
 
         <div className={style['main-right']}>
           <img src="https://bookingtickitz.netlify.app/assets/img/Tickitz1.png" className={style['img-title-mobile']} alt="" />
-          <h2 className={style['text-title-right']}>Fill your complete email</h2>
-          <h2 className={style['text-title-right-mobile']}>Forgot password</h2>
+          <h2 className={style['text-title-right']}>Fill your new password</h2>
+          <h2 className={style['text-title-right-mobile']}>New password</h2>
 
-          <p className={style['right-paragraf']}>we'll send a link to your email shortly</p>
+          {/* <p className={style['right-paragraf']}>we'll send a link to your email shortly</p> */}
 
           <Form>
-            <label htmlFor="email">Email</label>
-            <input id="email" type="text" name="email" placeholder="Write Your Email" onChange={this.handleChange} required />
+            <label htmlFor="password">New Password</label>
+            <input id="password" type="text" name="password" placeholder="Write Your New Password" onChange={this.handleChange} required />
 
 
             <button type="submit" className={style['btn-submit']} onClick={this.handleSubmit}>Activate now</button>
@@ -90,4 +114,4 @@ complete the following steps.</p>
   }
 }
 
-export default Forgot
+export default withRouter(NewPass)

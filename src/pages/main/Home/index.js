@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { NavigationUser, HeaderHome, CardsNowShow, CardsUpComing, Footers, CardEmail } from '../../../components'
 import { Container } from 'react-bootstrap';
+import { Link } from 'react-router-dom'
 import style from './home.module.css'
 import axios from 'axios'
 import Button from '../../../components/Button'
@@ -47,7 +48,7 @@ class Home extends Component {
                             <p className={style['title-NowShowing']}>Now Showing</p>
                         </div>
                         <div class="ml-auto">
-                            <a className={style['sub-title']} href="#">View All</a>
+                            <Link className={style['sub-title']} to="/movies">View All</Link>
                         </div>
                     </div>
                     <div class="row flex-nowrap mt-4 pb-4 pt-2" id={style['scrolling-nowShowing']}>
@@ -70,7 +71,7 @@ class Home extends Component {
                             <p className={style['title-up-coming']}>Up Coming Movies</p>
                         </div>
                         <div class="ml-auto">
-                            <a className={style['sub-title']} href="#">View All</a>
+                            <Link className={style['sub-title']} to="/movies">View All</Link>
                         </div>
                     </div>
 

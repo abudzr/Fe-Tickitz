@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import Signin from '../../pages/auth/signin'
 import Signup from '../../pages/auth/signup'
 import Forgot from '../../pages/auth/forgotpass'
+import NewPass from '../../pages/auth/newpass'
+
 
 import Home from '../../pages/main/Home'
 import Movie from '../../pages/main/MovieDetail'
@@ -23,6 +25,8 @@ function MainRoute() {
                 <Route path="/signup" component={Signup} />
                 <Route path="/signin" component={Signin} />
                 <Route path="/forgot-password" component={Forgot} />
+                <Route path="/new-password" component={NewPass} />
+
 
                 <Route path="/movies" component={MovieAll} />
                 <Route path="/movie/:idMovie" component={Movie} />

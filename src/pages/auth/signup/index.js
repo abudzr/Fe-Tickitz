@@ -4,6 +4,7 @@ import style from './signup.module.css'
 import { Form } from 'react-bootstrap';
 import axios from 'axios'
 import Swal from 'sweetalert2'
+import { withRouter } from 'react-router';
 
 class Signup extends Component {
   state = {
@@ -150,4 +151,4 @@ class Signup extends Component {
   }
 }
 
-export default Signup
+export default withRouter(Signup)

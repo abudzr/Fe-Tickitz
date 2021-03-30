@@ -5,7 +5,8 @@ const initialState = {
         password: '',
         firstName: '',
         lastName: '',
-        phone: ''
+        phone: '',
+        reset: ''
     },
     loading: false,
     error: ''
@@ -32,6 +33,22 @@ const userReducer = (state = initialState, action) => {
                 loading: false,
                 error: action.payload
             }
+        case "RESET_REQUEST":
+            return {
+                ...state,
+                loading: true,
+            };
+        case "RESET_SUCCESS":
+            return {
+                ...state,
+                loading: false,
+            };
+        case "RESET_FAILURE":
+            return {
+                ...state,
+                loading: false,
+                error: action.payload,
+            };
         default:
             return state
     }

@@ -10,8 +10,7 @@ import Search from '../../../components/SearchMovie';
 class Movie extends Component {
     state = {
         data: [],
-        movieName: '',
-        show: true
+        movieName: ''
     }
 
     getPostAPI = () => {

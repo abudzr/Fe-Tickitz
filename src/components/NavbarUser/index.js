@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
+import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom'
 import style from './navbar.module.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
+import axios from 'axios'
 
 class NavigationUser extends Component {
     constructor(props) {
         super(props)
-        this.state = { show: true };
+        this.state = {
+            show: true,
+        };
+
 
         this.toogleSearch = this.toogleSearch.bind(this)
     }
@@ -18,9 +23,11 @@ class NavigationUser extends Component {
     }
 
     handleLogout = () => {
+        // console.log(props);
         localStorage.clear();
         this.props.history.push("/signin");
     };
+
 
 
     render() {
@@ -64,7 +71,7 @@ class NavigationUser extends Component {
                             </div>
                             <div class={style['dropdown-content']}>
                                 <Link to="/profile">Profile</Link>
-                                <Link to="#" onClick={this.props.handleLogout}>Logout</Link>
+                                <Link to="#" onClick={this.handleLogout}>Logout</Link>
                             </div>
                         </div>
 
@@ -81,13 +88,47 @@ class NavigationUser extends Component {
     }
 }
 class Form extends Component {
+    // state = {
+    //     show: true,
+    //     data: [],
+    //     movieName: ''
+    // };
+    // handleChange = (e) => {
+    //     console.log(e.target.name);
+    //     this.setState({
+    //         movieName: e.target.name = e.target.value
+    //     })
+    //     console.log(e.target.value);
+
+    //     const token = localStorage.getItem('token')
+    //     const url = `${process.env.REACT_APP_API_MOVIEID}/search/film?name=${e.target.value}`;
+    //     axios.get(url, {
+    //         headers: {
+    //             Authorization: 'Bearer ' + token
+    //         }
+    //     })
+    //         .then((res) => {
+    //             console.log(res.data.data);
+    //             this.setState({
+    //                 data: res.data.data
+    //             })
+    //         })
+    // }
     render() {
         return (
             <form className={style['form-hide']}>
-                <input className={style['form-control-search']} type="search" placeholder="Search..." aria-label="Search" onClick="" />
+                <input
+                    className={style['form-control-search']}
+                    type="text"
+                    placeholder="Search..."
+                    aria-label="Search"
+                    value={this.movieName}
+                    onChange={this.handleChange}
+                    name="movieName"
+                />
             </form>
         )
     }
 }
 
-export default NavigationUser
+export default withRouter(NavigationUser)
