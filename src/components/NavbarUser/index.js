@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import style from './navbar.module.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-
+import Swal from 'sweetalert2'
 
 class NavigationUser extends Component {
     constructor(props) {
@@ -17,6 +17,10 @@ class NavigationUser extends Component {
         this.setState({ show: !show })
     }
 
+    handleLogout = () => {
+        localStorage.clear();
+        this.props.history.push("/signin");
+    };
 
 
     render() {
@@ -60,7 +64,7 @@ class NavigationUser extends Component {
                             </div>
                             <div class={style['dropdown-content']}>
                                 <Link to="/profile">Profile</Link>
-                                <Link to="/signin">Logout</Link>
+                                <Link to="#" onClick={this.props.handleLogout}>Logout</Link>
                             </div>
                         </div>
 

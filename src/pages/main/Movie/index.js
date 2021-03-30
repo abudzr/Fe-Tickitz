@@ -10,7 +10,8 @@ import Search from '../../../components/SearchMovie';
 class Movie extends Component {
     state = {
         data: [],
-        movieName: ''
+        movieName: '',
+        show: true
     }
 
     getPostAPI = () => {
@@ -35,29 +36,25 @@ class Movie extends Component {
     }
 
     handleChange = (e) => {
-        console.log(e.target);
         this.setState({
             movieName: e.target.name = e.target.value
         })
-    }
+        console.log(e.target.value);
 
-    getSearch = () => {
         const token = localStorage.getItem('token')
-        const url = `process.env.REACT_APP_API_MOVIEID/search/film?name=${this.setState.movieName}`;
+        const url = `${process.env.REACT_APP_API_MOVIEID}/search/film?name=${e.target.value}`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
             }
         })
             .then((res) => {
-                // console.log(res.data.data);
+                console.log(res.data.data);
                 this.setState({
                     data: res.data.data
                 })
             })
     }
-
-    // http://localhost:8000/movies/search/film?name=movieName
 
     componentDidMount() {
         this.getPostAPI();
