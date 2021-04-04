@@ -16,15 +16,13 @@ class NewPass extends Component {
   }
 
   getPostAPI = () => {
-    const url = 'http://localhost:8000/users/'
-    // console.log(this.props.match.params.idMovie);
-    // const url = process.env.REACT_APP_API_MOVIEID;
+    const url = `${process.env.REACT_APP_API_RESTAPI}users`
     axios.get(url)
       .then((res) => {
         console.log(res.data.data);
         this.setState({
-          reset: res.data.data[1].reset
-
+          reset: res.data.data[2].reset
+          // bug
         })
         console.log(res);
       })
@@ -54,10 +52,6 @@ class NewPass extends Component {
 
       }, (err) => {
         console.log(err);
-
-        // if (err) {
-        //   Swal.fire(" ERROR!!!", "newPassword Already Exists", "error");
-        // }
       })
 
   }

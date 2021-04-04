@@ -22,7 +22,9 @@ class Forgot extends Component {
     e.preventDefault();
 
     console.log(this.state.email);
-    axios.post('http://localhost:8000/users/forgot-password', {
+    const url = `${process.env.REACT_APP_API_RESTAPI}users/forgot-password`
+    console.log(url);
+    axios.post(url, {
       email: this.state.email
     })
       .then((res) => {
@@ -32,10 +34,9 @@ class Forgot extends Component {
         // this.props.history.push('/signin')
 
       }, (err) => {
-        console.log(err.data.message);
+        console.log(err);
 
         // if (err) {
-        //   Swal.fire(" ERROR!!!", "Email Already Exists", "error");
         // }
       })
 

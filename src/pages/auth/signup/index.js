@@ -9,7 +9,6 @@ import { withRouter } from 'react-router';
 class Signup extends Component {
   state = {
     formSignUp: {
-      idUsers: '',
       email: '',
       password: '',
       firstName: 'user',
@@ -18,7 +17,6 @@ class Signup extends Component {
     },
     isPasswordShow: false,
     agree: false
-
   }
 
   tooglePasswordVisibility = () => {
@@ -30,33 +28,9 @@ class Signup extends Component {
     const { agree } = this.state;
     this.setState({ agree: !agree });
   }
-  // postUser = () => {
-  //   axios.post('http://localhost:8000/users/register', this.state.formSignUp)
-  //     .then((res) => {
-  //       if (res.data.status) {
-  //         swal(" Register Success!", res.data.message, "success");
-  //         this.props.history.push('/signin')
-  //       } else {
-  //         swal({
-  //           title: "Something Wrong!",
-  //           icon: "warning"
-  //         });
-  //       }
-  //       console.log(res);
-  //     }, (err) => {
-  //       if (err) {
-  //         swal(" ERROR!!!", err.data, "error");
-  //       }
-  //     })
-  // }
 
   handleChange = (e) => {
-    // console.log('test handle :', e.target);
     const formSignUpNew = { ...this.state.formSignUp };
-    // const time = new Date().getTime();
-    // console.log(time);
-    // formSignUpNew['idUsers'] = time
-    // console.log(e.target.name);
     formSignUpNew[e.target.name] = e.target.value;
     this.setState({
       formSignUp: formSignUpNew
@@ -69,7 +43,8 @@ class Signup extends Component {
     e.preventDefault();
 
     if (this.state.agree) {
-      axios.post('http://localhost:8000/users/register', this.state.formSignUp)
+      const url = process.env.REACT_APP_API_RESTAPI
+      axios.post(`${url}users/register`, this.state.formSignUp)
         .then((res) => {
           Swal.fire(" Register Success!", res.data.message, "success");
           this.props.history.push('/signin')

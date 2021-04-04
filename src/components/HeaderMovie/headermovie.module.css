@@ -1,6 +1,6 @@
 .jumbotron {
     background: white !important;
-    height: 600px;
+    height: 700px;
     padding-top: 120px !important;
 }
 
@@ -92,7 +92,7 @@
 
     /* Jumbotron-mobile */
     .jumbotron {
-        height: 1160px;
+        height: 1390px;
     }
 
     .title-jumbotron {

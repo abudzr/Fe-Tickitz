@@ -333,6 +333,24 @@
     padding: 5px;
 }
 
+.btn-insert-picture {
+    height: 272px;
+    width: 177px;
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    text-align: center !important;
+    color: #0c0b0c;
+    border: 1px solid #4E4B66;
+    box-sizing: border-box;
+    padding: 5px;
+}
+
 .purple {
     background: #5F2EEA;
 }

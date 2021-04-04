@@ -14,11 +14,11 @@ const Schedule = (props) => {
     // };
 
     // changeTime = (e) => {
-    //     this.setState({ [e.target.name]: e.target.value })
+    //     setState({ [e.target.name]: e.target.value })
     // }
-    // handleBook = () => {
-    //     this.props.history.push('/order')
-    // };
+    const handleBook = () => {
+        props.history.push('/order')
+    };
 
 
     return (
@@ -28,44 +28,51 @@ const Schedule = (props) => {
                     <div class={style['card-schedule']}>
                         <div class={style['title-schedule']}>
                             <div class={style['title-img']}>
-                                <img class={style['card-img-schedule']} src={props.data.image} />
+                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule.png" />
                             </div>
                             <div class={style['sub-title-schedule']}>
-                                <p class={style.title}>{props.data.name}</p>
-                                <p class={style['sub-title']}>{props.data.adress}</p>
+                                <p class={style.title}>ebv.id</p>
+                                <p class={style['sub-title']}>Whatever street No.12, South Purwokerto</p>
                             </div>
                         </div>
                         <hr className={style['line-hr']}></hr>
                         <div class={style['detail-date']}>
-                            {props.data.showtime.map((show, index) => {
-                                return (
-                                    <label className="col" key={String(index)}>
-                                        <input
-                                            type="radio"
-                                            name="time"
-                                            value={show.id}
-                                            onChange=""
-                                        // {(event) => this.changeTime(event)}
-                                        />
-                                        <span>{show.name}</span>
-                                    </label>
-                                )
-                            })}
+                            <div class={style['sub-detail-date']}>
+                                <p class={style['title-date']} >08:30am</p>
+                                {/* style='color: #4E4B66;' */}
+                                <p class={style['title-date']} >04:30pm</p>
+                                {/* style='color: #6E7191;' */}
+                            </div>
+                            <div class={style['sub-detail-date']}>
+                                <p class={style['title-date']} >10:30pm</p>
+                                {/* style='color: #6E7191;' */}
+                                <p class={style['title-date']} >07:00pm</p>
+                                {/* style='color: #A0A3BD;' */}
+                            </div>
+                            <div class={style['sub-detail-date']}>
+                                <p class={style['title-date']} >12:00pm</p>
+                                {/* style='color: #A0A3BD;' */}
+                                <p class={style['title-date']}>08:30pm</p>
+                                {/* style='color: #6E7191;' */}
+                            </div>
+                            <div class={style['sub-detail-date']}>
+                                <p class={style['title-date']} >02:00pm</p>
+                                {/* style='color: #6E7191;' */}
+                            </div>
                         </div>
                         <div class={style['detail-price']}>
                             <div class={style['sub-detail-price']}>
                                 <p class={style['text-price']}>Price</p>
                             </div>
                             <div class={style['sub-detail-price']}>
-                                <p class={style['text-price1']}>${props.data.price}/seat</p>
+                                <p class={style['text-price1']}>$10.00/seat</p>
                             </div>
                         </div>
                         <div class={style['detail-booking']}>
-                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick="" />
+                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={handleBook} />
                             <p class={style['text-booking']}>Add to cart</p>
                         </div>
                     </div>
-
                     <div class={style['card-schedule-special']}>
                         <div class={style['title-schedule']}>
                             <div class={style['title-img']}>
@@ -111,7 +118,7 @@ const Schedule = (props) => {
                             </div>
                         </div>
                         <div class={style['detail-booking']}>
-                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={this.handleBook} />
+                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={handleBook} />
                             <p class={style['text-booking']}>Add to cart</p>
                         </div>
                     </div>
@@ -159,7 +166,7 @@ const Schedule = (props) => {
                             </div>
                         </div>
                         <div class={style["detail-booking"]}>
-                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={this.handleBook} />
+                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={handleBook} />
                             <p class={style["text-booking"]}>Add to cart</p>
                         </div>
                     </div>
@@ -207,7 +214,7 @@ const Schedule = (props) => {
                             </div>
                         </div>
                         <div class={style['detail-booking']}>
-                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={this.handleBook} />
+                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={handleBook} />
                             <p class={style['text-booking']}>Add to cart</p>
                         </div>
                     </div>
@@ -255,7 +262,7 @@ const Schedule = (props) => {
                             </div>
                         </div>
                         <div class={style['detail-booking']}>
-                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={this.handleBook} />
+                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={handleBook} />
                             <p class={style['text-booking']}>Add to cart</p>
                         </div>
                     </div>
@@ -296,7 +303,7 @@ const Schedule = (props) => {
                             </div>
                         </div>
                         <div class={style["detail-booking"]}>
-                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={this.handleBook} />
+                            <Button title="Book Now" btn="btn-schedule" color="purple" onClick={handleBook} />
                             <p class={style["text-booking"]}>Add to cart</p>
                         </div>
                     </div>

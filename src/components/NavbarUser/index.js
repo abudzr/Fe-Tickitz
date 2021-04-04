@@ -5,7 +5,7 @@ import style from './navbar.module.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import axios from 'axios'
-import jwtDecode from "jwt-decode";
+import jwt from "jwt-decode";
 
 class NavigationUser extends Component {
     constructor(props) {
@@ -29,7 +29,7 @@ class NavigationUser extends Component {
 
     getPostAPI = () => {
         const token = localStorage.getItem('token')
-        const decoded = jwtDecode(token);
+        const decoded = jwt(token);
         const url = `${process.env.REACT_APP_API_RESTAPI}users/${decoded.idUsers}`
         axios.get(url)
             .then((res) => {

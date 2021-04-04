@@ -29,7 +29,8 @@
 }
 
 .button-pagination {
-    display: flex;
+    display: none;
+    /* display: flex; */
 }
 
 @media only screen and (max-width: 600px) {

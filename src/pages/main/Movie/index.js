@@ -10,13 +10,17 @@ import Search from '../../../components/SearchMovie';
 class Movie extends Component {
     state = {
         data: [],
-        movieName: ''
+        movieName: '',
+        page: 1,
+        order: '',
+        sort: '',
+        search: ''
     }
 
     getPostAPI = () => {
         const token = localStorage.getItem('token')
         // ?page=1&limit=4
-        const url = `${process.env.REACT_APP_API_RESTAPI}movies?page=1&limit=4`;
+        const url = `${process.env.REACT_APP_API_RESTAPI}movies/allMovies`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token

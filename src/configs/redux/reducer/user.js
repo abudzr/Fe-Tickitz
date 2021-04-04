@@ -1,5 +1,3 @@
-import iconPerson from '../../../assets/img/iconPerson.png';
-
 const initialState = {
     user: {
         idUsers: null,
@@ -9,11 +7,11 @@ const initialState = {
         lastName: '',
         phone: '',
         image: '',
-        reset: ''
+        reset: '',
+        role: null
     },
     loading: false,
     error: '',
-    role: null
 }
 const userReducer = (state = initialState, action) => {
     switch (action.type) {

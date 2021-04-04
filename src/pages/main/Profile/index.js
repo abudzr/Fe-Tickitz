@@ -3,7 +3,6 @@ import axios from 'axios'
 import jwtDecode from "jwt-decode";
 import { NavigationUser, CardsProfile, Footers } from '../../../components'
 // import { Container } from 'react-bootstrap';
-// import style from './payment.module.css'
 import Swal from 'sweetalert2'
 
 
@@ -16,8 +15,8 @@ class Profile extends Component {
         lastName: '',
         phone: '',
         image: '',
-        selectedFile: null
-
+        selectedFile: null,
+        insert: ''
     }
 
 
@@ -79,13 +78,15 @@ class Profile extends Component {
     }
 
     handleChangePicture = (e) => {
+        // console.log(e.target.files[0]);
         this.setState({
+            input: e.target.files[0].name,
+            image: URL.createObjectURL(e.target.files[0]),
             selectedFile: e.target.files[0]
         })
-        // console.log(e.target.files[0]);
-
-
     }
+
+
     componentDidMount() {
         this.getPostAPI();
     }

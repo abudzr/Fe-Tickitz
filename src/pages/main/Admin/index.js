@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Navigation, Admin, Footers } from '../../../components'
+import { Navigation, Admin, Footers, NavigationUser } from '../../../components'
 import { Container } from 'react-bootstrap';
 import style from './home.module.css'
 import axios from 'axios'
@@ -12,9 +12,8 @@ class PageAdmin extends Component {
     }
 
     getPostAPI = () => {
-
         const token = localStorage.getItem('token')
-        const url = process.env.REACT_APP_API_MOVIE;
+        const url = process.env.REACT_APP_API_RESTAPI;
 
         axios.get(url, {
             headers: {
@@ -22,10 +21,10 @@ class PageAdmin extends Component {
             }
         })
             .then((res) => {
-                // console.log(res.data.data);
                 this.setState({
                     data: res.data.data
                 })
+                console.log(res);
             })
     }
 
@@ -48,11 +47,8 @@ class PageAdmin extends Component {
 
     handleUpdate = (data) => {
         this.props.history.push(`/pageadmin/${data}`)
-
-        // console.log(data);
     }
     componentDidMount() {
-
         this.getPostAPI();
     }
 
@@ -61,7 +57,7 @@ class PageAdmin extends Component {
     render() {
         return (
             <Fragment>
-                <Navigation />
+                <NavigationUser />
 
                 <Container className={style['up-coming']}>
                     <h1>Admin</h1>
@@ -69,7 +65,7 @@ class PageAdmin extends Component {
                     <div className="row mt-4 pb-4 pt-2" id={style.card} >
                         {this.state.data.map(data => {
                             return (
-                                <div className="col-7 col-lg-3" key={data.idMovie}>
+                                <div className="col-7 col-lg-3" key={data.id}>
                                     <Admin
                                         data={data}
                                         delete={this.handleDelete}
