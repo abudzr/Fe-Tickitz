@@ -11,20 +11,21 @@ const CardsProfile = (props) => {
     const [isPasswordShow, setisPasswordShow] = useState(false)
     const [isPasswordShow2, setisPasswordShow2] = useState(false)
 
-    // handleBack = () => {
-    //     this.props.history.push('/order')
-    // }
     const tooglePasswordVisibility = (e) => {
         e.preventDefault();
-        // const { isPasswordShow } = this.state;
         setisPasswordShow(!isPasswordShow);
     }
 
     const tooglePasswordVisibility2 = (e) => {
         e.preventDefault();
-        // const { isPasswordShow } = this.state;
         setisPasswordShow2(!isPasswordShow2);
     }
+
+    const hiddenFileInput = React.useRef(null);
+    const handleClick = (e) => {
+        hiddenFileInput.current.click();
+    }
+
     return (
         <Fragment>
             <div className={style['cards-profile']}>
@@ -39,9 +40,17 @@ const CardsProfile = (props) => {
                                     <div class={style.circle}></div>
                                 </div>
                                 <div className={style['big-circle']}>
-                                    <img class={style['img-user']} src="https://bookingtickitz.netlify.app/assets/img/user.png" />
+                                    <img class={style['img-user']} src={props.image} />
+                                    <Button title="Update" btn="btn-change-picture" color="white" onClick={handleClick} />
+                                    <input type="file"
+                                        ref={hiddenFileInput}
+                                        onChange={props.changePicture}
+                                        style={{ display: 'none' }}
+                                    />
                                 </div>
-                                <h2 className={style['name-profile']}>Jonas El Rodriguez</h2>
+
+
+                                <h2 className={style['name-profile']}>{props.name}</h2>
                                 <p className={style.job}>Moviegoers</p>
                                 <hr />
 

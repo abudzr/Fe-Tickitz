@@ -15,14 +15,14 @@ class Movie extends Component {
 
     getPostAPI = () => {
         const token = localStorage.getItem('token')
-        const url = process.env.REACT_APP_API_MOVIE;
+        // ?page=1&limit=4
+        const url = `${process.env.REACT_APP_API_RESTAPI}movies?page=1&limit=4`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
             }
         })
             .then((res) => {
-                // console.log(res.data.data);
                 this.setState({
                     data: res.data.data
                 })
@@ -41,7 +41,7 @@ class Movie extends Component {
         console.log(e.target.value);
 
         const token = localStorage.getItem('token')
-        const url = `${process.env.REACT_APP_API_MOVIEID}/search/film?name=${e.target.value}`;
+        const url = `${process.env.REACT_APP_API_RESTAPI}movies?search=${e.target.value}`;
         axios.get(url, {
             headers: {
                 Authorization: 'Bearer ' + token
@@ -54,6 +54,40 @@ class Movie extends Component {
                 })
             })
     }
+
+    // handlePrevious = () => {
+    //     // console.log(e)
+    //     const previosPage = page: cond.page - 1
+    //     const token = localStorage.getItem('token')
+    //     const url = `${process.env.REACT_APP_API_RESTAPI}movies?page=1${previosPage}&limit=4`;
+    //     axios.get(url, {
+    //         headers: {
+    //             Authorization: 'Bearer ' + token
+    //         }
+    //     })
+    //         .then((res) => {
+    //             this.setState({
+    //                 data: res.data.data
+    //             })
+    //         })
+    // }
+
+    // handleNext = () => {
+    //     // console.log(e)
+    //     const next = page: page + 1
+    //     const token = localStorage.getItem('token')
+    //     const url = `${process.env.REACT_APP_API_RESTAPI}movies?page=1${next}&limit=4`;
+    //     axios.get(url, {
+    //         headers: {
+    //             Authorization: 'Bearer ' + token
+    //         }
+    //     })
+    //         .then((res) => {
+    //             this.setState({
+    //                 data: res.data.data
+    //             })
+    //         })
+    // }
 
     componentDidMount() {
         this.getPostAPI();
@@ -79,8 +113,14 @@ class Movie extends Component {
                         />
                         <i className="fa fa-search search-icon" />
                     </label>
+                </div>
+                <div className={style['button-pagination']}>
+                    <Button title="Previous" type="submit" btn="btn-previous" color="white" onClick={this.handlePrevious} />
+                    <Button title="Next" type="submit" btn="btn-next" color="white" onClick="" />
+
 
                 </div>
+
                 <Container className={style['up-coming']}>
 
                     <div className="row mt-4 pb-4 pt-2" id={style.card} >

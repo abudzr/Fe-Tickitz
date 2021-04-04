@@ -58,7 +58,7 @@
     margin-right: auto;
     height: 120px;
     width: 120px;
-    /* background: #c0b7da; */
+    border-radius: 50%;
 }
 
 .name-profile {

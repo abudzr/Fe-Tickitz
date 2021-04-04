@@ -1,18 +1,31 @@
 import React, { Component, Fragment } from 'react'
 import style from './card.module.css'
 import { Card } from 'react-bootstrap';
+import Button from '../Button'
+import { withRouter } from "react-router-dom";
 
-class CardsNowShow extends Component {
-    render() {
-        return (
-            <Fragment>
+const CardsNowShow = (props) => {
+    return (
+        <Fragment>
+            <div>
                 <Card className={style['card-now-showing']} >
-                    <Card.Img className={style['card-img']} src={this.props.img} alt="imgNowshowing" />
+                    <Card.Img className={style['card-img']} src={props.data.image} />
+                    <Card.Body>
+                        <div className={style['title-movies']}>
+                            <h1>{props.data.movieName}</h1>
+                            <p>{props.data.genre}</p>
+                        </div>
+                        <div className={style['button-movies']}>
+
+                            <Button title="Detail" type="submit" btn="btn-card" color="white" onClick={() => props.detail(props.data.id)} />
+                        </div>
+                    </Card.Body>
                 </Card>
-            </Fragment>
-        )
-    }
+            </div>
+
+        </Fragment >
+    )
 }
 
 
-export default CardsNowShow
+export default withRouter(CardsNowShow);

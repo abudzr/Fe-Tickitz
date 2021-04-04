@@ -1,0 +1,43 @@
+.now-showing {
+    height: 450px;
+    margin-top: 100px;
+}
+
+.up-coming {
+    height: 600px;
+    margin-top: 100px;
+}
+
+.title-NowShowing {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #5F2EEA;
+}
+
+.title-up-coming {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 30px;
+    color: #14142B;
+}
+
+.sub-title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: right;
+    letter-spacing: 0.15px;
+    color: #5F2EEA;
+}
+
+#scrolling-nowShowing {
+    overflow-x: auto;
+
+}

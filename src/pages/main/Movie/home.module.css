@@ -28,6 +28,10 @@
     right: 18px;
 }
 
+.button-pagination {
+    display: flex;
+}
+
 @media only screen and (max-width: 600px) {
     .search-label {
         margin-left: 50px;

@@ -1,3 +1,5 @@
+import iconPerson from '../../../assets/img/iconPerson.png';
+
 const initialState = {
     user: {
         idUsers: null,
@@ -6,10 +8,12 @@ const initialState = {
         firstName: '',
         lastName: '',
         phone: '',
+        image: '',
         reset: ''
     },
     loading: false,
-    error: ''
+    error: '',
+    role: null
 }
 const userReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -33,22 +37,31 @@ const userReducer = (state = initialState, action) => {
                 loading: false,
                 error: action.payload
             }
+        case "GET_USER":
+            return {
+                ...state,
+                user: {
+                    ...state.user,
+                    ...action.payload
+                },
+                role: action.role,
+            }
         case "RESET_REQUEST":
             return {
                 ...state,
                 loading: true,
-            };
+            }
         case "RESET_SUCCESS":
             return {
                 ...state,
                 loading: false,
-            };
+            }
         case "RESET_FAILURE":
             return {
                 ...state,
                 loading: false,
                 error: action.payload,
-            };
+            }
         default:
             return state
     }

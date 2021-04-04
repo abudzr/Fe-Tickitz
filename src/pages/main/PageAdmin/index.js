@@ -21,10 +21,15 @@ class Payment extends Component {
     }
 
     getPostAPI = () => {
+        const token = localStorage.getItem('token')
         const url = 'http://localhost:8000/movies/'
         // console.log(this.props.match.params.idMovie);
         // const url = process.env.REACT_APP_API_MOVIEID;
-        axios.get(`${url}${this.props.match.params.idMovie}`)
+        axios.get(`${url}${this.props.match.params.idMovie}`, {
+            headers: {
+                Authorization: 'Bearer ' + token
+            }
+        })
             .then((res) => {
                 // console.log(res.data.data);
                 this.setState({

@@ -7,6 +7,8 @@ import { Container, Dropdown } from 'react-bootstrap';
 
 
 class CardEmail extends Component {
+
+
     render() {
         return (
             <Fragment>
@@ -17,7 +19,7 @@ class CardEmail extends Component {
                             <input className={style["dropdown-showTimes"]} type="date" value="2020-07-20" />
 
                         </div>
-                        <div  >
+                        <div>
                             <Dropdown className={style['dropdown-location']} >
                                 <i class="fab fas fa-map-marker-alt" id={style.marker} ></i>
                                 <Dropdown.Toggle className={style['button-location']} id="dropdown-basic">

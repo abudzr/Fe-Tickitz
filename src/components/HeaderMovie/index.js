@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import style from './headermovie.module.css'
 import { Jumbotron, Container, Card } from 'react-bootstrap';
 // import axios from 'axios'
-import moment from 'moment'
 import Moment from 'react-moment';
 
 const HeaderMovie = (props) => {
@@ -28,7 +27,10 @@ const HeaderMovie = (props) => {
                         <div class={style["detail-jumbotron"]}>
                             <div class={style["sub-detail-jumbotron"]}>
                                 <p class={style["sub-title-title"]}>Release date</p>
-                                <Moment format='MMMM Do YYYY' class={style["sub-title-sub-title"]}><p>{props.data.releaseDate}</p></Moment>
+                                <Moment format="MMMM D, YYYY"
+                                    class={style["sub-title-sub-title"]}>
+                                    <p>{props.data.releaseDate}</p>
+                                </Moment>
 
                                 <p class={style["sub-title-title"]}>Duration</p>
                                 <p class={style["sub-title-sub-title"]}>{props.data.duration}</p>

@@ -5,15 +5,15 @@ import style from './navbar.module.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
 import axios from 'axios'
+import jwtDecode from "jwt-decode";
 
 class NavigationUser extends Component {
     constructor(props) {
         super(props)
         this.state = {
             show: true,
+            image: ''
         };
-
-
         this.toogleSearch = this.toogleSearch.bind(this)
     }
 
@@ -23,12 +23,24 @@ class NavigationUser extends Component {
     }
 
     handleLogout = () => {
-        // console.log(props);
         localStorage.clear();
         this.props.history.push("/signin");
     };
 
-
+    getPostAPI = () => {
+        const token = localStorage.getItem('token')
+        const decoded = jwtDecode(token);
+        const url = `${process.env.REACT_APP_API_RESTAPI}users/${decoded.idUsers}`
+        axios.get(url)
+            .then((res) => {
+                this.setState({
+                    image: res.data.data[0].image
+                })
+            })
+    }
+    componentDidMount() {
+        this.getPostAPI();
+    }
 
     render() {
         return (
@@ -48,7 +60,7 @@ class NavigationUser extends Component {
                         <Nav className="mr-auto">
                             <Nav.Link href="/" id={style['nav-link']}>Movies</Nav.Link>
                             <NavDropdown.Divider />
-                            <Nav.Link href="/movie" id={style['nav-link']}>Cinemas</Nav.Link>
+                            <Nav.Link href="#" id={style['nav-link']}>Cinemas</Nav.Link>
                             <NavDropdown.Divider />
                             <Nav.Link href="/order" id={style['nav-link']}>Buy Ticket</Nav.Link>
                             <NavDropdown.Divider />
@@ -58,6 +70,7 @@ class NavigationUser extends Component {
                                 <NavDropdown.Item href="#action/3.1">Jakarta</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.2">Bandung</NavDropdown.Item>
                                 <NavDropdown.Item href="#action/3.3">Karawang</NavDropdown.Item>
+                                <NavDropdown.Item href="#action/3.4">Purwokerto</NavDropdown.Item>
                             </NavDropdown>
                         </Nav>
                         <NavDropdown.Divider />
@@ -67,7 +80,7 @@ class NavigationUser extends Component {
 
                         <div class={style.dropdown}>
                             <div className={style['big-circle']}>
-                                <img class={style['img-user']} src="https://bookingtickitz.netlify.app/assets/img/user.png" />
+                                <img class={style['img-user']} src={this.state.image} />
                             </div>
                             <div class={style['dropdown-content']}>
                                 <Link to="/profile">Profile</Link>

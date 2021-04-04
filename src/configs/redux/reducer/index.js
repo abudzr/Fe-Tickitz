@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux'
-// import filmReducer from './film'
-// import historyReducer from './history'
+// import cinemaReducer from './cinema'
+// import movieReducer from './movie'
+// import orderReducer from './order'
 import userReducer from './user'
-// import postReducer from './post'
 
 const rootReducer = combineReducers({
     user: userReducer
-    //   film: filmReducer,
-    //   history: historyReducer,
-    //   post: postReducer
+    // cinema: cinemaReducer,
+    // movie: movieReducer,
+    // order: orderReducer
 })
 
 export default rootReducer

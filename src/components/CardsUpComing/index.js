@@ -7,8 +7,6 @@ import Button from '../Button'
 
 const CardsUpComing = (props) => {
 
-
-
     return (
         <Fragment>
 
@@ -19,7 +17,7 @@ const CardsUpComing = (props) => {
                         <Card.Title className={style['card-title']}>{props.data.movieName}</Card.Title>
                         <Card.Text className={style['card-text']}>{props.data.genre}
                         </Card.Text>
-                        <Button title="Detail" type="submit" btn="btn-card" color="white" onClick={() => props.detail(props.data.idMovie)} />
+                        <Button title="Detail" type="submit" btn="btn-card" color="white" onClick={() => props.detail(props.data.id)} />
                     </Card.Body>
                 </Card>
             </div>

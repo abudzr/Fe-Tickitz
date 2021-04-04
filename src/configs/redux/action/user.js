@@ -9,17 +9,7 @@ const loginSuccess = (dataUser) => {
 const loginFailure = (error) => {
     return { type: 'LOGIN_FAILURE', payload: error }
 }
-const resetRequest = () => {
-    return { type: "RESET_REQUEST" };
-};
 
-const resetSuccess = () => {
-    return { type: "RESET_SUCCESS" };
-};
-
-const resetFailure = (error) => {
-    return { type: "RESET_FAILURE", payload: error };
-};
 
 
 
@@ -27,7 +17,8 @@ const resetFailure = (error) => {
 export const login = (data) => (dispatch) => {
     return new Promise((resolve, reject) => {
         dispatch(loginRequest())
-        axios.post('http://localhost:8000/users/login', data)
+        const Url = process.env.REACT_APP_API_RESTAPI;
+        axios.post(`${Url}users/login`, data)
             .then((res) => {
                 const dataUser = res.data.data
                 // dispatch({ type: 'LOGIN', payload: dataUser })
@@ -45,9 +36,9 @@ export const login = (data) => (dispatch) => {
 
 export const reset = (reset, { password }) => (dispatch) => {
     return new Promise((resolve, reject) => {
-        const Url = process.env.REACT_APP_API_URL;
+        const Url = process.env.REACT_APP_API_RESTAPI;
         axios
-            .put(`${Url}/users/password-reset?reset=${reset}`, {
+            .put(`${Url}users/password-reset?reset=${reset}`, {
                 password,
             })
             .then((res) => {

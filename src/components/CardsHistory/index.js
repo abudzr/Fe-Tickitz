@@ -23,9 +23,9 @@ const CardsHistory = (props) => {
                                     <div class={style.circle}></div>
                                 </div>
                                 <div className={style['big-circle']}>
-                                    <img class={style['img-user']} src="https://bookingtickitz.netlify.app/assets/img/user.png" />
+                                    <img class={style['img-user']} src={props.image} />
                                 </div>
-                                <h2 className={style['name-profile']}>Jonas El Rodriguez</h2>
+                                <h2 className={style['name-profile']}>{props.name}</h2>
                                 <p className={style.job}>Moviegoers</p>
                                 <hr />
 

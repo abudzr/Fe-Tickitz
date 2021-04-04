@@ -13,11 +13,11 @@ class Movie extends Component {
 
     getPostAPI = () => {
         const token = localStorage.getItem('token')
-        // const url = process.env.REACT_APP_API_MOVIEID;
-        const url = 'http://localhost:8000/movies/'
+        const url = process.env.REACT_APP_API_RESTAPI;
+        // const url = 'http://localhost:8000/movies/'
         // console.log(url);
         // console.log(this.props.match.params.idMovie);
-        axios.get(`${url}${this.props.match.params.idMovie}`, {
+        axios.get(`${url}movies/${this.props.match.params.idMovie}`, {
             headers: {
                 Authorization: 'Bearer ' + token
             }
@@ -48,7 +48,6 @@ class Movie extends Component {
                     )
                 })
                 }
-
 
                 <Showtimes />
                 <Schedule />
