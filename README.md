@@ -35,5 +35,5 @@ Tickitz merupakan aplikasi pemesanan tiket berbasis website. Memiliki fitur untu
 
 ## Link
 
-- [Frontend](https://github.com/abudzr/Week5-ReactTickitz)
+- [Backend](https://github.com/abudzr/Week4-RestFulAPI)
 - [Visit Project](https://bookingtickitz.herokuapp.com/)
