@@ -44,22 +44,7 @@ const userReducer = (state = initialState, action) => {
                 },
                 role: action.role,
             }
-        case "RESET_REQUEST":
-            return {
-                ...state,
-                loading: true,
-            }
-        case "RESET_SUCCESS":
-            return {
-                ...state,
-                loading: false,
-            }
-        case "RESET_FAILURE":
-            return {
-                ...state,
-                loading: false,
-                error: action.payload,
-            }
+
         default:
             return state
     }

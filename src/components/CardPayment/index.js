@@ -11,6 +11,9 @@ class CardsPayment extends Component {
     handleBack = () => {
         this.props.history.push('/order')
     }
+    handleNext = () => {
+        this.props.history.push('/tickets')
+    }
     render() {
         return (
             <Fragment>
@@ -101,7 +104,7 @@ class CardsPayment extends Component {
                                 </Card>
                             </div>
                             <Button title="Previous Step" btn="btn-change-order" color="white" onClick={this.handleBack} />
-                            <Button title="Pay Your Order" btn="btn-checkout" color="purple" onClick={this.handleLogin} />
+                            <Button title="Pay Your Order" btn="btn-checkout" color="purple" onClick={this.handleNext} />
                         </div>
                     </div>
                 </div>

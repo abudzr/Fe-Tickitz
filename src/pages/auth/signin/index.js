@@ -67,13 +67,16 @@ function Signin(props) {
 
           <div className={style['form-group']}>
             <label>Password</label>
-            <input className={style['form-control']} name="password" value={password} type={(isPasswordShow) ? "text" : "password"} placeholder="Write your password" onChange={(e) => setPassword(e.target.value)} />
-            <i className={`fa ${isPasswordShow ? "fa-eye-slash" : "fa-eye"}  password-icon`} onClick={tooglePasswordVisibility} />
+            <input className={style['form-control']}
+              name="password" value={password}
+              type={(isPasswordShow) ? "text" : "password"} placeholder="Write your password"
+              onChange={(e) => setPassword(e.target.value)} />
+            <i className={`fa ${isPasswordShow ? "fa-eye-slash" : "fa-eye"}  password-icon`}
+              onClick={tooglePasswordVisibility} />
           </div>
 
           <button type="submit" className={style['btn-submit']} onClick={handleLogin}>Sign In</button>
         </form>
-        {/* <img src={Loader} className={`search-loading ${loading ? 'show' : 'hide'}`} alt="loader" /> */}
 
         <p className={style['text-forgot']}>Forgot your password? <Link to="/forgot-password">Reset now</Link></p>
         <div className={style.or}>
