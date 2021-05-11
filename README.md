@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=400px height=200px src="https://bookingtickitz.netlify.app/assets/img/logo.png" alt="logo"></a>
+ <img width=400px height=200px src="https://user-images.githubusercontent.com/68935056/117759079-5ef0d700-b24d-11eb-93ed-bad6dc95a10e.png" alt="logo"></a>
 </p>
 
 <h3 align="center">Frontend Booking Tickitz - Arkademy</h3>
@@ -36,4 +36,4 @@ Tickitz merupakan aplikasi pemesanan tiket berbasis website. Memiliki fitur untu
 ## Link
 
 - [Backend](https://github.com/abudzr/Week4-RestFulAPI)
-- [Visit Project](https://bookingtickitz.herokuapp.com/)
+- [Visit Project](https://tickitzaps.netlify.app/)
