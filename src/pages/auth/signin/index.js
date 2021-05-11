@@ -1,14 +1,9 @@
 // import React, { Component } from 'react'
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { useHistory, Link } from 'react-router-dom'
 import { login } from '../../../configs/redux/action/user'
-import Loader from '../../../assets/img/loader.gif';
 import Swal from 'sweetalert2'
-
-// css global
-// import './signin.css'
-// css module/scop
 import style from './signin.module.css'
 
 
@@ -16,7 +11,7 @@ import style from './signin.module.css'
 function Signin(props) {
   const dispatch = useDispatch()
   const history = useHistory()
-  const { loading } = useSelector(state => state.user)
+  // const { loading } = useSelector(state => state.user)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [isPasswordShow, setisPasswordShow] = useState(false)
@@ -34,7 +29,7 @@ function Signin(props) {
     }
     dispatch(login(data))
       .then((res) => {
-        if (res.role == 1) {
+        if (res.role === 1) {
           history.push('/admin')
         } else {
           history.push('/')
@@ -52,12 +47,12 @@ function Signin(props) {
   return (
     <div className={style.main}>
       <div className={style['main-left']}>
-        <img src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" className={style['img-title-left']} alt="" />
+        <img src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" className={style['img-title-left']} alt="bg-dekstop" />
         <h1 className={style['text-title-left']}>wait, watch, wow!</h1>
       </div>
 
       <div className={style['main-right']}>
-        <img src="https://bookingtickitz.netlify.app/assets/img/Tickitz1.png" className={style['img-title-mobile']} alt="" />
+        <img src="https://bookingtickitz.netlify.app/assets/img/Tickitz1.png" className={style['img-title-mobile']} alt="logo" />
         <h2 className={style['text-title-right']}>Sign In</h2>
         <p className={style['text-subtitle']}>Sign in with your data that you entered during
               your registration</p>
@@ -86,11 +81,11 @@ function Signin(props) {
         </div>
         <div className={style.btn}>
           <div className={style['btn-google']}>
-            <img src="https://bookingtickitz.netlify.app/assets/img/google2.png" />
+            <img src="https://bookingtickitz.netlify.app/assets/img/google2.png" alt="btn-google" />
             <p className={style['text-btn']}>Google</p>
           </div>
           <div className={style['btn-fb']}>
-            <img src="https://bookingtickitz.netlify.app/assets/img/fb.png" />
+            <img src="https://bookingtickitz.netlify.app/assets/img/fb.png" alt="btn-fb" />
             <p className={style['text-btn']}>Facebook</p>
           </div>
         </div>
@@ -101,4 +96,3 @@ function Signin(props) {
 
 
 export default Signin
-// export default Signin

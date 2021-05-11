@@ -1,6 +1,6 @@
-import React, { Component, Fragment, useState } from 'react'
+import React, { Fragment } from 'react'
 import style from './card.module.css'
-import { Card, Nav, Form, Dropdown } from 'react-bootstrap';
+import { Card, Nav } from 'react-bootstrap';
 import Button from '../Button'
 import { withRouter } from "react-router-dom";
 import star from "../../assets/img/Vector.png";
@@ -23,7 +23,7 @@ const CardsHistory = (props) => {
                                     <div class={style.circle}></div>
                                 </div>
                                 <div className={style['big-circle']}>
-                                    <img class={style['img-user']} src={props.image} />
+                                    <img class={style['img-user']} src={props.image} alt="profile-iamge" />
                                 </div>
                                 <h2 className={style['name-profile']}>{props.name}</h2>
                                 <p className={style.job}>Moviegoers</p>
@@ -37,7 +37,7 @@ const CardsHistory = (props) => {
                                 <div class={style['circle-loyalty']}></div>
                                 <div class={style['circle-loyalty2']}></div>
                                 <div className={style.star}>
-                                    <img src={star} />
+                                    <img src={star} alt="star" />
                                 </div>
 
                                 <p className={style['loyalty-subtitle']}>180 points become a master</p>
@@ -68,7 +68,7 @@ const CardsHistory = (props) => {
                                                     <p className={style['title-history']}>Tuesday, 07 July 2020 - 04:30pm</p>
                                                     <p className={style['content-history']}>Spider-Man: Homecoming</p>
                                                 </div>
-                                                <img src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" className={style['img-history']} />
+                                                <img src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" className={style['img-history']} alt="sponsor" />
 
                                             </div>
                                             <hr />
@@ -88,7 +88,7 @@ const CardsHistory = (props) => {
                                                     <p className={style['title-history']}>Tuesday, 07 July 2020 - 04:30pm</p>
                                                     <p className={style['content-history']}>Spider-Man: Homecoming</p>
                                                 </div>
-                                                <img src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" className={style['img-history']} />
+                                                <img src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" className={style['img-history']} alt="sponsor" />
 
                                             </div>
                                             <hr />

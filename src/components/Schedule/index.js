@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import style from './schedule.module.css'
 import { withRouter } from "react-router-dom";
 import { Jumbotron, Container } from 'react-bootstrap';
 import Button from '../Button'
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 // import { order } from '../../configs/redux/action/order'
 
-const { REACT_APP_API_RESTAPI: URL } = process.env
+// const { REACT_APP_API_RESTAPI: URL } = process.env
 
 const Schedule = (props) => {
     // state = {
@@ -28,7 +28,7 @@ const Schedule = (props) => {
                     <div class={style['card-schedule']}>
                         <div class={style['title-schedule']}>
                             <div class={style['title-img']}>
-                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule.png" />
+                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule.png" alt="schedule" />
                             </div>
                             <div class={style['sub-title-schedule']}>
                                 <p class={style.title}>ebv.id</p>
@@ -76,7 +76,7 @@ const Schedule = (props) => {
                     <div class={style['card-schedule-special']}>
                         <div class={style['title-schedule']}>
                             <div class={style['title-img']}>
-                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule1.png" />
+                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule1.png" alt="schedule" />
                             </div>
                             <div class={style['sub-title-schedule']}>
                                 <p class={style.title}>CineOne21</p>
@@ -125,7 +125,7 @@ const Schedule = (props) => {
                     <div class={style['card-schedule-1']}>
                         <div class={style["title-schedule"]}>
                             <div class={style["title-img"]}>
-                                <img class={style["card-img-schedule"]} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule2.png" />
+                                <img class={style["card-img-schedule"]} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule2.png" alt="schedule" />
                             </div>
                             <div class={style["sub-title-schedule"]}>
                                 <p class={style.title}>hiflix Cinema</p>
@@ -173,7 +173,7 @@ const Schedule = (props) => {
                     <div class={style['card-schedule']}>
                         <div class={style['title-schedule']}>
                             <div class={style['title-img']}>
-                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule.png" />
+                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule.png" alt="schedule" />
                             </div>
                             <div class={style['sub-title-schedule']}>
                                 <p class={style.title}>ebv.id</p>
@@ -221,7 +221,7 @@ const Schedule = (props) => {
                     <div class={style['card-schedule-2']}>
                         <div class={style['title-schedule']}>
                             <div class={style['title-img']}>
-                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule1.png" />
+                                <img class={style['card-img-schedule']} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule1.png" alt="schedule" />
                             </div>
                             <div class={style['sub-title-schedule']}>
                                 <p class={style.title}>CineOne21</p>
@@ -269,7 +269,7 @@ const Schedule = (props) => {
                     <div class={style['card-schedule-1']}>
                         <div class={style["title-schedule"]}>
                             <div class={style["title-img"]}>
-                                <img class={style["card-img-schedule"]} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule2.png" />
+                                <img class={style["card-img-schedule"]} src="https://bookingtickitz.netlify.app/assets/img/cardSchedule2.png" alt="schedule" />
                             </div>
                             <div class={style["sub-title-schedule"]}>
                                 <p class={style.title}>hiflix Cinema</p>
@@ -310,7 +310,7 @@ const Schedule = (props) => {
                 </div>
                 <div class={style['line-schedule']}>
                     <hr></hr>
-                    <a className={style['text-schedule']} href="#">View More</a>
+                    <a className={style['text-schedule']} href="/" >View More</a>
                     <hr></hr>
                 </div>
             </Container>

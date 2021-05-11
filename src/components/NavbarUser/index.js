@@ -3,7 +3,6 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom'
 import style from './navbar.module.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-import Swal from 'sweetalert2'
 import axios from 'axios'
 import jwt from "jwt-decode";
 
@@ -47,10 +46,10 @@ class NavigationUser extends Component {
             <Container>
                 <Navbar collapseOnSelect expand="lg" className={style.nav} fixed="top" >
                     <Navbar.Brand className={style.logo} href="/">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/logo.png" />
+                        <img src="https://bookingtickitz.netlify.app/assets/img/logo.png" alt="logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/Group.png" />
+                        <img src="https://bookingtickitz.netlify.app/assets/img/Group.png" alt="toogle" />
                     </Navbar.Toggle>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <form className={style['form-inline']}>
@@ -80,7 +79,7 @@ class NavigationUser extends Component {
 
                         <div class={style.dropdown}>
                             <div className={style['big-circle']}>
-                                <img class={style['img-user']} src={this.state.image} />
+                                <img class={style['img-user']} src={this.state.image} alt="profile-user" />
                             </div>
                             <div class={style['dropdown-content']}>
                                 <Link to="/profile">Profile</Link>

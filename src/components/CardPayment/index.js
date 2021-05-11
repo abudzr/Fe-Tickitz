@@ -52,28 +52,28 @@ class CardsPayment extends Component {
                                 <Card className={style['card-choose-info1']}>
                                     <Card.Body className={style['logo-payment-card']}>
                                         <Card.Text className={style['card-payment']}>
-                                            <img class={style['card-img-logo-google']} src="https://bookingtickitz.netlify.app/assets/img/google_pay.png" />
+                                            <img class={style['card-img-logo-google']} src="https://bookingtickitz.netlify.app/assets/img/google_pay.png" alt="payment-method" />
                                         </Card.Text>
                                         <Card.Text className={style['card-payment']}>
-                                            <img class={style['card-img-logo-visa']} src="https://bookingtickitz.netlify.app/assets/img/logo_visa.png" />
+                                            <img class={style['card-img-logo-visa']} src="https://bookingtickitz.netlify.app/assets/img/logo_visa.png" alt="payment-method" />
                                         </Card.Text>
                                         <Card.Text className={style['card-payment']}>
-                                            <img class={style['card-img-logo-gopay']} src="https://bookingtickitz.netlify.app/assets/img/GoPay.png" />
+                                            <img class={style['card-img-logo-gopay']} src="https://bookingtickitz.netlify.app/assets/img/GoPay.png" alt="payment-method" />
                                         </Card.Text>
                                         <Card.Text className={style['card-payment']}>
-                                            <img class={style['card-img-logo-paypal']} src="https://bookingtickitz.netlify.app/assets/img/logos_paypal.png" />
+                                            <img class={style['card-img-logo-paypal']} src="https://bookingtickitz.netlify.app/assets/img/logos_paypal.png" alt="payment-method" />
                                         </Card.Text>
                                         <Card.Text className={style['card-payment']}>
-                                            <img class={style['card-img-logo-dana']} src="https://bookingtickitz.netlify.app/assets/img/LogoDANA.png" />
+                                            <img class={style['card-img-logo-dana']} src="https://bookingtickitz.netlify.app/assets/img/LogoDANA.png" alt="payment-method" />
                                         </Card.Text>
                                         <Card.Text className={style['card-payment1']}>
-                                            <img class={style['card-img-logo']} src="https://bookingtickitz.netlify.app/assets/img/Bank_BCA.png" />
+                                            <img class={style['card-img-logo']} src="https://bookingtickitz.netlify.app/assets/img/Bank_BCA.png" alt="payment-method" />
                                         </Card.Text>
                                         <Card.Text className={style['card-payment1']}>
-                                            <img class={style['card-img-logo']} src="https://bookingtickitz.netlify.app/assets/img/Bank_BRI.png" />
+                                            <img class={style['card-img-logo']} src="https://bookingtickitz.netlify.app/assets/img/Bank_BRI.png" alt="payment-method" />
                                         </Card.Text>
                                         <Card.Text className={style['card-payment']}>
-                                            <img class={style['card-img-logo-ovo']} src="https://bookingtickitz.netlify.app/assets/img/ovo.png" />
+                                            <img class={style['card-img-logo-ovo']} src="https://bookingtickitz.netlify.app/assets/img/ovo.png" alt="payment-method" />
                                         </Card.Text>
                                     </Card.Body>
                                     <div class={style.or}>

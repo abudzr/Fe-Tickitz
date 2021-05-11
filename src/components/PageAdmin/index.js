@@ -1,14 +1,10 @@
-import React, { Component, Fragment, useState, useRef } from 'react'
+import React, { Fragment, useState, } from 'react'
 import style from './card.module.css'
-import { Card, Dropdown, Container, Form } from 'react-bootstrap';
+import { Card, Container, Form } from 'react-bootstrap';
 import Button from '../Button'
-import { withRouter } from "react-router-dom";
-import moment from 'moment'
-import Moment from 'react-moment';
+
 import Swal from "sweetalert2";
-import axiosApiInstance from '../../helper/axios';
-import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
 import { createMovie } from '../../configs/redux/action/movie'
 // const changeTimeMovie = (time) => {
 //     return Moment(time).format("YYYY-MM-DD");

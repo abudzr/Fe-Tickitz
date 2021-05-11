@@ -23,10 +23,10 @@ class Navigation extends Component {
             <Container>
                 <Navbar collapseOnSelect expand="lg" className={style.nav} fixed="top" >
                     <Navbar.Brand href="/">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/logo.png" />
+                        <img src="https://bookingtickitz.netlify.app/assets/img/logo.png" alt="logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/Group.png" />
+                        <img src="https://bookingtickitz.netlify.app/assets/img/Group.png" alt="toogle" />
                     </Navbar.Toggle>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <form className={style['form-inline']}>

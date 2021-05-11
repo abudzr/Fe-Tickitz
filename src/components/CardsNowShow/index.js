@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import style from './card.module.css'
 import { Card } from 'react-bootstrap';
 import Button from '../Button'

@@ -1,6 +1,6 @@
-import React, { Component, Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import style from './card.module.css'
-import { Card, Nav, Form, Dropdown } from 'react-bootstrap';
+import { Card, Nav, Form } from 'react-bootstrap';
 import Button from '../Button'
 import { withRouter } from "react-router-dom";
 import star from "../../assets/img/Vector.png";
@@ -40,7 +40,7 @@ const CardsProfile = (props) => {
                                     <div class={style.circle}></div>
                                 </div>
                                 <div className={style['big-circle']}>
-                                    <img class={style['img-user']} src={props.image} />
+                                    <img class={style['img-user']} src={props.image} alt="user" />
                                     <Button title="Update" btn="btn-change-picture" color="white" onClick={handleClick} />
                                     <input type="file"
                                         ref={hiddenFileInput}
@@ -62,7 +62,7 @@ const CardsProfile = (props) => {
                                 <div class={style['circle-loyalty']}></div>
                                 <div class={style['circle-loyalty2']}></div>
                                 <div className={style.star}>
-                                    <img src={star} />
+                                    <img src={star} alt="star" />
                                 </div>
 
                                 <p className={style['loyalty-subtitle']}>180 points become a master</p>

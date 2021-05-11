@@ -4,7 +4,6 @@ import { Container } from 'react-bootstrap';
 import style from './home.module.css'
 import axios from 'axios'
 import Button from '../../../components/Button'
-import Search from '../../../components/SearchMovie';
 
 
 class Movie extends Component {

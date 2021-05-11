@@ -45,8 +45,8 @@ class Forgot extends Component {
 
 
   render() {
-    const { isPasswordShow } = this.state
-    const { agree } = this.state
+    // const { isPasswordShow } = this.state
+    // const { agree } = this.state
 
     return (
       <div className={style.main}>

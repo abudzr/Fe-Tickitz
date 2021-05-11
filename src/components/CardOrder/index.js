@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 // import { Link } from 'react-router-dom'
 import { withRouter } from "react-router-dom";
 import style from './card.module.css'
@@ -19,15 +19,15 @@ const CardsOrder = (props) => {
                         <div class="col-7 col-lg-8">
                             <p class={style['text-title-order']}>Choose Your Seat</p>
                             <div class={style['card-choose-seat']}>
-                                <img class={style['card-img-seat']} src="https://bookingtickitz.netlify.app/assets/img/seat1.PNG" />
-                                <img class={style['card-img-seat1']} src="https://bookingtickitz.netlify.app/assets/img/seat2.PNG" />
+                                <img class={style['card-img-seat']} src="https://bookingtickitz.netlify.app/assets/img/seat1.PNG" alt="seat" />
+                                <img class={style['card-img-seat1']} src="https://bookingtickitz.netlify.app/assets/img/seat2.PNG" alt="seat" />
                             </div>
 
                         </div>
                         <div class="card-order-info col-6 col-lg-4">
                             <p class={style['text-title-order1']}>Order Info</p>
                             <div class={style['card-choose-seat1']}>
-                                <img class={style['card-img-order']} src="https://bookingtickitz.netlify.app/assets/img/infoOrder.png" />
+                                <img class={style['card-img-order']} src="https://bookingtickitz.netlify.app/assets/img/infoOrder.png" alt="seat" />
                                 <p class={style['title-pay']}>CineOne21 Cinema</p>
                                 <div class={style['order-info']}>
                                     <div class={style['sub-order-info']}>

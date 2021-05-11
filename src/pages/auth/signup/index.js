@@ -62,12 +62,12 @@ class Signup extends Component {
   }
   render() {
     const { isPasswordShow } = this.state
-    const { agree } = this.state
+    // const { agree } = this.state
 
     return (
       <div className={style.main}>
         <div className={style['main-left']}>
-          <img src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" className={style['img-title-left']} alt="" />
+          <img src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" className={style['img-title-left']} alt="img" />
           <h1 className={style['text-title-left']}>Lets build your account</h1>
           <p className={style.paragraf}>To be a loyal moviegoer and access all of features,
           <br></br>your details are required.</p>
@@ -83,7 +83,7 @@ class Signup extends Component {
         </div>
 
         <div className={style['main-right']}>
-          <img src="https://bookingtickitz.netlify.app/assets/img/Tickitz1.png" className={style['img-title-mobile']} alt="" />
+          <img src="https://bookingtickitz.netlify.app/assets/img/Tickitz1.png" className={style['img-title-mobile']} alt="img-mobile" />
           <h2 className={style['text-title-right']}>Fill your additional details</h2>
           <h2 className={style['text-title-right1']}>Sign Up</h2>
 
@@ -112,11 +112,11 @@ class Signup extends Component {
           </div>
           <div className={style.btn}>
             <div className={style['btn-google']}>
-              <img src="https://bookingtickitz.netlify.app/assets/img/google2.png" />
+              <img src="https://bookingtickitz.netlify.app/assets/img/google2.png" alt="btn-google" />
               <p className={style['text-btn']}>Google</p>
             </div>
             <div className={style['btn-fb']}>
-              <img src="https://bookingtickitz.netlify.app/assets/img/fb.png" />
+              <img src="https://bookingtickitz.netlify.app/assets/img/fb.png" alt="btn-fb" />
               <p className={style['text-btn']}>Facebook</p>
             </div>
           </div>

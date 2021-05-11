@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import { withRouter } from "react-router-dom";
 import style from './card.module.css'
 import { Card } from 'react-bootstrap';
