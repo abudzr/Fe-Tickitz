@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import style from './navbar.module.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
-
+import Logo from "../../assets/img/logo.png";
+import Group from '../../assets/img/Group.png'
 
 class Navigation extends Component {
 
@@ -23,10 +24,10 @@ class Navigation extends Component {
             <Container>
                 <Navbar collapseOnSelect expand="lg" className={style.nav} fixed="top" >
                     <Navbar.Brand href="/">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/logo.png" alt="logo" />
+                        <img src={Logo} alt="logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/Group.png" alt="toogle" />
+                        <img src={Group} alt="toogle" />
                     </Navbar.Toggle>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <form className={style['form-inline']}>

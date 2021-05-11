@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 // import { Link } from 'react-router-dom'
 import style from './headerhome.module.css'
 import { Jumbotron, Container } from 'react-bootstrap';
+import Jumbotron1 from "../../assets/img/jumbotron1.png";
+import Jumbotron2 from "../../assets/img/jumbotron2.png";
+import Jumbotron3 from "../../assets/img/jumbotron3.png";
 
 
 class HeaderHome extends Component {
@@ -17,9 +20,9 @@ class HeaderHome extends Component {
                         </div>
                         <div className="col-6 col-lg-6 home-img">
                             <div className="row flex-nowrap">
-                                <img src="https://bookingtickitz.netlify.app/assets/img/jumbotron1.png" className={style['home-img-spider']} alt="" />
-                                <img src="https://bookingtickitz.netlify.app/assets/img/jumbotron2.png" className={style['home-img-lion']} alt="" />
-                                <img src="https://bookingtickitz.netlify.app/assets/img/jumbotron3.png" className={style['home-img-woman']} alt="" />
+                                <img src={Jumbotron1} className={style['home-img-spider']} alt="Jumbotron" />
+                                <img src={Jumbotron2} className={style['home-img-lion']} alt="Jumbotron" />
+                                <img src={Jumbotron3} className={style['home-img-woman']} alt="Jumbotron" />
                             </div>
                         </div>
                     </div>

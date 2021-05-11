@@ -5,6 +5,12 @@ import { useHistory, Link } from 'react-router-dom'
 import { login } from '../../../configs/redux/action/user'
 import Swal from 'sweetalert2'
 import style from './signin.module.css'
+import Tickitz from "../../../assets/img/tickitz.png";
+import Tickitz1 from "../../../assets/img/Tickitz1.png";
+import google from "../../../assets/img/google2.png";
+import fb from "../../../assets/img/fb.png";
+
+
 
 
 
@@ -47,12 +53,12 @@ function Signin(props) {
   return (
     <div className={style.main}>
       <div className={style['main-left']}>
-        <img src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" className={style['img-title-left']} alt="bg-dekstop" />
+        <img src={Tickitz} className={style['img-title-left']} alt="bg-dekstop" />
         <h1 className={style['text-title-left']}>wait, watch, wow!</h1>
       </div>
 
       <div className={style['main-right']}>
-        <img src="https://bookingtickitz.netlify.app/assets/img/Tickitz1.png" className={style['img-title-mobile']} alt="logo" />
+        <img src={Tickitz1} className={style['img-title-mobile']} alt="logo" />
         <h2 className={style['text-title-right']}>Sign In</h2>
         <p className={style['text-subtitle']}>Sign in with your data that you entered during
               your registration</p>
@@ -81,11 +87,11 @@ function Signin(props) {
         </div>
         <div className={style.btn}>
           <div className={style['btn-google']}>
-            <img src="https://bookingtickitz.netlify.app/assets/img/google2.png" alt="btn-google" />
+            <img src={google} alt="btn-google" />
             <p className={style['text-btn']}>Google</p>
           </div>
           <div className={style['btn-fb']}>
-            <img src="https://bookingtickitz.netlify.app/assets/img/fb.png" alt="btn-fb" />
+            <img src={fb} alt="btn-fb" />
             <p className={style['text-btn']}>Facebook</p>
           </div>
         </div>

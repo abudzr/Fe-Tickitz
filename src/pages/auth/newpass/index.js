@@ -4,7 +4,8 @@ import { Form } from 'react-bootstrap';
 import axios from 'axios'
 import Swal from 'sweetalert2'
 import { withRouter } from 'react-router';
-
+import Tickitz from "../../../assets/img/tickitz.png";
+import Tickitz1 from "../../../assets/img/Tickitz1.png";
 
 class NewPass extends Component {
   state = {
@@ -68,7 +69,7 @@ class NewPass extends Component {
     return (
       <div className={style.main}>
         <div className={style['main-left']}>
-          <img src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" className={style['img-title-left']} alt="" />
+          <img src={Tickitz} className={style['img-title-left']} alt="" />
           <h1 className={style['text-title-left']}>Lets reset your password</h1>
           <p className={style.paragraf}>To be able to use your account again, please <br />
 complete the following steps.</p>
@@ -87,7 +88,7 @@ complete the following steps.</p>
         </div>
 
         <div className={style['main-right']}>
-          <img src="https://bookingtickitz.netlify.app/assets/img/Tickitz1.png" className={style['img-title-mobile']} alt="" />
+          <img src={Tickitz1} className={style['img-title-mobile']} alt="" />
           <h2 className={style['text-title-right']}>Fill your new password</h2>
           <h2 className={style['text-title-right-mobile']}>New password</h2>
 
