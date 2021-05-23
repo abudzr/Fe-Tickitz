@@ -1,6 +1,6 @@
 import React, { Fragment, useState, } from 'react'
 import style from './card.module.css'
-import { Card, Container, Form } from 'react-bootstrap';
+import { Card, Container, Form, Dropdown } from 'react-bootstrap';
 import Button from '../Button'
 
 import Swal from "sweetalert2";
@@ -23,7 +23,7 @@ export default function PageAdmin() {
         synopsis: '',
         idGenre: ''
     });
-
+    const [genre, setGenre] = useState("")
     const [dataImage, setDataImage] = useState({
         image: {},
     });
@@ -43,7 +43,14 @@ export default function PageAdmin() {
         dataNew[name] = value;
         setData(dataNew);
     }
+    const handleGenre = (e) => {
+        setData({
+            ...data,
+            idGenre: e.target.id
+        })
+        setGenre(e.target.name)
 
+    };
     const handleChangePicture = (e) => {
         setInput(e.target.files[0].name);
         setImgUrl(URL.createObjectURL(e.target.files[0]));
@@ -95,19 +102,30 @@ export default function PageAdmin() {
 
                                     <Form className={style['form-admin']}>
                                         <label htmlFor="movieName">Movie Name</label><br />
-                                        <input className={style['form-movie']} id="movieName" type="text" name="movieName" value={data.movieName} placeholder="" onChange={handleChange} />
+                                        <input className={style['form-movie']} id="movieName" type="text" name="movieName" value={data.movieName} placeholder="Input Here" onChange={handleChange} />
 
                                         <label htmlFor="idGenre">Category</label><br />
-                                        <input className={style['form-movie']} id="idGenre" name="idGenre" type="text" value={data.idGenre} placeholder="" onChange={handleChange} />
+                                        <Dropdown className={style['form-movie']} >
+                                            <Dropdown.Toggle className={style['button-location']} id="idGenre" value={genre}>
+                                                {genre === "" ? "Genre" : genre}
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu>
+                                                <Dropdown.Item onClick={handleGenre} id="1" name="Crime" >Crime</Dropdown.Item>
+                                                <Dropdown.Item onClick={handleGenre} id="2" name="Drama">Drama</Dropdown.Item>
+                                                <Dropdown.Item onClick={handleGenre} id="3" name="Action">Action</Dropdown.Item>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+                                        {/* <input className={style['form-movie']} id="idGenre" name="idGenre" type="text" value={data.idGenre} placeholder="Input Here" onChange={handleChange} /> */}
 
                                         <div className={style['position-datetime']}>
                                             <label htmlFor="releaseDate">Release Date</label><br />
                                             {/* <Moment format='MMMM Do YYYY' > */}
 
-                                            <input className={style['form-release']} id="releaseDate" name="releaseDate" type="text" value={data.releaseDate} placeholder="" onChange={handleChange} />
+                                            <input className={style['form-release']} id="releaseDate" name="releaseDate" type="date" value={data.releaseDate} placeholder="Input Here" onChange={handleChange} />
                                             {/* </Moment> */}
                                             <label className={style.duration} htmlFor="duration">Duration</label><br />
-                                            <input className={style['form-release']} id="duration" name="duration" type="text" value={data.duration} placeholder="" onChange={handleChange} />
+                                            <input className={style['form-release']} id="duration" name="duration" type="text" value={data.duration} placeholder="Input Here" onChange={handleChange} />
 
                                         </div>
                                     </Form>
@@ -116,15 +134,15 @@ export default function PageAdmin() {
                                 <div className={style['form-img-admin']}>
                                     <Form className={style['form-admin-director']}>
                                         <label htmlFor="directedBy">Director</label><br />
-                                        <input className={style['input-director']} id="directedBy" name="directedBy" type="text" value={data.directedBy} placeholder="" onChange={handleChange} />
+                                        <input className={style['input-director']} id="directedBy" name="directedBy" type="text" value={data.directedBy} placeholder="Input Here" onChange={handleChange} />
                                     </Form>
                                     <Form className={style['form-admin-casts']}>
                                         <label htmlFor="casts">Casts</label><br />
-                                        <input className={style['input-casts']} id="casts" name="casts" type="text" value={data.casts} placeholder="" onChange={handleChange} />
+                                        <input className={style['input-casts']} id="casts" name="casts" type="text" value={data.casts} placeholder="Input Here" onChange={handleChange} />
                                     </Form>
                                 </div>
                                 <label htmlFor="synopsis">Synopsis</label><br />
-                                <input className={style['input-synopsis']} id="synopsis" name="synopsis" type="text" value={data.synopsis} placeholder="" onChange={handleChange} />
+                                <input className={style['input-synopsis']} id="synopsis" name="synopsis" type="text" value={data.synopsis} placeholder="Input Here" onChange={handleChange} />
                             </div>
                             <Button title="Create" type="submit" btn="btn-update" color="yellow" onClick={handleSubmit} />
                         </div>

@@ -134,15 +134,15 @@ function CardsPayment() {
                                 <Card.Body >
                                     <form class={style['form-inline-custom']}>
                                         <label>Fullname</label>
-                                        <input id="text" type="text" placeholder="Jonas El Rodriguez" />
+                                        <input id="text" type="text" placeholder="Your Name" />
                                         <label>Email</label>
-                                        <input id="email" type="text" placeholder="jonasrodri123@gmail.com" />
+                                        <input id="email" type="text" placeholder="Your Email" />
                                         <label>Phone Number</label>
-                                        <input id="number" type="text" placeholder="+6281445687121" />
-                                        <div className={style['form-group']}>
+                                        <input id="number" type="text" placeholder="Your Phone Number" />
+                                        {/* <div className={style['form-group']}>
                                             <span class="fa fa-exclamation-triangle" id={style['form-control-icon']}></span>
                                             <input className={style['form-control']} type="text" placeholder="Fill your data correctly." />
-                                        </div>
+                                        </div> */}
                                     </form>
                                 </Card.Body>
                             </Card>

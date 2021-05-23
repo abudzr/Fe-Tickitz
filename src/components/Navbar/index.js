@@ -52,6 +52,7 @@ class Navigation extends Component {
                         <NavDropdown.Divider />
                         <i className="fa fa-search mr-auto ml-auto " id={style['search']} onClick={this.toogleSearch} />
                         {this.state.show && <Form />}
+                        {/* <Link className="nav-link btn text-white" id={style['btn-signUp']} to="/signin" >Login</Link> */}
                         <Link className="nav-link btn text-white" id={style['btn-signUp']} to="/signup" >Sign Up</Link>
                         <p className={style['text-credit']}>© 2020 Tickitz. All Rights Reserved.</p>
                     </Navbar.Collapse>

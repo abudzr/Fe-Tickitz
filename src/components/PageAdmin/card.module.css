@@ -139,10 +139,9 @@
 
 
 .button-location {
-
     border: 0px !important;
     height: 48px;
-    width: 260px;
+    width: 100%;
     border-radius: 16px;
     background: #EFF0F6 !important;
     border-radius: 16px !important;

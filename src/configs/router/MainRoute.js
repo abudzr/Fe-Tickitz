@@ -27,16 +27,16 @@ function MainRoute() {
                 <Route path="/signin" component={Signin} />
                 <Route path="/forgot-password" component={Forgot} />
                 <Route path="/new-password/:email/:token" component={NewPass} />
+                <Route path="/movie/:idMovie" component={Movie} />
 
                 <PrivateRoute path="/movies" component={MovieAll} />
-                <PrivateRoute path="/movie/:idMovie" component={Movie} />
                 <PrivateRoute path="/order" component={Order} />
                 <PrivateRoute path="/payment" component={Payment} />
                 <PrivateRoute path="/tickets" component={Tickets} />
 
                 <PrivateRoute path="/profile" component={Profile} />
                 <PrivateRoute path="/history" component={History} />
-                <PrivateRouteAdmin path="/admin" component={PageAdmin} />
+                <PrivateRouteAdmin path="/admin/insert-movie" component={PageAdmin} />
                 {/* <PrivateRouteAdmin path="/pageadmin/:idMovie" component={PageAdmin} /> */}
 
                 <Route exact path="/" component={Home} />

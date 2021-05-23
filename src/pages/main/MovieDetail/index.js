@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios'
-import { NavigationUser, HeaderMovie, Footers, Showtimes, } from '../../../components'
+import { NavigationUser, Navigation, HeaderMovie, Footers, Showtimes, } from '../../../components'
 // import { Container } from 'react-bootstrap';
 // import style from './movie.module.css'
 
@@ -8,6 +8,16 @@ import { NavigationUser, HeaderMovie, Footers, Showtimes, } from '../../../compo
 
 function Movie({ match }) {
     const [data, setData] = useState([])
+
+    const [result, setResult] = useState(false);
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setResult(true)
+        } else {
+            setResult(false)
+        }
+    }, []);
 
     useEffect(() => {
         const url = process.env.REACT_APP_API_RESTAPI;
@@ -19,7 +29,11 @@ function Movie({ match }) {
     }, [match])
     return (
         <Fragment>
-            <NavigationUser />
+            {result === false ?
+                <Navigation />
+                :
+                <NavigationUser />
+            }
 
             {data.map(data => {
                 return (

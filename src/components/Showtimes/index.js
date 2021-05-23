@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { listShowtime } from '../../configs/redux/action/showtimes'
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 function CardShowtimes(match) {
     const history = useHistory();
@@ -15,6 +16,7 @@ function CardShowtimes(match) {
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
     const [time, setTime] = useState([])
+    // console.log(Object.keys(time).length);
     const [movie, setMovie] = useState([])
     const [activeBtn, setActiveBtn] = useState("");
 
@@ -26,14 +28,22 @@ function CardShowtimes(match) {
 
     };
     const handleBook = (e) => {
-        dispatch({
-            type: "ADD_ORDER", payload: {
-                movie: movie,
-                showtime: time,
-                cinema: e
+        if (localStorage.getItem("token")) {
+            if (Object.keys(time).length > 0) {
+                dispatch({
+                    type: "ADD_ORDER", payload: {
+                        movie: movie,
+                        showtime: time,
+                        cinema: e
+                    }
+                })
+                history.push('/order')
+            } else {
+                Swal.fire("Info", "please select the movie time", "info")
             }
-        })
-        history.push('/order')
+        } else {
+            Swal.fire("Info", "login first, before continuing", "info")
+        }
     };
     const handleClickTime = (e) => {
         setTime(e)

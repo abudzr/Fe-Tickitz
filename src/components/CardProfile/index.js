@@ -83,6 +83,11 @@ const CardsProfile = (props) => {
             })
     }
 
+    const handleInsert = () => {
+        history.push('/admin/insert-movie')
+
+    }
+
     useEffect(() => {
         dispatch(getUserByid(id)).then((res) => {
             setData(res[0]);
@@ -195,8 +200,8 @@ const CardsProfile = (props) => {
                                         </div>
                                         <div className="d-flex flex-wrap">
                                             <Button title="Update changes" type="submit" btn="btn-update-changes" color="purple" onClick={handleUpdate} />
-                                            {user.role === 1 &&
-                                                <Button title="Insert Movie" type="submit" btn="btn-update-changes" color="yellow" onClick={handleUpdate} />
+                                            {user[0].role === 1 &&
+                                                <Button title="Insert Movie" type="submit" btn="btn-update-changes" color="yellow" onClick={handleInsert} />
                                             }
 
                                         </div>

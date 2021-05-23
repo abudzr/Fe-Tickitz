@@ -24,7 +24,7 @@ class NowShowingPart extends Component {
     }
 
     handleDetail = (data) => {
-        console.log(data);
+        // console.log(data);
         this.props.history.push(`/movie/${data}`)
     }
     render() {
