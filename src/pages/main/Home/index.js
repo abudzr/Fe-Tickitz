@@ -2,10 +2,13 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { NavigationUser, HeaderHome, Footers, CardEmail, Navigation } from '../../../components'
 import NowShowingPart from '../../../parts/NowShowing/NowShowing'
 import UpComingPart from '../../../parts/upComing/UpComing'
-
+import { useDispatch } from "react-redux";
+import { getUserByid } from "../../../configs/redux/action/user"
 import { Container } from 'react-bootstrap';
 
 function Home() {
+    const dispatch = useDispatch();
+    const id = localStorage.getItem('id')
     const [result, setResult] = useState(false);
 
     useEffect(() => {
@@ -15,6 +18,10 @@ function Home() {
             setResult(false)
         }
     }, []);
+
+    useEffect(() => {
+        dispatch(getUserByid(id));
+    }, [dispatch]);
 
     return (
         <Fragment>

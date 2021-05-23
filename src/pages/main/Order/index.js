@@ -7,20 +7,13 @@ import { NavigationUser, Footers, HeaderOrder, CardsOrder } from '../../../compo
 
 
 class Order extends Component {
-    handleChange = () => {
-        this.props.history.push('/')
-    }
-    handlePayment = () => {
-        this.props.history.push('/payment')
-    }
+
     render() {
         return (
             <Fragment>
                 <NavigationUser />
                 <HeaderOrder />
                 <CardsOrder
-                    Change={this.handleChange}
-                    Payment={this.handlePayment}
                 />
                 <Footers />
             </Fragment>

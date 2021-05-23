@@ -33,7 +33,7 @@ class History extends Component {
             <Fragment>
                 <NavigationUser />
                 <CardsHistory
-                    image={this.state.image}
+                    image={`${process.env.REACT_APP_API_RESTAPI}${this.state.image}`}
                     name={`${this.state.firstName} ${this.state.lastName}`}
                 />
                 <Footers />

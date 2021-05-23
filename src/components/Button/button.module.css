@@ -188,7 +188,8 @@
 
 .btn-update-changes {
     height: 56px;
-    width: 360px;
+    width: 250px;
+    margin-right: 15px;
     border-radius: 16px;
     font-family: Mulish;
     font-style: normal;
@@ -420,7 +421,7 @@
         border-radius: 8px;
         font-size: 14px;
         line-height: 24px;
-        margin-top: 90px;
+        margin-top: 40px;
         margin-left: 15px;
     }
 

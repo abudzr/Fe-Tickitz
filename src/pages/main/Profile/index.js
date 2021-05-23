@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
-import jwtDecode from "jwt-decode";
+// import jwtDecode from "jwt-decode";
 import { NavigationUser, CardsProfile, Footers } from '../../../components'
 // import { Container } from 'react-bootstrap';
 import Swal from 'sweetalert2'
@@ -21,9 +21,10 @@ class Profile extends Component {
 
 
     getPostAPI = () => {
-        const token = localStorage.getItem('token')
-        const decoded = jwtDecode(token);
-        const url = `${process.env.REACT_APP_API_RESTAPI}users/${decoded.idUsers}`
+        const id = localStorage.getItem('id')
+        // const token = localStorage.getItem('token')
+        // const decoded = jwtDecode(token);
+        const url = `${process.env.REACT_APP_API_RESTAPI}users/${id}`
         axios.get(url)
             .then((res) => {
                 this.setState({
@@ -49,9 +50,11 @@ class Profile extends Component {
         fd.append('phone', this.state.phone)
         fd.append('image', selectedFile)
 
-        const token = localStorage.getItem('token')
-        const decoded = jwtDecode(token);
-        const url = `${process.env.REACT_APP_API_RESTAPI}users/${decoded.idUsers}`
+        // const token = localStorage.getItem('token')
+        const id = localStorage.getItem('id')
+
+        // const decoded = jwtDecode(token);
+        const url = `${process.env.REACT_APP_API_RESTAPI}users/${id}`
         // console.log(url);
         axios.patch(url, fd)
             .then((res) => {
@@ -96,17 +99,17 @@ class Profile extends Component {
             <Fragment>
                 <NavigationUser />
                 <CardsProfile
-                    // bug image
-                    image={`${process.env.REACT_APP_API_RESTAPI}${this.state.image}`}
-                    name={`${this.state.firstName} ${this.state.lastName}`}
-                    first={this.state.firstName}
-                    last={this.state.lastName}
-                    mail={this.state.email}
-                    phonenumber={this.state.phone}
-                    pass={this.password}
-                    change={this.handleChange}
-                    update={this.handleUpdate}
-                    changePicture={this.handleChangePicture}
+                // bug image
+                // image={`${process.env.REACT_APP_API_RESTAPI}${this.state.image}`}
+                // name={`${this.state.firstName} ${this.state.lastName}`}
+                // first={this.state.firstName}
+                // last={this.state.lastName}
+                // mail={this.state.email}
+                // phonenumber={this.state.phone}
+                // pass={this.password}
+                // change={this.handleChange}
+                // update={this.handleUpdate}
+                // changePicture={this.handleChangePicture}
                 />
                 <Footers />
             </Fragment>

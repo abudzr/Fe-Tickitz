@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import style from './showtime.module.css'
 import { Container, Dropdown } from 'react-bootstrap';
 import Button from '../Button'
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { listShowtime } from '../../configs/redux/action/showtimes'
+import axios from 'axios'
 
 function CardShowtimes(match) {
     const history = useHistory();
@@ -14,6 +15,7 @@ function CardShowtimes(match) {
     const [date, setDate] = useState("")
     const [location, setLocation] = useState("")
     const [time, setTime] = useState([])
+    const [movie, setMovie] = useState([])
     const [activeBtn, setActiveBtn] = useState("");
 
     const handleDate = (e) => {
@@ -26,7 +28,7 @@ function CardShowtimes(match) {
     const handleBook = (e) => {
         dispatch({
             type: "ADD_ORDER", payload: {
-                movie: match.match.params.idMovie,
+                movie: movie,
                 showtime: time,
                 cinema: e
             }
@@ -36,6 +38,14 @@ function CardShowtimes(match) {
     const handleClickTime = (e) => {
         setTime(e)
     }
+
+    useEffect(() => {
+        const url = process.env.REACT_APP_API_RESTAPI;
+        axios.get(`${url}movies/${match.match.params.idMovie}`)
+            .then((res) => {
+                setMovie(res.data.data)
+            })
+    }, [match])
 
     useEffect(() => {
         dispatch(listShowtime({

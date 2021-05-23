@@ -2,10 +2,12 @@
     margin-top: 100px;
     background: #F5F6F8;
     height: 1200px;
+    /* margin-bottom: 150px ; */
 }
 
 .info-profile {
     margin-top: 50px;
+    margin-bottom: 150px;
     height: 783px;
     width: 328px;
     border-radius: 24px;
@@ -225,14 +227,15 @@
 
 .info-profile-right {
     margin-top: 50px;
-    height: 871px;
+    height: 100%;
     width: 730px;
     border-radius: 24px !important;
     background: #FFFFFF;
+    /* margin-bottom: 150px; */
 }
 
 .card-account {
-    height: 871px;
+    height: 100%;
     border-radius: 24px !important;
 
 }
@@ -252,6 +255,29 @@
 
 .title-history {
     margin-left: 30px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #AAAAAA;
+}
+
+.title-history-time {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #AAAAAA;
+}
+
+.detail-history {
+    display: flex;
+    justify-items: end;
+    /* margin-left: 30px; */
     font-family: Mulish;
     font-style: normal;
     font-weight: normal;
@@ -291,8 +317,18 @@
     align-items: center;
     text-align: right;
     letter-spacing: 0.75px;
-
+    cursor: pointer;
     color: #AAAAAA;
+}
+
+.btnDetail {
+    background: #5F2EEA;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: Mulish;
+    color: #fff;
+    padding: 5px 15px;
 }
 
 @media only screen and (max-width: 600px) {

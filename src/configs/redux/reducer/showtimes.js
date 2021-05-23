@@ -1,6 +1,7 @@
 const initialState = {
     showtimes: [],
     order: [],
+    transaction: [],
     errorMsg: ''
 }
 
@@ -22,6 +23,12 @@ const showtimesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 order: action.payload
+            }
+        }
+        case 'GET_LIST_TRANSACTION': {
+            return {
+                ...state,
+                transaction: action.payload
             }
         }
         default: {

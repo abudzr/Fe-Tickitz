@@ -1,5 +1,5 @@
 import axios from 'axios'
-import jwt from "jwt-decode";
+// import jwt from "jwt-decode";
 import axiosApiInstance from '../../../helper/axios'
 
 const loginRequest = () => {
@@ -35,6 +35,7 @@ export const login = (data) => (dispatch) => {
                 // dispatch({ type: 'LOGIN', payload: dataUser })
                 dispatch(loginSuccess(dataUser))
                 localStorage.setItem('token', dataUser.token)
+                localStorage.setItem('id', dataUser.idUsers)
                 resolve(dataUser)
             })
             .catch((err) => {
@@ -61,17 +62,17 @@ export const reset = (email, token, { password }) => (dispatch) => {
     });
 };
 
-export const getUserByid = () => {
-    return (dispatch) => {
-        const token = localStorage.getItem('token')
-        const decoded = jwt(token);
+export const getUserByid = (id) => (dispatch) => {
+    return new Promise((resolve, reject) => {
         const Url = process.env.REACT_APP_API_RESTAPI;
-        axiosApiInstance.get(`${Url}/users/${decoded.idUsers}`).then((res) => {
-            dispatch({
-                type: "GET_USER",
-                payload: res.data.data[0],
-                role: res.data.data[0].role,
+        axiosApiInstance
+            .get(`${Url}users/${id}`)
+            .then((res) => {
+                dispatch({ type: 'GET_USERBYID', payload: res.data.data });
+                resolve(res.data.data);
+            })
+            .catch((err) => {
+                reject(err.response.data.message);
             });
-        });
-    };
+    });
 };

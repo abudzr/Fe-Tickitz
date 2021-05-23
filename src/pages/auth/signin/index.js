@@ -37,19 +37,16 @@ function Signin(props) {
     dispatch(login(data))
       .then((res) => {
         if (res.role === 1) {
-          history.push('/admin')
+          history.push('/')
         } else {
           history.push('/')
         }
       })
       .catch((err) => {
         Swal.fire("", "Email or Password is incorrect. Try again or click Forgot password to reset.", "error");
-
-        // console.log(err);
-        // // alert('login failed')
       })
-  }
 
+  }
 
   return (
     <div className={style.main}>

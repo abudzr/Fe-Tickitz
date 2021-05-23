@@ -1,16 +1,31 @@
-import React, { Fragment } from 'react'
-// import { Link } from 'react-router-dom'
+import React, { Fragment, useState } from 'react'
 import { withRouter } from "react-router-dom";
 import style from './card.module.css'
-import { Dropdown } from 'react-bootstrap';
 import Button from '../Button'
-import seat1 from '../../assets/img/seat1.PNG'
-import infoOrder from '../../assets/img/infoOrder.png'
+import { useSelector, useDispatch } from "react-redux";
+import Moment from 'react-moment';
+import SeatDesktop from '../SeatDesktop';
+// import SeatMobile from '../SeatMobile';
+import { useHistory } from "react-router-dom";
 
 
 const CardsOrder = (props) => {
-
-
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const [seat, setSeat] = useState(null);
+    const { order } = useSelector((state) => state.showtimes);
+    const handleChange = () => {
+        history.push('/')
+    }
+    const handlePayment = () => {
+        dispatch({
+            type: "ADD_ORDER", payload: {
+                ...order,
+                seat: seat
+            }
+        })
+        history.push('/payment')
+    }
 
     return (
         <Fragment>
@@ -19,40 +34,45 @@ const CardsOrder = (props) => {
                     <div class="row">
                         <div class="col-7 col-lg-8">
                             <p class={style['text-title-order']}>Choose Your Seat</p>
-                            <div class={style['card-choose-seat']}>
-                                <img class={style['card-img-seat']} src={seat1} alt="seat" />
-                                <img class={style['card-img-seat1']} src="https://bookingtickitz.netlify.app/assets/img/seat2.PNG" alt="seat" />
-                            </div>
+                            <SeatDesktop
+                                changeSeat={setSeat}
+                            />
+                            {/* <SeatMobile /> */}
 
                         </div>
                         <div class="card-order-info col-6 col-lg-4">
                             <p class={style['text-title-order1']}>Order Info</p>
                             <div class={style['card-choose-seat1']}>
-                                <img class={style['card-img-order']} src={infoOrder} alt="seat" />
-                                <p class={style['title-pay']}>CineOne21 Cinema</p>
+                                <img class={style['card-img-order']} src={`${process.env.REACT_APP_API_RESTAPI}${order.cinema.image}`} alt="seat" />
+                                <p class={style['title-pay']}>{order.cinema.name}</p>
                                 <div class={style['order-info']}>
                                     <div class={style['sub-order-info']}>
                                         <p class={style['title-order']}>Movie selected</p>
-                                        <p class={style['title-order']}>Tuesday, 07 July 2020</p>
+                                        <Moment format="dddd, D MMMM YYYY" class={style["title-order"]}>
+                                            {order.showtime.date}
+                                        </Moment>
+                                        {/* <p class={style['title-order']}>Tuesday, 07 July 2020</p> */}
                                         <p class={style['title-order']}>One ticket price</p>
                                         <p class={style['title-order']}>Seat choosed</p>
                                     </div>
                                     <div class={style['sub-order-info']}>
-                                        <p class={style['sub-title-order']}>Spider-Man: Homecoming</p>
-                                        <p class={style['sub-title-order']}>02:00pm</p>
-                                        <p class={style['sub-title-order']}>Rp30.000</p>
-                                        <p class={style['sub-title-order']}>C4, C5, C6</p>
+                                        <p class={style['sub-title-order']}>{order.movie[0].movieName}</p>
+                                        <p class={style['sub-title-order']}>{order.showtime.time}</p>
+                                        <p class={style['sub-title-order']}>IDR{order.cinema.price}</p>
+                                        {seat && <p className={style['sub-title-order']}>{seat.join(", ")}</p>}
+                                        {/* <p class={style['sub-title-order']}>C4, C5, C6</p> */}
                                     </div>
                                 </div>
                                 <hr></hr>
                                 <div class={style.pay}>
                                     <p class={style['title-pay-order']}>Total Payment</p>
-                                    <p class={style['sub-title-pay']}>Rp90.000</p>
+                                    {seat && <p className={style['sub-title-pay']}>IDR {seat.length * order.cinema.price}</p>}
+                                    {/* <p class={style['sub-title-pay']}>IDR{order.cinema.price * 3}</p> */}
                                 </div>
                             </div>
 
                             {/* <!-- ini untuk mobile version --> */}
-                            <div class={style['card-choose-seat2']}>
+                            {/* <div class={style['card-choose-seat2']}>
                                 <div class="row flex-nowrap" id={style['card-choose-seat3']}>
                                     <p class={style['title-seat']}>Choosed</p>
                                     <p class={style.seat}>C4, C5, C6</p>
@@ -123,12 +143,12 @@ const CardsOrder = (props) => {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </div>
-                            </div>
+                            </div> */}
                             {/* <!-- isi konten --> */}
                         </div>
-                        <Button title="Add new seat" btn="btn-add-new-seat" color="white" onClick={props.Add} />
-                        <Button title="Change your movie" btn="btn-change-order" color="white" onClick={props.Change} />
-                        <Button title="Checkout now" btn="btn-checkout" color="purple" onClick={props.Payment} />
+                        {/* <Button title="Add new seat" btn="btn-add-new-seat" color="white" onClick={props.Add} /> */}
+                        <Button title="Change your movie" btn="btn-change-order" color="white" onClick={handleChange} />
+                        <Button title="Checkout now" btn="btn-checkout" color="purple" onClick={handlePayment} />
                     </div>
 
                 </div>

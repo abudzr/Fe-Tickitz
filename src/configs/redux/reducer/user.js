@@ -1,15 +1,5 @@
 const initialState = {
-    user: {
-        idUsers: null,
-        email: '',
-        password: '',
-        firstName: '',
-        lastName: '',
-        phone: '',
-        image: '',
-        reset: '',
-        role: null
-    },
+    user: [],
     loading: false,
     error: '',
 }
@@ -23,10 +13,7 @@ const userReducer = (state = initialState, action) => {
         case 'LOGIN_SUCCESS':
             return {
                 ...state,
-                user: {
-                    ...state.user,
-                    ...action.payload
-                },
+                user: action.payload,
                 loading: false
             }
         case 'LOGIN_FAILURE':
@@ -38,11 +25,12 @@ const userReducer = (state = initialState, action) => {
         case "GET_USER":
             return {
                 ...state,
-                user: {
-                    ...state.user,
-                    ...action.payload
-                },
-                role: action.role,
+                user: action.payload
+            }
+        case "GET_USERBYID":
+            return {
+                ...state,
+                user: action.payload
             }
 
         default:

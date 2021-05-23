@@ -100,12 +100,8 @@
 
 .card-img-order {
     padding-top: 50px;
-    padding-left: 100px;
+    padding-left: 115px;
 }
-
-
-
-
 
 .add-new-seat {
     display: none;
@@ -168,7 +164,7 @@
 
 .sub-title-pay {
     padding-top: 13px;
-    padding-left: 140px;
+    padding-left: 40px;
     font-family: Mulish;
     font-style: normal;
     font-weight: bold;
