@@ -9,7 +9,7 @@ const CardsNowShow = (props) => {
         <Fragment>
             <div>
                 <Card className={style['card-now-showing']} >
-                    <Card.Img className={style['card-img']} src={props.data.image} />
+                    <Card.Img className={style['card-img']} src={`${process.env.REACT_APP_API_RESTAPI}${props.data.image}`} />
                     <Card.Body>
                         <div className={style['title-movies']}>
                             <h1>{props.data.movieName}</h1>

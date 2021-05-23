@@ -1,32 +1,43 @@
-import React, { Component, Fragment } from 'react'
-import { NavigationUser, HeaderHome, Footers, CardEmail } from '../../../components'
+import React, { Fragment, useEffect, useState } from 'react'
+import { NavigationUser, HeaderHome, Footers, CardEmail, Navigation } from '../../../components'
 import NowShowingPart from '../../../parts/NowShowing/NowShowing'
 import UpComingPart from '../../../parts/upComing/UpComing'
 
 import { Container } from 'react-bootstrap';
 
-class Home extends Component {
+function Home() {
+    const [result, setResult] = useState(false);
 
-    render() {
-        return (
-            <Fragment>
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setResult(true)
+        } else {
+            setResult(false)
+        }
+    }, []);
+
+    return (
+        <Fragment>
+            {result === false ?
+                <Navigation />
+                :
                 <NavigationUser />
-                <HeaderHome />
-                <NowShowingPart />
-                <UpComingPart />
+            }
+            <HeaderHome />
+            <NowShowingPart />
+            <UpComingPart />
 
-                <Container>
-                    <CardEmail
-                        title='Be the vanguard of the'
-                        subTitle='By joining you as a Tickitz member,
+            <Container>
+                <CardEmail
+                    title='Be the vanguard of the'
+                    subTitle='By joining you as a Tickitz member,
                         we will always send you the latest updates via email .'
-                    />
+                />
 
-                </Container>
-                <Footers />
-            </Fragment>
-        )
-    }
+            </Container>
+            <Footers />
+        </Fragment>
+    )
 }
 
 export default Home

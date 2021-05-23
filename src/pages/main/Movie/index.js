@@ -1,152 +1,213 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import { Footers, NavigationUser, SearchMovie } from '../../../components'
 import { Container } from 'react-bootstrap';
 import style from './home.module.css'
 import axios from 'axios'
-import Button from '../../../components/Button'
+import { useHistory } from "react-router-dom";
+import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
+
+function Movie() {
+    const history = useHistory();
+    const [data, setData] = useState([])
+    const [page, setPage] = useState(1);
+    const [totalPage, setTotalPage] = useState(null);
+    const [currentPage, setCurrentPage] = useState(null);
+    let [search, setSearch] = useState("");
+    let [queryLimit, setQueryLimit] = useState("4");
+    let [queryOrder, setQueryOrder] = useState("asc");
+    let [querySort, setQuerySort] = useState("movieName");
+
+    const sort = [
+        {
+            label: "Movie Name",
+            value: "movieName",
+        },
+        {
+            label: "Genre",
+            value: "genre",
+        },
+        {
+            label: "Directed By",
+            value: "directedBy",
+        },
+        {
+            label: "Release Date",
+            value: "releaseDate",
+        },
+
+    ];
+    const order = [
+        {
+            label: "Ascending",
+            value: "ASC",
+        },
+        {
+            label: "Descending",
+            value: "DESC",
+        },
+    ];
+    const limit = [
+        {
+            label: "Limit 2",
+            value: "2",
+        },
+        {
+            label: "Limit 4",
+            value: "4",
+        },
+        {
+            label: "Limit 5",
+            value: "5",
+        },
+        {
+            label: "Limit 10",
+            value: "10",
+        },
+    ];
 
 
-class Movie extends Component {
-    state = {
-        data: [],
-        movieName: '',
-        page: 1,
-        order: '',
-        sort: '',
-        search: ''
-    }
-
-    getPostAPI = () => {
-        const token = localStorage.getItem('token')
-        // ?page=1&limit=4
-        const url = `${process.env.REACT_APP_API_RESTAPI}movies/allMovies`;
-        axios.get(url, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        })
+    useEffect(() => {
+        const url = `${process.env.REACT_APP_API_RESTAPI}movies?page=${page}&limit=${queryLimit}&sort=${querySort}&order=${queryOrder}&search=${search}`;
+        axios.get(url)
             .then((res) => {
-                this.setState({
-                    data: res.data.data
-                })
+                console.log(res.data);
+                setData(res.data.data)
+                setTotalPage(res.data.pageInfo.totalPage)
+                setCurrentPage(res.data.pageInfo.currentPage)
             })
+    }, [page, queryLimit, queryOrder, querySort, search]);
+
+
+    const handleDetail = (data) => {
+        history.push(`/movie/${data}`)
     }
 
-
-    handleDetail = (data) => {
-        this.props.history.push(`/movie/${data}`)
+    const handleChange = (e) => {
+        setSearch(e.target.name = e.target.value)
     }
-
-    handleChange = (e) => {
-        this.setState({
-            movieName: e.target.name = e.target.value
-        })
-        console.log(e.target.value);
-
-        const token = localStorage.getItem('token')
-        const url = `${process.env.REACT_APP_API_RESTAPI}movies?search=${e.target.value}`;
-        axios.get(url, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        })
-            .then((res) => {
-                console.log(res.data.data);
-                this.setState({
-                    data: res.data.data
-                })
-            })
-    }
-
-    // handlePrevious = () => {
-    //     // console.log(e)
-    //     const previosPage = page: cond.page - 1
-    //     const token = localStorage.getItem('token')
-    //     const url = `${process.env.REACT_APP_API_RESTAPI}movies?page=1${previosPage}&limit=4`;
-    //     axios.get(url, {
-    //         headers: {
-    //             Authorization: 'Bearer ' + token
-    //         }
-    //     })
-    //         .then((res) => {
-    //             this.setState({
-    //                 data: res.data.data
-    //             })
-    //         })
-    // }
-
-    // handleNext = () => {
-    //     // console.log(e)
-    //     const next = page: page + 1
-    //     const token = localStorage.getItem('token')
-    //     const url = `${process.env.REACT_APP_API_RESTAPI}movies?page=1${next}&limit=4`;
-    //     axios.get(url, {
-    //         headers: {
-    //             Authorization: 'Bearer ' + token
-    //         }
-    //     })
-    //         .then((res) => {
-    //             this.setState({
-    //                 data: res.data.data
-    //             })
-    //         })
-    // }
-
-    componentDidMount() {
-        this.getPostAPI();
-    }
+    const handleClickPage = (index) => {
+        setPage(index + 1);
+    };
+    return (
+        <Fragment>
+            <NavigationUser />
+            <div className={style.container}>
+                {/*Search Input*/}
+                <label className={style['search-label']} htmlFor="search-input">
+                    <input
+                        type="text"
+                        value={search}
+                        name="search"
+                        id="search-input"
+                        placeholder="Search..."
+                        onChange={handleChange}
+                    />
+                    <i className="fa fa-search search-icon" />
+                </label>
+            </div>
 
 
+            <Container className={style['up-coming']}>
 
-    render() {
-        return (
-            <Fragment>
-                <NavigationUser />
-                <div className={style.container}>
-
-                    {/*Search Input*/}
-                    <label className={style['search-label']} htmlFor="search-input">
-                        <input
-                            type="text"
-                            value={this.movieName}
-                            name="movieName"
-                            id="search-input"
-                            placeholder="Search..."
-                            onChange={this.handleChange}
-                        />
-                        <i className="fa fa-search search-icon" />
-                    </label>
+                <div className="row mt-4 pb-4 pt-2" id={style.card} >
+                    {data.map(data => {
+                        return (
+                            <div className="col-6 col-lg-3" key={data.idMovie}>
+                                <SearchMovie
+                                    data={data}
+                                    detail={handleDetail}
+                                />
+                            </div>
+                        )
+                    })
+                    }
                 </div>
-                <div className={style['button-pagination']}>
-                    <Button title="Previous" type="submit" btn="btn-previous" color="white" onClick={this.handlePrevious} />
-                    <Button title="Next" type="submit" btn="btn-next" color="white" onClick="" />
-
-
-                </div>
-
-                <Container className={style['up-coming']}>
-
-                    <div className="row mt-4 pb-4 pt-2" id={style.card} >
-                        {this.state.data.map(data => {
-                            return (
-                                <div className="col-6 col-lg-3" key={data.idMovie}>
-                                    <SearchMovie
-                                        data={data}
-                                        detail={this.handleDetail}
+                {/* Paginasi */}
+                <div className="row pl-2 pl-lg-0 mt-5">
+                    <div className="col-12 d-flex justify-content-center">
+                        {parseInt(totalPage) > 1 ? (
+                            <Pagination aria-label="Page navigation example">
+                                <PaginationItem>
+                                    <PaginationLink first onClick={(e) => setPage(1)} />
+                                </PaginationItem>
+                                {Array.from(Array(totalPage).keys()).map((data, index) => {
+                                    return (
+                                        <PaginationItem active={currentPage === index + 1}>
+                                            <PaginationLink onClick={(e) => handleClickPage(index)}>
+                                                {index + 1}
+                                            </PaginationLink>
+                                        </PaginationItem>
+                                    );
+                                })}
+                                <PaginationItem>
+                                    <PaginationLink
+                                        last
+                                        onClick={(e) => setPage(totalPage)}
                                     />
-                                </div>
-                            )
-                        })
-                        }
+                                </PaginationItem>
+                            </Pagination>
+                        ) : (
+                            ""
+                        )}
                     </div>
-                </Container>
+                </div>
+                {/* Akhir Pagnisai */}
+                {/* awal sorting */}
+                <div className="row mt-5 ml-1 mr-1 justify-content-center">
+                    <div className="col-4">
+                        <select
+                            onChange={(event) => setQuerySort(event.target.value)}
+                            className="w-100 custom-select font-weight-normal"
+                        >
+                            {sort.map((item, index) => {
+                                return (
+                                    <option value={item.value} key={index}>
+                                        {item.label}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
+                    <div className="col-4">
+                        <select
+                            onChange={(event) => {
+                                setQueryOrder(event.target.value);
+                            }}
+                            className="w-100 custom-select"
+                        >
+                            {order.map((item, index) => {
+                                return (
+                                    <option value={item.value} key={index}>
+                                        {item.label}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
+                    <div className="col-4">
+                        <select
+                            onChange={(event) => {
+                                setQueryLimit(event.target.value);
+                            }}
+                            className="w-100 custom-select"
+                        >
+                            {limit.map((item, index) => {
+                                return (
+                                    <option value={item.value} key={index}>
+                                        {item.label}
+                                    </option>
+                                );
+                            })}
+                        </select>
+                    </div>
+                </div>
+                {/* akkhir sorting */}
 
+            </Container>
 
-
-                <Footers />
-            </Fragment>
-        )
-    }
+            <Footers />
+        </Fragment>
+    )
 }
 
 export default Movie

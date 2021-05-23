@@ -3,7 +3,7 @@ import style from './card.module.css'
 import Button from '../Button'
 import { withRouter } from "react-router-dom";
 import qr from "../../assets/img/QR.png";
-
+import tickitz from "../../assets/img/tickitz.png"
 
 
 class CardTickets extends Component {
@@ -20,10 +20,10 @@ class CardTickets extends Component {
                         <div className={style['card-tickets']}>
                             <p className={style['title-tickets']}>Proof of Payment</p>
                             <div className={style['card-first']}>
-                                <img className={style.img} src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" alt="logo" />
+                                <img className={style.img} src={tickitz} alt="logo" />
                                 <p className={style['title-card-first']}>Admit One</p>
 
-                                <img className={style.img} src="https://bookingtickitz.netlify.app/assets/img/tickitz.png" alt="logo" />
+                                <img className={style.img} src={tickitz} alt="logo" />
                             </div>
                             <div className={style['card-second']}>
                                 <div className="row">
@@ -55,7 +55,7 @@ class CardTickets extends Component {
                                                 <p className={style["title-card-second"]} id={style['category-none']}>Category</p>
                                                 <p className={style['sub-content']} id={style['category-none']}>PG-13</p>
                                                 <p className={style["title-card-second-price"]}>Price</p>
-                                                <p className={style['sub-content-price']}>$30.00</p>
+                                                <p className={style['sub-content-price']}>Rp.90.000</p>
 
                                             </div>
                                             <div className="row">

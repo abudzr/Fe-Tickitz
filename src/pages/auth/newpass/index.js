@@ -1,112 +1,113 @@
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import style from './forgot.module.css'
-import { Form } from 'react-bootstrap';
-import axios from 'axios'
 import Swal from 'sweetalert2'
 import { withRouter } from 'react-router';
 import Tickitz from "../../../assets/img/tickitz.png";
 import Tickitz1 from "../../../assets/img/Tickitz1.png";
+import { useDispatch } from "react-redux";
+import { reset } from "../../../configs/redux/action/user";
+import * as Yup from 'yup';
+import { useFormik } from "formik";
 
-class NewPass extends Component {
-  state = {
-    reset: '',
-    password: '',
-    isPasswordShow: false,
-    agree: false
-
-  }
-
-  getPostAPI = () => {
-    const url = `${process.env.REACT_APP_API_RESTAPI}users`
-    axios.get(url)
-      .then((res) => {
-        console.log(res.data.data);
-        this.setState({
-          reset: res.data.data[2].reset
-          // bug
+function NewPass({ match, history }) {
+  const dispatch = useDispatch();
+  const [email, setEmail] = useState("")
+  const [token, setToken] = useState("")
+  const [loadingUpdate, setLoadingUpdate] = useState(false)
+  const formik = useFormik({
+    initialValues: {
+      password: "",
+    },
+    validationSchema: Yup.object({
+      password: Yup.string()
+        .min(8, "Minimum 8 characters")
+        .required("Required!"),
+    }),
+    onSubmit: values => {
+      setLoadingUpdate(true)
+      dispatch(reset(email, token, values))
+        .then((res) => {
+          setLoadingUpdate(false)
+          Swal.fire({
+            title: "Success!",
+            text: res,
+            icon: "success",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#ffba33",
+          }).then((result) => {
+            if (result.isConfirmed) {
+              history.push("/signin");
+            } else {
+              history.push("/signin");
+            }
+          });
         })
-        console.log(res);
-      })
-
-  }
-
-  handleChange = (e) => {
-    this.setState({
-      password: e.target.name = e.target.value
-    })
-    console.log(e.target.value);
-  }
-
-  handleSubmit = (e) => {
-    e.preventDefault();
-
-    const Url = `http://localhost:8000/users/password-reset?reset=${this.state.reset}`;
-    console.log(Url);
-    axios.post(Url, {
-      password: this.state.password
-    })
-      .then((res) => {
-
-        console.log(res.data.message);
-        Swal.fire(" Success", res.data.message, "success");
-        this.props.history.push('/signin')
-
-      }, (err) => {
-        console.log(err);
-      })
-
-  }
+        .catch((err) => {
+          setLoadingUpdate(false)
+          Swal.fire({
+            title: "Error!",
+            text: err,
+            icon: "error",
+            confirmButtonText: "Ok",
+            confirmButtonColor: "#6a4029",
+          });
+        });
+    }
+  });
 
 
-  componentDidMount() {
-    this.getPostAPI();
-  }
+  useEffect(() => {
+    const urlEmail = match.params.email
+    const urlToken = match.params.token
+    setEmail(urlEmail);
+    setToken(urlToken)
+  }, [match])
 
-  render() {
-    // const { isPasswordShow } = this.state
-    // const { agree } = this.state
-
-    return (
-      <div className={style.main}>
-        <div className={style['main-left']}>
-          <img src={Tickitz} className={style['img-title-left']} alt="" />
-          <h1 className={style['text-title-left']}>Lets reset your password</h1>
-          <p className={style.paragraf}>To be able to use your account again, please <br />
+  return (
+    <div className={style.main}>
+      <div className={style['main-left']}>
+        <img src={Tickitz} className={style['img-title-left']} alt="" />
+        <h1 className={style['text-title-left']}>Lets reset your password</h1>
+        <p className={style.paragraf}>To be able to use your account again, please <br />
 complete the following steps.</p>
-          <div className={style['circle-outline']}>1</div>
-          <div className={style['line-vertical']}></div>
-          <div className={style['circle-outline']}>2</div>
-          <div className={style['line-vertical']}></div>
-          <div className={style.circle}>3</div>
-          <div className={style['line-vertical']}></div>
-          <div className={style['circle-outline']}>4</div>
+        <div className={style['circle-outline']}>1</div>
+        <div className={style['line-vertical']}></div>
+        <div className={style['circle-outline']}>2</div>
+        <div className={style['line-vertical']}></div>
+        <div className={style.circle}>3</div>
+        <div className={style['line-vertical']}></div>
+        <div className={style['circle-outline']}>4</div>
 
-          <p className={style['title-paragraf']}>Fill your complete email</p>
-          <p className={style['paragraf-title']}>Activate your email</p>
-          <p className={style['paragraf-subtitle']} >Enter your new password</p>
-          <p className={style['paragraf-subtitles']} >Done</p>
-        </div>
-
-        <div className={style['main-right']}>
-          <img src={Tickitz1} className={style['img-title-mobile']} alt="" />
-          <h2 className={style['text-title-right']}>Fill your new password</h2>
-          <h2 className={style['text-title-right-mobile']}>New password</h2>
-
-          {/* <p className={style['right-paragraf']}>we'll send a link to your email shortly</p> */}
-
-          <Form>
-            <label htmlFor="password">New Password</label>
-            <input id="password" type="text" name="password" placeholder="Write Your New Password" onChange={this.handleChange} required />
-
-
-            <button type="submit" className={style['btn-submit']} onClick={this.handleSubmit}>Activate now</button>
-          </Form>
-
-
-        </div>
+        <p className={style['title-paragraf']}>Fill your complete email</p>
+        <p className={style['paragraf-title']}>Activate your email</p>
+        <p className={style['paragraf-subtitle']} >Enter your new password</p>
+        <p className={style['paragraf-subtitles']} >Done</p>
       </div>
-    )
-  }
+
+      <div className={style['main-right']}>
+        <img src={Tickitz1} className={style['img-title-mobile']} alt="" />
+        <h2 className={style['text-title-right']}>Fill your new password</h2>
+        <h2 className={style['text-title-right-mobile']}>New password</h2>
+
+        {/* <p className={style['right-paragraf']}>we'll send a link to your email shortly</p> */}
+
+        <form onSubmit={formik.handleSubmit}>
+          <label htmlFor="password">New Password</label>
+          <input id="password" type="text" name="password" placeholder="Write Your New Password"
+            value={formik.values.password}
+            onChange={formik.handleChange}
+          />
+          {formik.errors.password && formik.touched.password && (
+            <p className="error" style={{ color: "red" }}>{formik.errors.password}</p>
+          )}
+
+          <button type="submit" className={style['btn-submit']} >{loadingUpdate ? "...loading" : "Activate now"}</button>
+        </form>
+
+
+      </div>
+    </div>
+  )
 }
 
 export default withRouter(NewPass)

@@ -52,7 +52,7 @@ class Profile extends Component {
         const token = localStorage.getItem('token')
         const decoded = jwtDecode(token);
         const url = `${process.env.REACT_APP_API_RESTAPI}users/${decoded.idUsers}`
-        console.log(url);
+        // console.log(url);
         axios.patch(url, fd)
             .then((res) => {
                 this.getPostAPI()
@@ -71,16 +71,15 @@ class Profile extends Component {
         const target = e.target
         const value = target.value
         const name = target.name
-        console.log(name)
         this.setState({
             [name]: value
         })
     }
 
     handleChangePicture = (e) => {
-        // console.log(e.target.files[0]);
+        console.log(e.target.files[0].name);
         this.setState({
-            input: e.target.files[0].name,
+            // input: e.target.files[0].name,
             image: URL.createObjectURL(e.target.files[0]),
             selectedFile: e.target.files[0]
         })
@@ -97,7 +96,8 @@ class Profile extends Component {
             <Fragment>
                 <NavigationUser />
                 <CardsProfile
-                    image={this.state.image}
+                    // bug image
+                    image={`${process.env.REACT_APP_API_RESTAPI}${this.state.image}`}
                     name={`${this.state.firstName} ${this.state.lastName}`}
                     first={this.state.firstName}
                     last={this.state.lastName}

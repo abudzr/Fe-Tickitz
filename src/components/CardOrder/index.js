@@ -4,7 +4,8 @@ import { withRouter } from "react-router-dom";
 import style from './card.module.css'
 import { Dropdown } from 'react-bootstrap';
 import Button from '../Button'
-
+import seat1 from '../../assets/img/seat1.PNG'
+import infoOrder from '../../assets/img/infoOrder.png'
 
 
 const CardsOrder = (props) => {
@@ -19,7 +20,7 @@ const CardsOrder = (props) => {
                         <div class="col-7 col-lg-8">
                             <p class={style['text-title-order']}>Choose Your Seat</p>
                             <div class={style['card-choose-seat']}>
-                                <img class={style['card-img-seat']} src="https://bookingtickitz.netlify.app/assets/img/seat1.PNG" alt="seat" />
+                                <img class={style['card-img-seat']} src={seat1} alt="seat" />
                                 <img class={style['card-img-seat1']} src="https://bookingtickitz.netlify.app/assets/img/seat2.PNG" alt="seat" />
                             </div>
 
@@ -27,7 +28,7 @@ const CardsOrder = (props) => {
                         <div class="card-order-info col-6 col-lg-4">
                             <p class={style['text-title-order1']}>Order Info</p>
                             <div class={style['card-choose-seat1']}>
-                                <img class={style['card-img-order']} src="https://bookingtickitz.netlify.app/assets/img/infoOrder.png" alt="seat" />
+                                <img class={style['card-img-order']} src={infoOrder} alt="seat" />
                                 <p class={style['title-pay']}>CineOne21 Cinema</p>
                                 <div class={style['order-info']}>
                                     <div class={style['sub-order-info']}>
@@ -39,14 +40,14 @@ const CardsOrder = (props) => {
                                     <div class={style['sub-order-info']}>
                                         <p class={style['sub-title-order']}>Spider-Man: Homecoming</p>
                                         <p class={style['sub-title-order']}>02:00pm</p>
-                                        <p class={style['sub-title-order']}>$10</p>
+                                        <p class={style['sub-title-order']}>Rp30.000</p>
                                         <p class={style['sub-title-order']}>C4, C5, C6</p>
                                     </div>
                                 </div>
                                 <hr></hr>
                                 <div class={style.pay}>
                                     <p class={style['title-pay-order']}>Total Payment</p>
-                                    <p class={style['sub-title-pay']}>$30</p>
+                                    <p class={style['sub-title-pay']}>Rp90.000</p>
                                 </div>
                             </div>
 

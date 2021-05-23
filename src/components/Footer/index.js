@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 import style from './footer.module.css'
 // import { Footer } from 'react-bootstrap';
+import logo2 from '../../assets/img/logo2.png'
+import sponsor from '../../assets/img/sponsor.png'
+import sponsor1 from '../../assets/img/sponsor1.png'
+import sponsor2 from '../../assets/img/sponsor2.png'
 
 
 class Footers extends Component {
@@ -10,7 +14,7 @@ class Footers extends Component {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-4">
-                            <img src="https://bookingtickitz.netlify.app/assets/img/logo2.png" alt="footer" />
+                            <img src={logo2} alt="footer" />
                             <p className={style["text-footer"]}>Stop waiting in line. Buy tickets
                         <br></br>conveniently, watch movies quietly.</p>
                         </div>
@@ -26,9 +30,9 @@ class Footers extends Component {
                         </div>
                         <div className="col-lg-3">
                             <p className={style["text-title-footer"]}>Our Sponsor</p>
-                            <img className={style['img-footer']} src="https://bookingtickitz.netlify.app/assets/img/sponsor.png" alt="footerimg" />
-                            <img className={style['img-footer']} src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" alt="footerimg" />
-                            <img className={style['img-footer']} src="https://bookingtickitz.netlify.app/assets/img/sponsor2.png" alt="footerimg" />
+                            <img className={style['img-footer']} src={sponsor} alt="footerimg" />
+                            <img className={style['img-footer']} src={sponsor1} alt="footerimg" />
+                            <img className={style['img-footer']} src={sponsor2} alt="footerimg" />
 
                         </div>
                         <div className=" col-lg-3 " id={style['follow-us']} >

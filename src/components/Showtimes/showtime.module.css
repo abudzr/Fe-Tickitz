@@ -1,5 +1,5 @@
 .showTimes {
-    height: 230px;
+    height: 100%;
     margin-top: 150px;
     padding-top: 30px;
     text-align: center;
@@ -74,12 +74,172 @@
     color: #4E4B66;
 }
 
+.schedule {
+    padding-top: 20px;
+    background: white !important;
+
+    height: 100%;
+}
+
+.card-schedule {
+    height: 350px;
+    width: 361px !important;
+    border-radius: 24px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
+
+
+.card-schedule-special {
+    height: 350px;
+    width: 350px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
+    border-radius: 24px;
+}
+
+.title-schedule {
+    display: flex;
+    padding-top: 20px;
+}
+
+.title-img {
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 40px;
+}
+
+.title-schedule .title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #000000;
+}
+
+.sub-title {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0.75px;
+    color: #6E7191;
+}
+
+/* .detail-date {
+    display: flex;
+} */
+
+.title-date {
+    padding-left: 25px;
+    padding-right: 5px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 23px;
+    letter-spacing: 0.75px;
+    cursor: pointer;
+}
+
+.title-date-active {
+    padding-left: 25px;
+    padding-right: 5px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 23px;
+    letter-spacing: 0.75px;
+    cursor: pointer;
+    color: #5F2EEA;
+}
+
+.detail-price {
+    display: flex;
+}
+
+.text-price {
+    padding-left: 30px;
+    padding-right: 140px;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #6B6B6B;
+}
+
+.text-price1 {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #000000;
+}
+
+.detail-booking {
+    display: flex;
+}
+
+
+.text-booking {
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+    padding-left: 80px;
+    padding-top: 10px;
+}
+
+.line-schedule {
+    display: flex;
+    padding-top: 30px;
+}
+
+.text-schedule {
+    flex-grow: 1;
+    margin-bottom: auto;
+    margin-top: auto;
+    text-align: center;
+    font-family: Mulish;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 32px;
+    letter-spacing: 0.75px;
+    color: #5F2EEA;
+}
+
+.line-schedule hr {
+    flex-grow: 2;
+    /* padding-bottom: 50px; */
+    border: 1px solid #DEDEDE;
+    transform: rotate(180deg);
+}
+
+.line-hr {
+    border: 0.5px solid #DEDEDE;
+}
+
+
 @media only screen and (max-width: 600px) {
     .showTimes {
         margin-top: -70px;
         padding-top: -50px;
         background: #F5F6F8;
-        height: 300px;
+        height: 100%;
     }
 
     .title-show {
@@ -111,6 +271,32 @@
         height: 48px;
         width: 260px;
         border-radius: 4px;
+    }
+
+    .schedule {
+        background: #F5F6F8 !important;
+        height: 100%;
+    }
+
+    .card-schedule {
+        margin-left: auto;
+        margin-right: auto;
+        background: #FFFFFF;
+        border-radius: 8px;
+        box-shadow: 0px 8px 16px rgba(186, 186, 186, 0.24);
+
+    }
+
+    .card-schedule-1 {
+        display: none;
+    }
+
+    .card-schedule-2 {
+        display: none;
+    }
+
+    .card-schedule-special {
+        display: none;
     }
 }
 

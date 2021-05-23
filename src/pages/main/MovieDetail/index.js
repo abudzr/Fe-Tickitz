@@ -1,60 +1,42 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import axios from 'axios'
-import { NavigationUser, HeaderMovie, Footers, Showtimes, Schedule, } from '../../../components'
+import { NavigationUser, HeaderMovie, Footers, Showtimes, } from '../../../components'
 // import { Container } from 'react-bootstrap';
 // import style from './movie.module.css'
 
 
 
-class Movie extends Component {
-    state = {
-        data: []
-    }
+function Movie({ match }) {
+    const [data, setData] = useState([])
 
-    getPostAPI = () => {
-        const token = localStorage.getItem('token')
+    useEffect(() => {
         const url = process.env.REACT_APP_API_RESTAPI;
-        // const url = 'http://localhost:8000/movies/'
-        // console.log(url);
-        // console.log(this.props.match.params.idMovie);
-        axios.get(`${url}movies/${this.props.match.params.idMovie}`, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        })
+        axios.get(`${url}movies/${match.params.idMovie}`)
             .then((res) => {
-                // console.log(res.data.data);
-                this.setState({
-                    data: res.data.data
-                })
+                setData(res.data.data)
+
             })
-    }
+    }, [match])
+    return (
+        <Fragment>
+            <NavigationUser />
 
-    componentDidMount() {
-        this.getPostAPI();
-    }
+            {data.map(data => {
+                return (
+                    <HeaderMovie
+                        data={data}
+                    />
+                )
+            })
+            }
 
-    render() {
-        // console.log(this.props);
-        return (
-            <Fragment>
-                <NavigationUser />
-
-                {this.state.data.map(data => {
-                    return (
-                        <HeaderMovie
-                            data={data}
-                        />
-                    )
-                })
-                }
-
-                <Showtimes />
-                <Schedule />
-                <Footers />
-            </Fragment>
-        )
-    }
+            <Showtimes
+                match={match}
+            />
+            {/* <Schedule /> */}
+            <Footers />
+        </Fragment>
+    )
 }
 
 export default Movie

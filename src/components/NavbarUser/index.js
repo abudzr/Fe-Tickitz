@@ -5,13 +5,16 @@ import style from './navbar.module.css'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap';
 import axios from 'axios'
 import jwt from "jwt-decode";
+import Tickitz1 from "../../assets/img/Tickitz1.png";
+import Group from "../../assets/img/Group.png";
 
 class NavigationUser extends Component {
     constructor(props) {
         super(props)
         this.state = {
             show: true,
-            image: ''
+            image: '',
+            result: false
         };
         this.toogleSearch = this.toogleSearch.bind(this)
     }
@@ -39,6 +42,12 @@ class NavigationUser extends Component {
     }
     componentDidMount() {
         this.getPostAPI();
+        // if (localStorage.getItem('token')) {
+        //     this.setState({ result: true })
+        // }
+        // else {
+        //     this.setState({ result: false })
+        // }
     }
 
     render() {
@@ -46,10 +55,10 @@ class NavigationUser extends Component {
             <Container>
                 <Navbar collapseOnSelect expand="lg" className={style.nav} fixed="top" >
                     <Navbar.Brand className={style.logo} href="/">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/logo.png" alt="logo" />
+                        <img src={Tickitz1} alt="logo" />
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav">
-                        <img src="https://bookingtickitz.netlify.app/assets/img/Group.png" alt="toogle" />
+                        <img src={Group} alt="toogle" />
                     </Navbar.Toggle>
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <form className={style['form-inline']}>
@@ -79,7 +88,7 @@ class NavigationUser extends Component {
 
                         <div class={style.dropdown}>
                             <div className={style['big-circle']}>
-                                <img class={style['img-user']} src={this.state.image} alt="profile-user" />
+                                <img class={style['img-user']} src={`${process.env.REACT_APP_API_RESTAPI}${this.state.image}`} alt="profile-user" />
                             </div>
                             <div class={style['dropdown-content']}>
                                 <Link to="/profile">Profile</Link>
@@ -100,32 +109,6 @@ class NavigationUser extends Component {
     }
 }
 class Form extends Component {
-    // state = {
-    //     show: true,
-    //     data: [],
-    //     movieName: ''
-    // };
-    // handleChange = (e) => {
-    //     console.log(e.target.name);
-    //     this.setState({
-    //         movieName: e.target.name = e.target.value
-    //     })
-    //     console.log(e.target.value);
-
-    //     const token = localStorage.getItem('token')
-    //     const url = `${process.env.REACT_APP_API_MOVIEID}/search/film?name=${e.target.value}`;
-    //     axios.get(url, {
-    //         headers: {
-    //             Authorization: 'Bearer ' + token
-    //         }
-    //     })
-    //         .then((res) => {
-    //             console.log(res.data.data);
-    //             this.setState({
-    //                 data: res.data.data
-    //             })
-    //         })
-    // }
     render() {
         return (
             <form className={style['form-hide']}>

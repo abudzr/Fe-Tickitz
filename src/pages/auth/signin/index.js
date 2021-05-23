@@ -7,11 +7,8 @@ import Swal from 'sweetalert2'
 import style from './signin.module.css'
 import Tickitz from "../../../assets/img/tickitz.png";
 import Tickitz1 from "../../../assets/img/Tickitz1.png";
-import google from "../../../assets/img/google2.png";
-import fb from "../../../assets/img/fb.png";
-
-
-
+// import google from "../../../assets/img/google2.png";
+// import fb from "../../../assets/img/fb.png";
 
 
 function Signin(props) {
@@ -25,6 +22,10 @@ function Signin(props) {
   const tooglePasswordVisibility = () => {
     setisPasswordShow(!isPasswordShow)
 
+  }
+  const handleSignup = (e) => {
+    e.preventDefault();
+    history.push("/signup")
   }
 
   const handleLogin = (e) => {
@@ -62,7 +63,7 @@ function Signin(props) {
         <h2 className={style['text-title-right']}>Sign In</h2>
         <p className={style['text-subtitle']}>Sign in with your data that you entered during
               your registration</p>
-        <form>
+        <form >
           <label>Email</label>
           <input id="email" name="email" type="email" value={email} placeholder="Write Your Email" onChange={(e) => setEmail(e.target.value)} />
 
@@ -85,7 +86,9 @@ function Signin(props) {
           <p className={style['text-or']}>or</p>
           <hr />
         </div>
-        <div className={style.btn}>
+        <button type="submit" className={style['btn-signup']} onClick={handleSignup}>Sign Up</button>
+
+        {/* <div className={style.btn}>
           <div className={style['btn-google']}>
             <img src={google} alt="btn-google" />
             <p className={style['text-btn']}>Google</p>
@@ -94,7 +97,7 @@ function Signin(props) {
             <img src={fb} alt="btn-fb" />
             <p className={style['text-btn']}>Facebook</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   )

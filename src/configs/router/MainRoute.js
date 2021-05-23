@@ -26,7 +26,7 @@ function MainRoute() {
                 <Route path="/verification" component={Verification} />
                 <Route path="/signin" component={Signin} />
                 <Route path="/forgot-password" component={Forgot} />
-                <Route path="/new-password" component={NewPass} />
+                <Route path="/new-password/:email/:token" component={NewPass} />
 
                 <PrivateRoute path="/movies" component={MovieAll} />
                 <PrivateRoute path="/movie/:idMovie" component={Movie} />
@@ -39,7 +39,7 @@ function MainRoute() {
                 <PrivateRouteAdmin path="/admin" component={PageAdmin} />
                 {/* <PrivateRouteAdmin path="/pageadmin/:idMovie" component={PageAdmin} /> */}
 
-                <PrivateRoute exact path="/" component={Home} />
+                <Route exact path="/" component={Home} />
             </Switch>
         </BrowserRouter>
     )

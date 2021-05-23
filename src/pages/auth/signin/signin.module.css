@@ -210,7 +210,21 @@ input {
     background: #5F2EEA;
     margin-top: 28px;
     margin-bottom: 1rem;
+}
 
+.btn-signup {
+    width: 100%;
+    padding: 1em;
+    border: 1px solid #DEDEDE;
+    box-sizing: border-box;
+    border-radius: 16px;
+    font-family: Mulish;
+    color: #F7F7FC;
+    font-style: normal;
+    font-weight: bold;
+    background: #8692A6;
+    margin-top: 22px;
+    margin-bottom: 1rem;
 }
 
 @media only screen and (max-width: 600px) {

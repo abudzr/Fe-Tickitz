@@ -12,6 +12,19 @@ const loginFailure = (error) => {
     return { type: 'LOGIN_FAILURE', payload: error }
 }
 
+export const signUp = (data) => (dispatch) => {
+    return new Promise((resolve, reject) => {
+        const Url = process.env.REACT_APP_API_RESTAPI;
+        axios.post(`${Url}users/register`, data)
+            .then((res) => {
+                resolve(res)
+            })
+            .catch((err) => {
+                reject(err)
+            })
+    })
+}
+
 export const login = (data) => (dispatch) => {
     return new Promise((resolve, reject) => {
         dispatch(loginRequest())
@@ -32,11 +45,11 @@ export const login = (data) => (dispatch) => {
     })
 }
 
-export const reset = (reset, { password }) => (dispatch) => {
+export const reset = (email, token, { password }) => (dispatch) => {
     return new Promise((resolve, reject) => {
         const Url = process.env.REACT_APP_API_RESTAPI;
         axios
-            .put(`${Url}users/password-reset?reset=${reset}`, {
+            .put(`${Url}users/password-reset?email=${email}&token=${token}`, {
                 password,
             })
             .then((res) => {

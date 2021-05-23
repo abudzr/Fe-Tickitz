@@ -40,6 +40,7 @@ const CardsProfile = (props) => {
                                     <div class={style.circle}></div>
                                 </div>
                                 <div className={style['big-circle']}>
+
                                     <img class={style['img-user']} src={props.image} alt="user" />
                                     <Button title="Update" btn="btn-change-picture" color="white" onClick={handleClick} />
                                     <input type="file"

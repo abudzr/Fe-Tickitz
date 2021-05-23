@@ -12,13 +12,8 @@ class UpComingPart extends Component {
         nowShowingList: []
     };
     componentDidMount() {
-        const token = localStorage.getItem('token')
         const url = `${process.env.REACT_APP_API_RESTAPI}movies/upComing?order=DESC&limit=5`;
-        axios.get(url, {
-            headers: {
-                Authorization: 'Bearer ' + token
-            }
-        })
+        axios.get(url)
             .then((res) => {
                 this.setState({
                     nowShowingList: res.data.data

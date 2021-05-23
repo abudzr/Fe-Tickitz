@@ -8,10 +8,9 @@ import Button from '../Button'
 const Search = (props) => {
     return (
         <Fragment>
-
             <div>
                 <Card className={style.card} >
-                    <Card.Img className={style['card-img']} src={props.data.image} />
+                    <Card.Img className={style['card-img']} src={`${process.env.REACT_APP_API_RESTAPI}${props.data.image}`} />
                     <Card.Body>
                         <Card.Title className={style['card-title']}>{props.data.movieName}</Card.Title>
                         <Card.Text className={style['card-text']}>{props.data.genre}

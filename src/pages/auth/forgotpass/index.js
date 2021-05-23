@@ -10,45 +10,42 @@ class Forgot extends Component {
   state = {
     email: '',
     isPasswordShow: false,
-    agree: false
+    agree: false,
+    loading: false
   }
 
   handleChange = (e) => {
     this.setState({
       email: e.target.name = e.target.value
     })
-    console.log(e.target.value);
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    console.log(this.state.email);
+    this.setState({
+      loading: true
+    })
     const url = `${process.env.REACT_APP_API_RESTAPI}users/forgot-password`
-    console.log(url);
     axios.post(url, {
       email: this.state.email
     })
       .then((res) => {
-
-        console.log(res.data.message);
+        this.setState({
+          loading: false
+        })
         Swal.fire(" Success", res.data.message, "success");
-        // this.props.history.push('/signin')
 
       }, (err) => {
-        console.log(err);
-
-        // if (err) {
-        // }
+        this.setState({
+          loading: false
+        })
+        Swal.fire("Error!", "Email not valid", "error");
       })
 
   }
 
 
-
   render() {
-    // const { isPasswordShow } = this.state
-    // const { agree } = this.state
 
     return (
       <div className={style.main}>
@@ -83,7 +80,7 @@ complete the following steps.</p>
             <input id="email" type="text" name="email" placeholder="Write Your Email" onChange={this.handleChange} required />
 
 
-            <button type="submit" className={style['btn-submit']} onClick={this.handleSubmit}>Activate now</button>
+            <button type="submit" className={style['btn-submit']} onClick={this.handleSubmit}>{this.state.loading ? "loading..." : "Activate now"}</button>
           </Form>
 
 

@@ -14,7 +14,7 @@ const HeaderMovie = (props) => {
                     <div class="col-lg-4 col-sm-8">
                         <Card className={style['card-jumbotron']}>
                             <Container>
-                                <Card.Img className={style['card-img-jumbotron']} src={props.data.image} />
+                                <Card.Img className={style['card-img-jumbotron']} src={`${process.env.REACT_APP_API_RESTAPI}${props.data.image}`} />
 
                             </Container>
                         </Card>
@@ -27,11 +27,9 @@ const HeaderMovie = (props) => {
                         <div class={style["detail-jumbotron"]}>
                             <div class={style["sub-detail-jumbotron"]}>
                                 <p class={style["sub-title-title"]}>Release date</p>
-                                <Moment format="MMMM D, YYYY"
-                                    class={style["sub-title-sub-title"]}>
-                                    <p>{props.data.releaseDate}</p>
+                                <Moment format="MMMM D, YYYY" class={style["sub-title-sub-title"]}>
+                                    {props.data.releaseDate}
                                 </Moment>
-
                                 <p class={style["sub-title-title"]}>Duration</p>
                                 <p class={style["sub-title-sub-title"]}>{props.data.duration}</p>
                             </div>
