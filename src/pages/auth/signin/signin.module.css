@@ -34,7 +34,7 @@
 /* main right */
 .main-right {
     flex-grow: 1;
-    padding: 100px 50px;
+    padding: 50px 50px;
 }
 
 .img-title-mobile {
@@ -155,8 +155,12 @@ hr {
     padding-top: 18px;
 }
 
+.form-group {
+    position: relative;
+}
 
 .form-group .form-control {
+
     width: 100%;
     box-sizing: border-box;
     border-radius: 16px;
@@ -164,8 +168,8 @@ hr {
 
 .form-group i {
     position: absolute;
-    top: 382px;
-    right: 65px;
+    top: 70px;
+    right: 20px;
     z-index: 2;
     display: block;
     /* ukuran icon */
@@ -251,7 +255,7 @@ input {
     }
 
     .form-group i {
-        top: 315px;
+        top: 48px;
     }
 
     .btn-google {

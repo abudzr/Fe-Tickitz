@@ -310,14 +310,14 @@ input {
 }
 
 .terms {
-    margin-left: -225px !important;
+    margin-left: -205px !important;
     margin-top: 30px !important;
 }
 
 .text-term {
     position: absolute;
     margin-top: 25px !important;
-    margin-left: -215px !important;
+    margin-left: -195px !important;
 }
 
 .btn-submit {

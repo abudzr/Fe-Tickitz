@@ -54,13 +54,16 @@ function CardsPayment() {
                 })
             })
     }
-    useEffect(() => {
-        if (order) {
-            if (order.length < 1) {
-                history.push('/')
-            }
-        }
-    }, [])
+    const handlePayment = () => {
+
+    }
+    // useEffect(() => {
+    //     if (order) {
+    //         if (order.length < 1) {
+    //             history.push('/')
+    //         }
+    //     }
+    // }, [])
 
     return (
         <Fragment>
@@ -103,9 +106,9 @@ function CardsPayment() {
                             </Card>
                             <p class={style['text-title-info']}>Choose a Payment Method</p>
                             <Card className={style['card-choose-info1']}>
-                                <Card.Body className={style['logo-payment-card']}>
+                                <Card.Body className={style['logo-payment-card']} >
                                     <Card.Text className={style['card-payment']}>
-                                        <img class={style['card-img-logo-google']} src={google_pay} alt="payment-method" />
+                                        <img class={style['card-img-logo-google']} onClick={handlePayment} src={google_pay} alt="payment-method" />
                                     </Card.Text>
                                     <Card.Text className={style['card-payment']}>
                                         <img class={style['card-img-logo-visa']} src={logo_visa} alt="payment-method" />

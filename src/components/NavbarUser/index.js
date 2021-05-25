@@ -39,6 +39,9 @@ class NavigationUser extends Component {
                     image: res.data.data[0].image
                 })
             })
+            .catch((err) => {
+                console.log(err.response.data.message);
+            })
     }
     componentDidMount() {
         this.getPostAPI();

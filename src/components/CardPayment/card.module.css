@@ -149,6 +149,8 @@
     border-radius: 16px;
     height: 56px;
     width: 146px;
+    cursor: pointer;
+
 }
 
 .card-payment1 {
@@ -161,6 +163,8 @@
     border-radius: 16px;
     height: 56px;
     width: 146px;
+    cursor: pointer;
+
 }
 
 .or {
@@ -355,6 +359,7 @@ input {
         width: 80px;
         margin-left: 10px;
         margin-bottom: 30px;
+        cursor: pointer;
     }
 
     .card-payment1 {

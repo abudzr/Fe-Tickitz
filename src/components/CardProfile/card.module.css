@@ -62,6 +62,8 @@
 }
 
 .img-user {
+    object-fit: cover;
+    /* width: min-content; */
     margin-top: -10px;
     height: 140px;
     width: 140px;
@@ -272,6 +274,7 @@
 }
 
 .form-profile-password {
+    position: relative;
     margin-top: 40px;
     height: 64px;
     width: 350px;
@@ -280,6 +283,7 @@
 }
 
 .form-profile-passwords {
+    position: relative;
     margin-top: 40px;
     height: 64px;
     width: 350px;
@@ -289,7 +293,7 @@
 
 .form-profile-password i {
     position: absolute;
-    top: 620px;
+    top: 73px;
     left: 280px;
     z-index: 2;
     display: block;
@@ -304,8 +308,8 @@
 
 .form-profile-passwords i {
     position: absolute;
-    top: 620px;
-    right: 65px;
+    top: 73px;
+    right: 15px;
     z-index: 2;
     display: block;
     /* ukuran icon */
