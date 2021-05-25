@@ -10,7 +10,7 @@ import Moment from 'react-moment';
 
 function CardTickets() {
     // const dispatch = useDispatch();
-    const { order } = useSelector((state) => state.showtimes);
+    const { order } = useSelector((state) => state.order);
     // handleBack = () => {
     //     this.props.history.push('/order')
     // }

@@ -8,7 +8,7 @@ import { Container } from 'react-bootstrap';
 
 function Home() {
     const dispatch = useDispatch();
-    const id = localStorage.getItem('id')
+    const id = localStorage.getItem('id') // eslint-disable-next-line
     const [result, setResult] = useState(false);
 
     useEffect(() => {
@@ -17,11 +17,11 @@ function Home() {
         } else {
             setResult(false)
         }
-    }, []);
+    }, []); // eslint-disable-next-line
 
     useEffect(() => {
-        dispatch(getUserByid(id));
-    }, [dispatch]);
+        dispatch(getUserByid(id)); // eslint-disable-next-line
+    }, [dispatch]); // eslint-disable-next-line
 
     return (
         <Fragment>

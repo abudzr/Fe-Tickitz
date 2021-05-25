@@ -33,7 +33,7 @@ const CardsHistory = (props) => {
         // console.log(id);
         dispatch(getListTransaction(id)).then((res) => {
         })
-    }, [])
+    }, [dispatch])
     return (
         <Fragment>
             <div className={style['cards-profile']}>
@@ -86,10 +86,10 @@ const CardsHistory = (props) => {
                                             </Nav.Item>
                                         </Nav>
                                     </Card.Header>
-                                    <Card.Body  >
+                                    <Card.Body className={style['card-body']} >
                                         {transaction.map((item, index) => {
                                             return (
-                                                <div className={style['card-history']}>
+                                                <div className={style['card-history']} key={index}>
                                                     <div className="row">
                                                         <div className="col-lg-8">
                                                             <div className="d-flex">

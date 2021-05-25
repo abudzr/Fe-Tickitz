@@ -1,3 +1,4 @@
+import axios from 'axios';
 import axiosApiInstance from '../../../helper/axios'
 
 export const listShowtime = (data) => (dispatch) => {
@@ -44,6 +45,20 @@ export const getListTransaction = (id) => (dispatch) => {
             .catch((err) => {
                 reject(err)
                 dispatch({ type: 'SET_MESSAGE_TRANSACTION', payload: err.response.data.message });
+            });
+    });
+};
+
+export const getListSeat = (id) => (dispatch) => {
+    return new Promise((resolve, reject) => {
+        const Url = process.env.REACT_APP_API_RESTAPI;
+        axios
+            .get(`${Url}seats/${id}`)
+            .then((res) => {
+                resolve(res.data.data);
+            })
+            .catch((err) => {
+                reject(err)
             });
     });
 };

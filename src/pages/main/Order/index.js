@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { useEffect, Fragment } from 'react'
 // import axios from 'axios'
 import { NavigationUser, Footers, HeaderOrder, CardsOrder } from '../../../components'
 // import { Container } from 'react-bootstrap';
@@ -6,19 +6,20 @@ import { NavigationUser, Footers, HeaderOrder, CardsOrder } from '../../../compo
 
 
 
-class Order extends Component {
+function Order() {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
 
-    render() {
-        return (
-            <Fragment>
-                <NavigationUser />
-                <HeaderOrder />
-                <CardsOrder
-                />
-                <Footers />
-            </Fragment>
-        )
-    }
+    return (
+        <Fragment>
+            <NavigationUser />
+            <HeaderOrder />
+            <CardsOrder
+            />
+            <Footers />
+        </Fragment>
+    )
 }
 
 export default Order

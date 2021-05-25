@@ -1,4 +1,4 @@
-import React, { Fragment, useState, } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import style from './card.module.css'
 import { Card, Container, Form, Dropdown } from 'react-bootstrap';
 import Button from '../Button'
@@ -10,10 +10,16 @@ import { createMovie } from '../../configs/redux/action/movie'
 //     return Moment(time).format("YYYY-MM-DD");
 // }
 import Image from '../../assets/img/Avengers.jpg'
+import axiosApiInstance from '../../helper/axios';
 
 
 export default function PageAdmin() {
     const dispatch = useDispatch()
+    const [location, setLocation] = useState("")
+    const [cinema, setCinema] = useState([])
+    console.log(cinema);
+    const [activeBtn, setActiveBtn] = useState("");
+    const [detailCinema, setDetailCinema] = useState(null)
     const [data, setData] = useState({
         movieName: '',
         releaseDate: '',
@@ -58,6 +64,14 @@ export default function PageAdmin() {
             image: e.target.files[0],
         });
     }
+    const handleLocation = (e) => {
+        setLocation(e.target.name)
+    };
+
+    const handleCinemas = (e) => {
+        setDetailCinema(e)
+        console.log(e);
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -79,6 +93,14 @@ export default function PageAdmin() {
                 Swal.fire("", "Failed to create Movie", "error");
             })
     }
+
+    useEffect(() => {
+        axiosApiInstance.get(`${process.env.REACT_APP_API_RESTAPI}cinemas`).then((res) => {
+            setCinema(res.data.data)
+            // console.log(res.data.data);
+        })
+    }, [])
+
     return (
         <Fragment>
             <div className={style['cards-profile']}>
@@ -146,40 +168,38 @@ export default function PageAdmin() {
                             </div>
                             <Button title="Create" type="submit" btn="btn-update" color="yellow" onClick={handleSubmit} />
                         </div>
-                        {/* <div class="col-12 col-lg-4">
+                        <div class="col-12 col-lg-4">
                             <p className={style['title-admin']}>Premiere Location</p>
                             <div className={style['info-profile-right']}>
                                 <div  >
                                     <Dropdown className={style['dropdown-location']} >
-                                        <i class="fab fas fa-map-marker-alt" id={style.marker} ></i>
-                                        <Dropdown.Toggle className={style['button-location']} id="dropdown-basic">
-                                            Location
-                                                </Dropdown.Toggle>
+                                        <i className="fab fas fa-map-marker-alt" id={style.marker} />
+                                        <Dropdown.Toggle className={style['button-location']} id="dropdown-basic" value={location}>
+                                            {location === "" ? "Location" : location}
+                                        </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
-                                            <Dropdown.Item href="#/action-1">Jakarta</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2">Bandung</Dropdown.Item>
-                                            <Dropdown.Item href="#/action-3">Karawang</Dropdown.Item>
+                                            <Dropdown.Item onClick={handleLocation} name="Jakarta" >Jakarta</Dropdown.Item>
+                                            <Dropdown.Item onClick={handleLocation} name="Bandung">Bandung</Dropdown.Item>
+                                            <Dropdown.Item onClick={handleLocation} name="Purwokerto">Purwokerto</Dropdown.Item>
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </div>
                                 <div className="row flex-wrap mt-4 pb-4 pt-2" id={style['admin-img-right']}>
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor.png" alt="adminimg" />
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor2.png" alt="adminimg" />
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" alt="adminimg" />
+                                    {cinema.map((item, index) => {
+                                        return (
+                                            <img className={`${activeBtn === `cinemas-${item.idCinemas}` ? style['img-admin-active'] : style['img-admin']}`} src={`${process.env.REACT_APP_API_RESTAPI}${item.image}`} alt="adminimg"
+                                                onClick={(e) => {
+                                                    handleCinemas(item)
+                                                    setActiveBtn(`cinemas-${item.idCinemas}`);
+                                                }
+                                                }
+                                            />
+                                        )
+                                    })}
                                 </div>
-                                <div className="row flex-wrap mt-4 pb-4 pt-2" id={style['admin-img-right']}>
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor.png" alt="adminimg" />
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor2.png" alt="adminimg" />
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" alt="adminimg" />
-                                </div>
-                                <div className="row flex-wrap mt-4 pb-4 pt-2" id={style['admin-img-right']}>
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor.png" alt="adminimg" />
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor2.png" alt="adminimg" />
-                                    <img className={style['img-admin']} src="https://bookingtickitz.netlify.app/assets/img/sponsor1.png" alt="adminimg" />
-                                </div>
-                            </div> */}
-
+                            </div>
+                        </div>
 
                         {/* <Button title="Previous Step" btn="btn-change-order" color="white" onClick={this.handleBack} />
                             <Button title="Pay Your Order" btn="btn-checkout" color="purple" onClick={this.handleLogin} /> */}

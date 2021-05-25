@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 
 function HeaderOrder() {
     const history = useHistory();
-    const { order } = useSelector((state) => state.showtimes);
+    const { order } = useSelector((state) => state.order);
     const handleChangeMovie = () => {
         history.push("/")
     }

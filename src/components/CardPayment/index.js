@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useEffect } from 'react'
 import style from './card.module.css'
 import { Card } from 'react-bootstrap';
 import Button from '../Button'
@@ -21,7 +21,8 @@ import Swal from 'sweetalert2'
 function CardsPayment() {
     const history = useHistory();
     const dispatch = useDispatch();
-    const { order } = useSelector((state) => state.showtimes);
+    const { order } = useSelector((state) => state.order);
+    console.log(order.length);
     const handleBack = () => {
         history.push('/order')
     }
@@ -53,6 +54,14 @@ function CardsPayment() {
                 })
             })
     }
+    useEffect(() => {
+        if (order) {
+            if (order.length < 1) {
+                history.push('/')
+            }
+        }
+    }, [])
+
     return (
         <Fragment>
             <div className={style['payment-info']}>

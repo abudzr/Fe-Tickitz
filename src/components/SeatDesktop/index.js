@@ -1,11 +1,16 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
+import { useSelector, useDispatch } from "react-redux";
+import { getListSeat } from "../../configs/redux/action/showtimes"
 
 const SeatDesktop = (props) => {
+    const dispatch = useDispatch();
+    const { order } = useSelector((state) => state.order); // eslint-disable-next-line
     const [selectedSeat, setSelectedSeat] = useState([]);
+    const [ordered, setOrdered] = useState([]);
     // console.log(selected);
     const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G', ''];
-    const ordered = ['F1', 'A2', 'B3', 'F13'];
+    // const ordered = ['C10', 'D10', 'D11'];
 
     const checkSeatStatus = (val) => {
         if (checkIsChecked(val)) {
@@ -73,6 +78,20 @@ const SeatDesktop = (props) => {
         })
         return result;
     }
+
+    useEffect(() => {
+        dispatch(getListSeat(order.showtime.id)) // eslint-disable-next-line
+            .then((res) => {
+                if (res.length > 1) {
+                    setOrdered(res)
+                } else {
+                    setOrdered([])
+                }
+            })
+            .catch((err) => {
+                setOrdered([])
+            })
+    }, [dispatch, order.showtime.id]) // eslint-disable-next-line
 
     return (
         <div className="card seat-wrapper" style={{ width: '100%' }}>

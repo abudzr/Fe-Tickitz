@@ -7,24 +7,34 @@ import Moment from 'react-moment';
 import SeatDesktop from '../SeatDesktop';
 // import SeatMobile from '../SeatMobile';
 import { useHistory } from "react-router-dom";
-
+import Swal from 'sweetalert2'
 
 const CardsOrder = (props) => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [seat, setSeat] = useState(null);
-    const { order } = useSelector((state) => state.showtimes);
+    const { order } = useSelector((state) => state.order);
+    // console.log(order.movie[0]);
+    const [disabled, setDisabled] = useState(false)
     const handleChange = () => {
         history.push('/')
     }
     const handlePayment = () => {
-        dispatch({
-            type: "ADD_ORDER", payload: {
-                ...order,
-                seat: seat
+        if (seat) {
+            setDisabled(true)
+            if (seat.length >= 1) {
+                setDisabled(false)
+                dispatch({
+                    type: "ADD_ORDER", payload: {
+                        ...order,
+                        seat: seat
+                    }
+                })
+                history.push('/payment')
+            } else {
+                Swal.fire("Info", "please select your seat", "info")
             }
-        })
-        history.push('/payment')
+        }
     }
 
     return (
@@ -148,7 +158,7 @@ const CardsOrder = (props) => {
                         </div>
                         {/* <Button title="Add new seat" btn="btn-add-new-seat" color="white" onClick={props.Add} /> */}
                         <Button title="Change your movie" btn="btn-change-order" color="white" onClick={handleChange} />
-                        <Button title="Checkout now" btn="btn-checkout" color="purple" onClick={handlePayment} />
+                        <Button title="Checkout now" disabled={disabled} btn="btn-checkout" color="purple" onClick={handlePayment} />
                     </div>
 
                 </div>

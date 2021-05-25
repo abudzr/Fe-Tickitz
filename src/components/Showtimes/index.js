@@ -10,7 +10,7 @@ import Swal from 'sweetalert2'
 
 function CardShowtimes(match) {
     const history = useHistory();
-    const dispatch = useDispatch();
+    const dispatch = useDispatch(); // eslint-disable-next-line
     // const { showtimes } = useSelector((state) => state.showtimes);
     const [data, setData] = useState(null);
     const [date, setDate] = useState("")
@@ -57,7 +57,7 @@ function CardShowtimes(match) {
             })
     }, [match])
 
-    useEffect(() => {
+    useEffect(() => { // eslint-disable-next-line
         dispatch(listShowtime({
             idMovie: match.match.params.idMovie,
             search: location,
@@ -67,20 +67,20 @@ function CardShowtimes(match) {
         }).catch((err) => {
             setData(null)
         })
-    }, [match, location, date])
+    }, [dispatch, match, location, date]) // eslint-disable-next-line
 
     return (
         <>
             <Container className={style.showTimes}>
-                <p class={style["title-show"]}>Showtimes and Tickets</p>
-                <div class={style["dropdown-show"]}>
-                    <div class={style["dropdown-showTimes"]}>
+                <p className={style["title-show"]}>Showtimes and Tickets</p>
+                <div className={style["dropdown-show"]}>
+                    <div className={style["dropdown-showTimes"]}>
                         <input className={style["dropdown-showTimes"]} type="date" value={date} onChange={handleDate} />
 
                     </div>
                     <div>
                         <Dropdown className={style['dropdown-location']} >
-                            <i class="fab fas fa-map-marker-alt" id={style.marker} ></i>
+                            <i className="fab fas fa-map-marker-alt" id={style.marker} />
                             <Dropdown.Toggle className={style['button-location']} id="dropdown-basic" value={location}>
                                 {location === "" ? "Location" : location}
                             </Dropdown.Toggle>
@@ -96,7 +96,7 @@ function CardShowtimes(match) {
                 {data === null &&
                     <>
                         <div>
-                            <h1>sorry, schedule is not available</h1>
+                            <h1 className="mt-5">sorry, schedule is not available</h1>
                         </div>
                     </>
                 }
@@ -104,17 +104,17 @@ function CardShowtimes(match) {
                     <>
                         <div className={style.schedule} >
                             <div className="container">
-                                <div class="row">
+                                <div className="row">
                                     {data.map((item, index) => {
                                         return (
-                                            <div class={style['card-schedule-special']} key={index}>
-                                                <div class={style['title-schedule']}>
-                                                    <div class={style['title-img']}>
-                                                        <img class={style['card-img-schedule']} src={`${process.env.REACT_APP_API_RESTAPI}${item.image}`} alt="schedule" />
+                                            <div className={style['card-schedule-special']} key={index}>
+                                                <div className={style['title-schedule']}>
+                                                    <div className={style['title-img']}>
+                                                        <img className={style['card-img-schedule']} src={`${process.env.REACT_APP_API_RESTAPI}${item.image}`} alt="schedule" />
                                                     </div>
-                                                    <div class={style['sub-title-schedule']}>
-                                                        <p class={style.title}>{item.name}</p>
-                                                        <p class={style['sub-title']}>{item.address}</p>
+                                                    <div className={style['sub-title-schedule']}>
+                                                        <p className={style.title}>{item.name}</p>
+                                                        <p className={style['sub-title']}>{item.address}</p>
                                                     </div>
                                                 </div>
                                                 <hr className={style['line-hr']}></hr>
@@ -151,8 +151,6 @@ function CardShowtimes(match) {
                                             </div>
                                         )
                                     }
-
-
                                     )}
                                 </div>
                             </div>
