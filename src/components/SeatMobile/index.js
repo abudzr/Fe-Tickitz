@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
+import { useSelector, useDispatch } from "react-redux";
+import { getListSeat } from "../../configs/redux/action/showtimes"
 
-const SeatMobile = () => {
-    const [selectedSeat, setSelectedSeat] = useState(['A1', 'B2', 'F2']);
-    const [ordered, setOrdered] = useState(['F1', 'A2', 'B3', 'F13'])
+const SeatMobile = (props) => {
+    const dispatch = useDispatch();
+    const { order } = useSelector((state) => state.order); // eslint-disable-next-line
+    const [selectedSeat, setSelectedSeat] = useState([]);
+    const [ordered, setOrdered] = useState([])
     const rows = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
 
     const checkSeatStatus = (val) => {
         if (checkIsChecked(val)) {
-            return 'seat selected';
+            return 'seat-mobile selected';
         } else {
             if (checkIsActive(val)) {
-                return 'seat sold';
+                return 'seat-mobile sold';
             } else {
-                return 'seat';
+                return 'seat-mobile';
             }
         }
     }
@@ -34,7 +38,7 @@ const SeatMobile = () => {
     }
 
     const handleSelectSeat = (val, newseat = '', type) => {
-        console.log('newset', newseat)
+        // console.log('newset', newseat)
         if (newseat !== "null") {
             if (selectedSeat.includes(val)) {
                 let index = selectedSeat.indexOf(val);
@@ -53,8 +57,8 @@ const SeatMobile = () => {
                 selectedSeat.splice(index, 1);
             }
         }
-
         setSelectedSeat([...selectedSeat])
+        props.changeSeat(selectedSeat);
     }
 
     const SeatComp = ({ isActive, val }) => {
@@ -85,12 +89,26 @@ const SeatMobile = () => {
         seatNumber.push(<option key={i}>{i}</option>)
     }
 
+    useEffect(() => {
+        dispatch(getListSeat(order.showtime.id)) // eslint-disable-next-line
+            .then((res) => {
+                if (res.length > 1) {
+                    setOrdered(res)
+                } else {
+                    setOrdered([])
+                }
+            })
+            .catch((err) => {
+                setOrdered([])
+            })
+    }, [dispatch, order.showtime.id]) // eslint-disable-next-line
+
     return (
         <>
-            <div className="card seat-list">
+            <div className="card seat-list-mobile">
                 <div className="card-body">
-                    <div className="divider mb-3"></div>
-                    <div className="row seat-wrapper">
+                    <div className="divider-mobile mb-3"></div>
+                    <div className="row seat-wrapper-mobile">
                         <div className="col-6 first">
                             <RenderSeat start={1} end={7} />
                             <hr className="divider-bottom" />
@@ -101,7 +119,7 @@ const SeatMobile = () => {
                         </div>
                     </div>
                     <h6 className="my-3">Seating key</h6>
-                    <div className="row seating-key">
+                    <div className="row seating-key-mobile">
                         <div className="col-6">
                             <svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M12.834 9.9021L7.00065 15.4997L1.16732 9.9021" stroke="#14142B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -117,19 +135,19 @@ const SeatMobile = () => {
                             <span>1 - 14</span>
                         </div>
                         <div className="col-6">
-                            <div className="seat"></div>
+                            <div className="seat-mobile"></div>
                             <span>Available</span>
                         </div>
                         <div className="col-6">
-                            <div className="seat selected"></div>
+                            <div className="seat-mobile selected"></div>
                             <span>Selected</span>
                         </div>
                         <div className="col-6">
-                            <div className="seat love"></div>
+                            <div className="seat-mobile love"></div>
                             <span>Love nest</span>
                         </div>
                         <div className="col-6">
-                            <div className="seat sold"></div>
+                            <div className="seat-mobile sold"></div>
                             <span>Sold</span>
                         </div>
                     </div>

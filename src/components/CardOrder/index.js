@@ -5,7 +5,7 @@ import Button from '../Button'
 import { useSelector, useDispatch } from "react-redux";
 import Moment from 'react-moment';
 import SeatDesktop from '../SeatDesktop';
-// import SeatMobile from '../SeatMobile';
+import SeatMobile from '../SeatMobile';
 import { useHistory } from "react-router-dom";
 import Swal from 'sweetalert2'
 
@@ -42,12 +42,12 @@ const CardsOrder = (props) => {
             <div className="container">
                 <div className={style['choose-seat']}>
                     <div class="row">
-                        <div class="col-7 col-lg-8">
+                        <div class="col-12 col-lg-8">
                             <p class={style['text-title-order']}>Choose Your Seat</p>
                             <SeatDesktop
                                 changeSeat={setSeat}
                             />
-                            {/* <SeatMobile /> */}
+                            <SeatMobile changeSeat={setSeat} />
 
                         </div>
                         <div class="card-order-info col-6 col-lg-4">
@@ -80,7 +80,7 @@ const CardsOrder = (props) => {
                                     {/* <p class={style['sub-title-pay']}>IDR{order.cinema.price * 3}</p> */}
                                 </div>
                             </div>
-
+                            {/* <SeatMobile /> */}
                             {/* <!-- ini untuk mobile version --> */}
                             {/* <div class={style['card-choose-seat2']}>
                                 <div class="row flex-nowrap" id={style['card-choose-seat3']}>
