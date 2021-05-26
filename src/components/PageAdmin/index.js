@@ -1,11 +1,11 @@
 import React, { Fragment, useState, useEffect } from 'react'
 import style from './card.module.css'
-import { Card, Container, Form, Dropdown } from 'react-bootstrap';
+import { Card, Container, Form, Dropdown, Modal } from 'react-bootstrap';
 import Button from '../Button'
 
 import Swal from "sweetalert2";
 import { useDispatch } from 'react-redux'
-import { createMovie } from '../../configs/redux/action/movie'
+import { createMovie, createCinemas } from '../../configs/redux/action/movie'
 // const changeTimeMovie = (time) => {
 //     return Moment(time).format("YYYY-MM-DD");
 // }
@@ -17,9 +17,14 @@ export default function PageAdmin() {
     const dispatch = useDispatch()
     const [location, setLocation] = useState("")
     const [cinema, setCinema] = useState([])
-    console.log(cinema);
+    const [show, setShow] = useState(false);
+
+    // console.log(cinema);
     const [activeBtn, setActiveBtn] = useState("");
-    const [detailCinema, setDetailCinema] = useState(null)
+    const [idCinemas, setIdCinemas] = useState([])
+    const [date, setDate] = useState("")
+    const [time, setTime] = useState([])
+    const [detailCinema, setDetailCinema] = useState([])
     const [data, setData] = useState({
         movieName: '',
         releaseDate: '',
@@ -67,10 +72,35 @@ export default function PageAdmin() {
     const handleLocation = (e) => {
         setLocation(e.target.name)
     };
-
+    const handleClose = () => setShow(false);
+    const handleDate = (e) => {
+        setDate(e.target.value)
+    }
+    const handleTime = (e) => {
+        // console.log(e.target.value);
+        if (time.includes(e.target.value)) {
+            const index = time.indexOf(e.target.value);
+            // if (index > -1) {
+            //     time.splice(index, 1);
+            // }
+            setTime(time);
+        } else {
+            setTime([...time, e.target.value]);
+        }
+    }
     const handleCinemas = (e) => {
+        setShow(true)
         setDetailCinema(e)
-        console.log(e);
+        if (idCinemas.includes(e.idCinemas)) {
+            const index = idCinemas.indexOf(e.idCinemas);
+            // if (index > -1) {
+            //     idCinemas.splice(index, 1);
+            // }
+            setIdCinemas(idCinemas);
+        } else {
+            setIdCinemas([...idCinemas, e.idCinemas]);
+        }
+
     }
 
     const handleSubmit = (e) => {
@@ -87,7 +117,16 @@ export default function PageAdmin() {
 
         dispatch(createMovie(formData))
             .then((res) => {
-                Swal.fire("", "Movie successfully created", "success")
+                dispatch(createCinemas({
+                    idMovie: res.data.data,
+                    showtimeDate: date,
+                    idCinemas: idCinemas,
+                    showtime: time
+                })).then((res) => {
+                    Swal.fire("", "Movie successfully created", "success")
+                }).catch((err) => {
+                    Swal.fire("", "Failed to create Movie", "error");
+                })
             })
             .catch((err) => {
                 Swal.fire("", "Failed to create Movie", "error");
@@ -138,14 +177,10 @@ export default function PageAdmin() {
                                                 <Dropdown.Item onClick={handleGenre} id="3" name="Action">Action</Dropdown.Item>
                                             </Dropdown.Menu>
                                         </Dropdown>
-                                        {/* <input className={style['form-movie']} id="idGenre" name="idGenre" type="text" value={data.idGenre} placeholder="Input Here" onChange={handleChange} /> */}
 
                                         <div className={style['position-datetime']}>
                                             <label htmlFor="releaseDate">Release Date</label><br />
-                                            {/* <Moment format='MMMM Do YYYY' > */}
-
                                             <input className={style['form-release']} id="releaseDate" name="releaseDate" type="date" value={data.releaseDate} placeholder="Input Here" onChange={handleChange} />
-                                            {/* </Moment> */}
                                             <label className={style.duration} htmlFor="duration">Duration</label><br />
                                             <input className={style['form-release']} id="duration" name="duration" type="text" value={data.duration} placeholder="Input Here" onChange={handleChange} />
 
@@ -198,15 +233,49 @@ export default function PageAdmin() {
                                         )
                                     })}
                                 </div>
+
+                            </div>
+                            <p className={style['title-admin']}>Showtimes</p>
+                            <div className={style['info-profile-right']}>
+                                <div className={style["dropdown-showTimes"]}>
+                                    <input className={style["dropdown-showTimes"]} type="date" value={date} onChange={handleDate} />
+                                    <input className="mt-3" type="time" id="time" name="time" onChange={(e) => handleTime(e)} />
+                                    {/* <input type="submit" onClick={handleTime} /> */}
+                                    <div className="d-flex flex-wrap" >
+                                        {time.map((item, index) => {
+                                            return (
+                                                <>
+                                                    <p className={style.time} key={index}>{item}</p>
+                                                </>
+                                            )
+                                        })}
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        {/* <Button title="Previous Step" btn="btn-change-order" color="white" onClick={this.handleBack} />
-                            <Button title="Pay Your Order" btn="btn-checkout" color="purple" onClick={this.handleLogin} /> */}
                     </div>
                 </div>
             </div>
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Detail Cinemas</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div>
+                        <p>Cinemas : {detailCinema.name}</p>
+                        <p>Location : {detailCinema.location}</p>
+                        <p>Address : {detailCinema.adress}</p>
+                        <p>Price : IDR {detailCinema.price}/ticket</p>
 
+                    </div>
+                </Modal.Body>
+                <Modal.Footer>
+                    <button onClick={handleClose}>
+                        Close
+                                </button>
+
+                </Modal.Footer>
+            </Modal>
 
         </Fragment >
     )

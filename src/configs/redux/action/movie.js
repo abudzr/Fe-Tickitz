@@ -62,10 +62,26 @@ export const createMovie = (data) => (dispatch) => {
             .post(`${Url}movies`, data)
             .then((res) => {
                 dispatch({ type: 'CREATE_MOVIE', payload: res.data.data });
-                resolve(res.data.data);
+                resolve(res);
             })
             .catch((err) => {
                 dispatch({ type: 'SET_MESSAGE_MOVIE', payload: err.response.data.message });
+            });
+    });
+};
+
+export const createCinemas = (data) => (dispatch) => {
+    return new Promise((resolve, reject) => {
+        const Url = process.env.REACT_APP_API_RESTAPI;
+        axiosApiInstance
+            .post(`${Url}showTimes`, data)
+            .then((res) => {
+                // dispatch({ type: 'CREATE_MOVIE', payload: res.data.data });
+                resolve(res.data.data);
+            })
+            .catch((err) => {
+                reject(err)
+                // dispatch({ type: 'SET_MESSAGE_MOVIE', payload: err.response.data.message });
             });
     });
 };

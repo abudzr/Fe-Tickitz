@@ -85,12 +85,12 @@
 
 .seat-list-mobile {
   border-radius: 8px;
-  display: none;
+  display: none !important;
 }
 
 .select-seat {
   border-radius: 16px;
-  display: none;
+  display: none !important;
 }
 
 .select-item {
@@ -131,6 +131,6 @@
 
   .seat-list-mobile,
   .select-seat {
-    display: inline;
+    display: inline !important;
   }
 }

@@ -70,7 +70,7 @@ function CardsPayment() {
             <div className={style['payment-info']}>
                 <div className="container">
                     <div class="row">
-                        <div class="col-lg-8">
+                        <div class="col-lg-8 col-12">
                             <p class={style['text-title-info-1']}>Payment Info</p>
                             <Card className={style['card-choose-info']}>
                                 <Card.Body className={style['card-text']}>
@@ -86,7 +86,7 @@ function CardsPayment() {
                                         <p class={style['title-order-info-total']}>Total payment</p>
                                     </Card.Text>
                                     <Card.Text>
-                                        <div className="d-flex">
+                                        <div className="d-flex flex-wrap">
                                             <Moment format="dddd, D MMMM YYYY" class={style["sub-title-order-info"]}>
                                                 {order.showtime.date}
                                             </Moment>
