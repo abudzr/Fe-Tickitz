@@ -14,7 +14,8 @@ const CardsHistory = (props) => {
     // const handleShow = () => setShow(true);
     const dispatch = useDispatch();
     const history = useHistory();
-    const { transaction } = useSelector((state) => state.showtimes);
+    // const { transaction } = useSelector((state) => state.showtimes);
+    const [transaction, setTransaction] = useState([])
     const [show, setShow] = useState(false);
     const [detail, setDetail] = useState([])
 
@@ -30,9 +31,13 @@ const CardsHistory = (props) => {
     }
     useEffect(() => {
         const id = localStorage.getItem("id")
-        // console.log(id);
         dispatch(getListTransaction(id)).then((res) => {
+            // console.log(res);
+            setTransaction(res)
         })
+            .catch((err) => {
+                console.log(err);
+            })
     }, [dispatch])
     return (
         <Fragment>

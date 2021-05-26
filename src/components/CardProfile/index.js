@@ -23,6 +23,7 @@ const CardsProfile = (props) => {
         phone: "",
         password: ""
     });
+    console.log(data.password);
     const [dataImage, setDataImage] = useState({
         image: {},
     });

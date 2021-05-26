@@ -47,20 +47,21 @@
     margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
-    height: 120px;
-    width: 120px;
+    height: 140px;
+    width: 140px;
     background: #c0b7da;
     border-radius: 100%;
     padding-top: 10px;
 }
 
 .img-user {
-    margin-top: -8px;
+    object-fit: cover;
+    margin-top: -10px;
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
     margin-left: auto;
     margin-right: auto;
-    height: 120px;
-    width: 120px;
-    border-radius: 50%;
 }
 
 .name-profile {
