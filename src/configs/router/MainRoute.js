@@ -28,8 +28,8 @@ function MainRoute() {
                 <Route path="/forgot-password" component={Forgot} />
                 <Route path="/new-password/:email/:token" component={NewPass} />
                 <Route path="/movie/:idMovie" component={Movie} />
+                <Route path="/movies" component={MovieAll} />
 
-                <PrivateRoute path="/movies" component={MovieAll} />
                 <PrivateRoute path="/order" component={Order} />
                 <PrivateRoute path="/payment" component={Payment} />
                 <PrivateRoute path="/tickets" component={Tickets} />

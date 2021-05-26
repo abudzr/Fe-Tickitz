@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useEffect } from 'react'
-import { Footers, NavigationUser, SearchMovie } from '../../../components'
+import { Footers, NavigationUser, SearchMovie, Navigation } from '../../../components'
 import { Container } from 'react-bootstrap';
 import style from './home.module.css'
 import axios from 'axios'
@@ -9,6 +9,7 @@ import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 function Movie() {
     const history = useHistory();
     const [data, setData] = useState([])
+    const [result, setResult] = useState(false);
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(null);
     const [currentPage, setCurrentPage] = useState(null);
@@ -88,9 +89,20 @@ function Movie() {
     const handleClickPage = (index) => {
         setPage(index + 1);
     };
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            setResult(true)
+        } else {
+            setResult(false)
+        }
+    }, []); // eslint-disable-next-line
     return (
         <Fragment>
-            <NavigationUser />
+            {result === false ?
+                <Navigation />
+                :
+                <NavigationUser />
+            }
             <div className={style.container}>
                 {/*Search Input*/}
                 <label className={style['search-label']} htmlFor="search-input">
