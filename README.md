@@ -44,8 +44,10 @@ npm install
     <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/116301202-faa03300-a7c9-11eb-8e06-20cf29f9d43b.png">   
     <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119015691-57ef6480-b9c3-11eb-94f6-82116d47a685.png">   
     <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119041919-69476980-b9e1-11eb-828c-6e18c8c0a1d8.PNG">   
-    <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119041907-651b4c00-b9e1-11eb-837f-43138f8f33a7.PNG">
-    <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119042565-3782d280-b9e2-11eb-8ede-0486277c1ce7.PNG">
+    <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119785918-e00cc700-bef9-11eb-8488-f538281bdfc0.PNG">
+    <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119785956-e733d500-bef9-11eb-96ec-c89c24b2aba8.PNG">
+    <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119785962-e8650200-bef9-11eb-9360-1f93fa484fac.PNG">
+    <img width="400" height="200" src="https://user-images.githubusercontent.com/68935056/119785975-ea2ec580-bef9-11eb-9e4b-ebeefb7facdf.jpg">
   </span>
 </p>
 
