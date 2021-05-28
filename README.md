@@ -14,7 +14,7 @@
 
 ## ✏️ About
 
-Tickitz merupakan aplikasi pemesanan tiket berbasis website. Memiliki fitur untuk memesan tiket sesuai jadwal yang dipilih secara online tanpa harus memesan tiket secara langsung. Aplikasi ini menggunakan ReactJs, NodeJS dan ExpressJs.
+Tickitz is a website-based movie ticket booking application. Has the feature of ordering tickets according to the selected schedule online without having to book tickets directly. Built with ReactJs, ExpressJs, Redux, Bootstrap and MySQL.
 
 
 ## 🔖Build With
